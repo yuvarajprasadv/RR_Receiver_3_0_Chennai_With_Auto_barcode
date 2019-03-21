@@ -1,0 +1,6 @@
+CountryofOrigin1-1...1 4 0.5 6 
+DistributionStatement1-1...1 2 0.5 6 
+IngredientsList1-1...1 4 0.4 8 
+Classification1-1...1 2 0.8 6 
+ProductForm1-1...1 2 0.6 6 
+ShelfLifeStatement1-1...1 2 0.5 6

@@ -1,0 +1,1 @@
+﻿main(arguments);function main(argv){      	try	{	    var selector = "::tst";	    var xmlPath = (argv[0]);	    var selectorStr = xmlPath.concat (selector) ;	    app.sendScriptMessage("TyphoonShadow", selectorStr, "KCPS");    }    catch(ex)    {    	$.writeln(ex.message);    	return ex.message;    }}

@@ -1,0 +1,1 @@
+while(app.documents.length > 0)  {    app.activeDocument.close(SaveOptions.DONOTSAVECHANGES);  }  var appFontList = new Array ();for (i=0;i< app.textFonts.length; i++){    var fontName = app.textFonts[i].name;    appFontList[i] = fontName;    }    main();    function main(){	return appFontList;}

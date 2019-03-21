@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/Users/yuvaraj/PROJECT/workspace/APIs/Json jar/java-json.jar"/>
+	<classpathentry kind="lib" path="/Users/yuvaraj/PROJECT/workspace/APIs/Json jar/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/Users/yuvaraj/PROJECT/workspace/APIs/rabbitmq-java-client-bin-3.5.4/commons-cli-1.1.jar"/>
+	<classpathentry kind="lib" path="/Users/yuvaraj/PROJECT/workspace/APIs/rabbitmq-java-client-bin-3.5.4/commons-io-1.2.jar"/>
+	<classpathentry kind="lib" path="/Users/yuvaraj/PROJECT/workspace/APIs/rabbitmq-java-client-bin-3.5.4/junit.jar"/>
+	<classpathentry kind="lib" path="/Users/yuvaraj/PROJECT/workspace/APIs/rabbitmq-java-client-bin-3.5.4/rabbitmq-client-tests.jar"/>
+	<classpathentry kind="lib" path="/Users/yuvaraj/PROJECT/workspace/APIs/rabbitmq-java-client-bin-3.5.4/rabbitmq-client.jar"/>
+	<classpathentry kind="lib" path="/Users/yuvaraj/PROJECT/workspace/APIs/jcifs-1.2.15.jar"/>
+	<classpathentry kind="lib" path="/Users/yuvaraj/PROJECT/workspace/APIs/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="/Users/yuvaraj/PROJECT/workspace/APIs/Excel/jxl-2.6.9.jar"/>
+	<classpathentry kind="lib" path="/Users/yuvaraj/PROJECT/workspace/APIs/Excel/poi-ooxml-schemas-3.9.jar"/>
+	<classpathentry kind="lib" path="/Users/yuvaraj/PROJECT/workspace/APIs/Excel/poi-3.9.jar"/>
+	<classpathentry kind="lib" path="/Users/yuvaraj/PROJECT/workspace/APIs/Excel/xmlbeans-5.3.0-m1.jar"/>
+	<classpathentry kind="lib" path="/Users/yuvaraj/PROJECT/workspace/APIs/Excel/dom4j-1.6 2.jar"/>
+	<classpathentry kind="lib" path="/Users/yuvaraj/PROJECT/workspace/APIs/rabbitmq-java-client-bin-3.6.0/hamcrest-core.jar"/>
+	<classpathentry kind="lib" path="/Users/yuvaraj/PROJECT/workspace/APIs/Excel/poi-ooxml-3.9.jar"/>
+	<classpathentry kind="lib" path="/Users/yuvaraj/PROJECT/APIs/JAR/httpclient-4.5.2.jar"/>
+	<classpathentry kind="lib" path="/Users/yuvaraj/PROJECT/APIs/JAR/httpcore-4.4.4.jar"/>
+	<classpathentry kind="lib" path="/Users/yuvaraj/PROJECT/APIs/JAR/commons-codec-1.9.jar"/>
+	<classpathentry kind="lib" path="/Users/yuvaraj/PROJECT/APIs/JAR/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="/Users/yuvaraj/PROJECT/APIs/Client api/ini4j-0.5.4.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
