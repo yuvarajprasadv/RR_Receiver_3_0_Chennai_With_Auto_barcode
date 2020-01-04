@@ -34,6 +34,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URLEncoder;
 
+import Rcvr_AAMQ.Utils;
+
 import org.w3c.dom.*;
 
 public class XmlUtiility
@@ -491,7 +493,7 @@ public class XmlUtiility
 		   
 		   for(int i=0; i < listOfFiles.length; i++ )
 		   {
-			   if(listOfFiles[i].toString().endsWith(".eps"))
+			   if(listOfFiles[i].toString().endsWith(".pdf")) //changed from .eps to .pdf
 				   return listOfFiles[i].toURI();
 		   }
 		   
@@ -507,7 +509,7 @@ public class XmlUtiility
 		   
 		   for(int i=0; i < listOfFiles.length; i++ )
 		   {
-			   if(listOfFiles[i].toString().endsWith(".eps"))
+			   if(listOfFiles[i].toString().endsWith(".pdf")) //changed from .eps to .pdf
 			   {
 				   return listOfFiles[i].toURI();
 			   }
@@ -614,17 +616,6 @@ public class XmlUtiility
 			   NodeList artworkContentGraphicElement = dom.getElementsByTagName("artworkContentGraphicElement");
 			   if (artworkContentGraphicElement.getLength() > 0)
 				   return true;
-			   /*
-
-			   NodeList ldd= dom.getElementsByTagName("artworkContentPieceOfArt").item(0).getChildNodes();
-			   for (int tmp=1; tmp < ldd.getLength(); tmp++)
-			   {
-				   Node nds = ldd.item(tmp);
-				   if(nds.getNodeType() == 1 && nds.getNodeName() == "artworkContentGraphicElement")
-				   {
-					   return true;
-				   }
-				} */
 			   }
 			   catch (Exception ex)
 			   {
@@ -636,7 +627,7 @@ public class XmlUtiility
 	   
 	   
 	   
-	   public static String GS1XmlParseGraphicsElement(String xmlFilePath) throws Exception
+	   public static String GS1XmlParseGraphicsElement(String xmlFilePath,  String barcodeUriString) throws Exception
 	   {
 		   XmlUtiility xmlUtl = new XmlUtiility();
 			   try{
@@ -695,12 +686,6 @@ public class XmlUtiility
 								   {
 									   sourceReferenceInt = tmpInc;
 									   Node srNode = nds.getChildNodes().item(tmpInc);
-									/*   System.out.println(srNode.getChildNodes().item(1).getNodeName());
-									   System.out.println(srNode.getChildNodes().item(1).getFirstChild().getTextContent());
-									   System.out.println(srNode.getChildNodes().item(3).getNodeName());
-									   System.out.println(srNode.getChildNodes().item(3).getFirstChild().getTextContent());
-									   System.out.println(nds.getChildNodes().getLength());
-									   */
 									   continue;
 								   }
 
@@ -711,10 +696,12 @@ public class XmlUtiility
 								   if(lSequence.equals("1") && iSequence.equals("1") && oSequence.equals("1") && pSequence.equals("1") )
 								   {
 									   
+									   barcodeUriString = barcodeUriString.replace("file:/", "file:////");
+									   valueToChange = barcodeUriString.replace("%20", " ");
 									   
-									   valueToChange = GetFileFromPath(graphicElmDesc).toString();
-									   valueToChange = valueToChange.replace("file:/", "file:////");
-									   valueToChange = valueToChange.replace("%20", " ");
+									//   valueToChange = GetFileFromPath(graphicElmDesc).toString();
+									//   valueToChange = valueToChange.replace("file:/", "file:////");
+									//   valueToChange = valueToChange.replace("%20", " ");
 
 									   Node graphicsElm = nds.getChildNodes().item(graphicDecInt).getFirstChild();
 									   graphicsElm.setTextContent(valueToChange);
@@ -783,18 +770,29 @@ public class XmlUtiility
 	   
 		 public static void main(String[] args) throws Exception
 		 {
-			System.out.println(CheckGraphicsElementExist("/Users/yuvaraj/Desktop/RR 3.0 CHENNAI/101219518/401060817/100_XML/A01/GS1_401060817A01_39.xml"));
-			//System.out.println( GetFileFromPath("file:////Volumes/Tornado/TORNADO_TESTING/101219518/401060817/030_Barcodes/"));
-			//  GS1XmlParseGraphicsElement("/Users/yuvaraj/Desktop/RR 3.0 CHENNAI/101219518/401060817/100_XML/A01/GS1_401060817A01_31.xml");
-			//  GS1XmlAppendGraphicsElement("/Users/yuvaraj/Desktop/RR 3.0 CHENNAI/101219518/401060817/100_XML/A01/GS1_401060817A01_31.xml", "");
-			  
-		//	 System.out.println( GetFileFromPathString("/Users/yuvaraj/Desktop/RR 3.0_CHENNAI/101219518/401060817/030_Barcodes/"));
-			 
-		//	  String valueToChange = GetFileFromPathString("/Users/yuvaraj/Desktop/RR 3.0_CHENNAI/101219518/401060817/030_Barcodes/").toString();
-		//	   valueToChange = valueToChange.replace("file:/", "file:////");
-			//   valueToChange = valueToChange.replace("%20", " ");
-			   
-			//   System.out.println(valueToChange);
+			//System.out.println(CheckGraphicsElementExist("/Users/yuvaraj/Desktop/RR 3.0 CHENNAI/101219518/401060817/100_XML/A01/GS1_401060817A01_39.xml"));
+
+			
+			Utils utils = new Utils();
+			if(!XmlUtiility.CheckGraphicsElementExist("/Volumes/TORNADO/TORNADO_TESTING/101221125/401061297/100_XML/A01/GS1_40106129701_9.xml"))
+			{
+				String barcodePath =  "/Volumes/TORNADO/TORNADO_TESTING/101221125/401061297/" + "030_Barcodes/";
+				if(!utils.FileExists(barcodePath))
+				{
+					barcodePath ="/Volumes/TORNADO/TORNADO_TESTING/101221125/401061297/" + "030 Barcodes/";
+				}
+				XmlUtiility.GS1XmlAppendGraphicsElement("/Volumes/TORNADO/TORNADO_TESTING/101221125/401061297/100_XML/A01/GS1_40106129701_9.xml", XmlUtiility.GetFileFromPathString(barcodePath).toString());
+			}
+			else
+			{
+				String barcodePath =  "/Volumes/TORNADO/TORNADO_TESTING/101221125/401061297/" + "030_Barcodes/";
+				if(!utils.FileExists(barcodePath))
+				{
+					barcodePath ="/Volumes/TORNADO/TORNADO_TESTING/101221125/401061297/" + "030 Barcodes/";
+				}
+				XmlUtiility.GS1XmlParseGraphicsElement("/Volumes/TORNADO/TORNADO_TESTING/101221125/401061297/100_XML/A01/GS1_40106129701_9.xml", XmlUtiility.GetFileFromPathString(barcodePath).toString());
+			}
+			
 			
 		 }
 }

@@ -24,7 +24,7 @@ public class Action {
 		Utils utils = new Utils();
 
 		////TEMP
-		
+		/*
 		if(!XmlUtiility.CheckGraphicsElementExist(jspr.geFilePathFromJson(jsonObj, "XMLFile")))
 		{
 			String barcodePath =  jspr.geFilePathFromJson(jsonObj, "") + "030_Barcodes/";
@@ -34,8 +34,17 @@ public class Action {
 			}
 			XmlUtiility.GS1XmlAppendGraphicsElement(jspr.geFilePathFromJson(jsonObj, "XMLFile"), XmlUtiility.GetFileFromPathString(barcodePath).toString());
 		}
+		else
+		{
+			String barcodePath =  jspr.geFilePathFromJson(jsonObj, "") + "030_Barcodes/";
+			if(!utils.FileExists(barcodePath))
+			{
+				barcodePath = jspr.geFilePathFromJson(jsonObj, "") + "030 Barcodes/";
+			}
+			XmlUtiility.GS1XmlParseGraphicsElement(jspr.geFilePathFromJson(jsonObj, "XMLFile"), XmlUtiility.GetFileFromPathString(barcodePath).toString());
+		}
 		/////TEMP
-		
+		*/
 		SEng.CallAdobeIllustrator();
 		log.info("Illustrator activated to load file..");
 		
