@@ -114,7 +114,7 @@ public class SEng{
 		 if (fontMissing != "")
 		 {
 			 System.out.println(fontMissing);
-			 log.error("Font Missing :" + fontMissing);
+			 log.error(MessageQueue.WORK_ORDER + ": " + "Font Missing :" + fontMissing);
 			 ThrowException.CatchException(new Exception("Font Missing"));
 		 }
 	 }

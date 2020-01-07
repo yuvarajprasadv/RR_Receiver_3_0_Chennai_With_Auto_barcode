@@ -12,17 +12,29 @@ public class MessageQueue extends Action {
 	  protected final static String USER_NAME = "aaw";
 	  protected final static String PASSWORD = "aaw";
 	  protected final static String VHOST = "AAW";
+	  
+
+	  protected static String TORNADO_HOST = "";
+	  protected static String TORNADO_ENV = "";
+	  
+	  protected final static String TORNADO_HOST_LIVE_1 = "http://tornado.schawk.com/tornado";	//LIVE  
+	  protected final static String TORNADO_HOST_LIVE_2 = "http://172.26.42.39:8443/tornado";	//LIVE alternative 
+	  protected final static String TORNADO_HOST_LIVE_3 = "http://172.28.42.157:8443/tornado";   //LIVE alternative
+	  
+	  protected final static String TORNADO_HOST_DEV = "http://172.28.42.151:8082/tornado"; // JAVA DEV
+	  /*
 //	  protected final static String TORNADO_HOST = "http://172.28.42.157:8080/tornado"; // JAVA LIVE IP
 	  protected final static String TORNADO_HOST = "https://172.28.42.157:8443/tornado"; // JAVA LIVE IP WITH SECURE
 //	  protected final static String TORNADO_HOST = "https://devtornado.schawk.com";	//Dev tornado
 //	  protected final static String TORNADO_HOST = "http://172.28.42.151:8082/tornado"; //JAVA DEV Tornado 
-	  
+	  */
 	  public static boolean GATE = true;
 	  public static String MSGID = "";
 	  public static boolean STATUS = true;
 	  public static String ERROR = "";
 	  public static String VERSION = "";
 	  public static String MESSAGE = "";
+	  public static String WORK_ORDER = "";
 	  
 	  //PDF-Config-Single
 	  public static boolean sPdfNormal = false;

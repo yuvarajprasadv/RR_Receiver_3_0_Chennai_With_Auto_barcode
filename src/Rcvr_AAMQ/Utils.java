@@ -79,7 +79,7 @@ public class Utils {
 		    jsonObj = XML.toJSONObject(xmlString);
 		    return jsonObj.toString();
 		} catch (JSONException e) {
-		    log.error("JSON exception :" + e.getMessage());
+		    log.error(MessageQueue.WORK_ORDER + ": " + "JSON exception :" + e.getMessage());
 		    return null;
 		}
 		
@@ -174,7 +174,7 @@ public class Utils {
 		}
 		catch (Exception ex)
 		{
-			log.error("Failed to read javaScript  " + ex.getMessage());
+			log.error(MessageQueue.WORK_ORDER + ": " + "Failed to read javaScript  " + ex.getMessage());
 		}
         return sb.toString();
 	}
@@ -346,7 +346,7 @@ public class Utils {
 			   File folder = new File(directoryPath);
 			   if(folder.isDirectory() && !folder.exists())
 			   {
-				   log.error("Folder path doesn't exists: " + directoryPath);
+				   log.error(MessageQueue.WORK_ORDER + ": " + "Folder path doesn't exists: " + directoryPath);
 				   ThrowException.CustomExit(new Exception("Folder path does not exists"), "Folder path does not exists");
 			   }
 			   File[] listOfFiles = folder.listFiles();
@@ -364,7 +364,7 @@ public class Utils {
 		       }
 		       if(fileLists.size() == 0)
 		       {
-		    	   		log.error("Xml file doesn't exists in following path: " + directoryPath);
+		    	   		log.error(MessageQueue.WORK_ORDER + ": " + "Xml file doesn't exists in following path: " + directoryPath);
 		    	   		ThrowException.CustomExit(new Exception("Xml file doesn't exists "), "Xml file doesn't exists in following path : " + directoryPath);
 		       }
 		       String[] arrFiles = new String[fileLists.size()];
@@ -387,7 +387,7 @@ public class Utils {
 			   File folder = new File(directoryPath);
 			   if(folder.isDirectory() && !folder.exists())
 			   {
-				   log.error("Folder path doesn't exists: " + directoryPath);
+				   log.error(MessageQueue.WORK_ORDER + ": " + "Folder path doesn't exists: " + directoryPath);
 				   ThrowException.CustomExit(new Exception("Folder path does not exists"), "Folder path does not exists");
 			   }
 			   File[] listOfFiles = folder.listFiles();
@@ -405,7 +405,7 @@ public class Utils {
 		       }
 		       if(fileLists.size() == 0)
 		       {
-		    	   		log.error("Pdf preset file doesn't exists in following path: " + directoryPath);
+		    	   		log.error(MessageQueue.WORK_ORDER + ": " + "Pdf preset file doesn't exists in following path: " + directoryPath);
 		    	   		MessageQueue.ERROR += "Pdf Preset file not exist" + "\n";
 		       }
 		       String[] arrFiles = new String[fileLists.size()];
@@ -455,7 +455,7 @@ public class Utils {
 					xmlPath = xmlFilesPath[eachXmlCount].split("~")[0];
 					if(!utls.FileExists(xmlPath))
 					{
-						log.error("File path doesn't exists: " + xmlPath);
+						log.error(MessageQueue.WORK_ORDER + ": " + "File path doesn't exists: " + xmlPath);
 						ThrowException.CustomExit(new Exception("File Path or File does not exists "), "File path or File not exist: " + xmlPath);
 					}
 				}
