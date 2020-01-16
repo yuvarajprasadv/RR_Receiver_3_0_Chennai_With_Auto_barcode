@@ -5826,3 +5826,5 @@
 2019-04-04 18:05:25 INFO  Action:194 - Xml comparision completed..
 2020-01-07 15:00:31 INFO  MQRcv:30 - TestRR:TestRRDivision
 2020-01-07 15:00:31 INFO  MQRcv:35 -  [*] Waiting for messages. To exit press CTRL+C
+2020-01-14 11:40:17 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-01-14 11:40:17 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
