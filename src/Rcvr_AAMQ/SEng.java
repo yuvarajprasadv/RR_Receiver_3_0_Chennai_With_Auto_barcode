@@ -209,10 +209,32 @@ public class SEng{
 		 ExecuteAppleScript(scriptString);
 	 	}
 	 
+	 public static void PostDocumentProcessJPEG(String arryStr[]) throws Exception  {
+
+		 Utils utils = new Utils();
+		 String pathString = utils.GetPathFromResource("PostDocumentJPEG.js");
+		 String scriptString = "tell application "+ '"' +"Applications:Adobe Illustrator "+ MessageQueue.VERSION +":Adobe Illustrator.app"+'"' +"\n with timeout of "+ timeOutSec +" seconds \n"
+			+ "do javascript (file "+'"'+pathString+'"'+")  with arguments {"+ '"'+arryStr[2]+'"' +"} \n"
+			+ "end timeout \n"
+			+ "end tell";
+		 ExecuteAppleScript(scriptString);
+	 	}
+	 
 	 public static void PostDocumentProcessForSingleJobFilename(String arryStr[]) throws Exception  {
 
 		 Utils utils = new Utils();
 		 String pathString = utils.GetPathFromResource("PostDocumentWithFileName.js");
+		 String scriptString = "tell application "+ '"' +"Applications:Adobe Illustrator "+ MessageQueue.VERSION +":Adobe Illustrator.app"+'"' +"\n with timeout of "+ timeOutSec +" seconds \n"
+			+ "do javascript (file "+'"'+pathString+'"'+")  with arguments {"+ '"'+arryStr[2]+'"' +", "+ '"'+arryStr[3]+'"' +"} \n"
+			+ "end timeout \n"
+			+ "end tell";
+		 ExecuteAppleScript(scriptString);
+	 	}
+	 
+	 public static void PostDocumentProcessForSingleJobFilenameJPEG(String arryStr[]) throws Exception  {
+
+		 Utils utils = new Utils();
+		 String pathString = utils.GetPathFromResource("PostDocumentWithFileNameJPEG.js");
 		 String scriptString = "tell application "+ '"' +"Applications:Adobe Illustrator "+ MessageQueue.VERSION +":Adobe Illustrator.app"+'"' +"\n with timeout of "+ timeOutSec +" seconds \n"
 			+ "do javascript (file "+'"'+pathString+'"'+")  with arguments {"+ '"'+arryStr[2]+'"' +", "+ '"'+arryStr[3]+'"' +"} \n"
 			+ "end timeout \n"
@@ -265,6 +287,19 @@ public class SEng{
 		 
 	 	}
 	 
+	 public static String SetLayerVisibleOff() throws Exception  
+	 {
+		 String[] arryStr1 = new String[1];
+		 arryStr1[0] = "none";
+		 Utils utils = new Utils();
+		 String pathString = utils.GetPathFromResource("LayerOff.js");
+		 String scriptString = "tell application "+ '"' +"Applications:Adobe Illustrator "+ MessageQueue.VERSION +":Adobe Illustrator.app"+'"' +"\n with timeout of "+ timeOutSec +" seconds \n"
+			+ "do javascript (file "+'"'+pathString+'"'+")  with arguments {"+ '"'+arryStr1[0]+'"' +"} \n"
+			+ "end timeout \n"
+			+ "end tell";
+		 return ExecuteAppleScript(scriptString);
+	 }
+	 
 	 public static void OnError() throws Exception  {
 
 		 Utils utils = new Utils();
@@ -304,6 +339,19 @@ public class SEng{
 		 
 	 	}
 	 
+	 
+	 public static void ForTest(String arry) throws Exception  {
+
+		 Utils utils = new Utils();
+		 String pathString = utils.GetPathFromResource("Test.js");
+		 String scriptString = "tell application "+ '"' +"Applications:Adobe Illustrator "+ MessageQueue.VERSION +":Adobe Illustrator.app"+'"' +"\n with timeout of "+ timeOutSec +" seconds \n"
+			+ "do javascript (file "+'"'+pathString+'"'+")  with arguments {"+ '"'+arry+'"' +","+ '"'+MessageQueue.VERSION+'"'  +"} \n"
+			+ "end timeout \n"
+			+"end tell";
+		ExecuteAppleScript(scriptString);
+	 }
+	 
+	 
 	 public static void FindIllustratorVersion() throws Exception
 	 {
 		   FileSystem fls = new FileSystem();	
@@ -313,11 +361,16 @@ public class SEng{
 	 
 	 public static void main(String[] args) throws Exception
 	 {
-		 String[] arryStr= new String[1];
-		 arryStr[0] = "Pantone 143 C";
-		 arryStr[1] = "Pantone 583 C";
-		 MessageQueue.VERSION  = "CC 2017";
-		 MergeSwatch(arryStr);
+//		 String[] arryStr= new String[1];
+//		 arryStr[0] = "Pantone 143 C";
+//		 arryStr[1] = "Pantone 583 C";
+//		 MessageQueue.VERSION  = "CC 2017";
+//		 MergeSwatch(arryStr);
+		 
+		 MessageQueue.VERSION  = "CC 2018";
+		 ForTest("/Users/yuvaraj/Desktop/");
+		 
+		 
 	 }
 
 

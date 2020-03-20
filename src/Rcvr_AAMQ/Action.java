@@ -118,9 +118,23 @@ public class Action {
 			if(MessageQueue.sPdfNormal)
 			{
 				if (fileNameToSave != null)
+				{
 					SEng.PostDocumentProcessForSingleJobFilename(fileName);
+					
+					
+					//// Layer Visiblity off
+					SEng.SetLayerVisibleOff();
+					SEng.PostDocumentProcessForSingleJobFilenameJPEG(fileName);
+					
+				}
 				else
+				{
 					SEng.PostDocumentProcess(jspr.getPath(jsonObj));
+					
+					//// Layer Visiblity off
+					SEng.SetLayerVisibleOff();
+					SEng.PostDocumentProcessJPEG(fileName);
+				}
 			}
 			else if(MessageQueue.sPdfPreset)
 			{
@@ -183,7 +197,13 @@ public class Action {
 			log.info(MessageQueue.WORK_ORDER + ": " + "Pdf and xml generated..");	
 
 		}
+		
+		
+		
 		Thread.sleep(8000);
+		
+
+		
 		SEng.PostDocumentClose();
 		
 		sendRespStatusMsg("delivered");
