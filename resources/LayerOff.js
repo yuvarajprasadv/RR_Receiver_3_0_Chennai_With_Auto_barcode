@@ -8,7 +8,7 @@ function main(argv)
 
 
 
-var layerList = ["Dimensions", "Barcode", "Legend"];
+var layerList = ["Dimensions", "Barcode", "Legend", "Dimension", "Cutter", "Print Marks"];
 
 for(var i = 0; i < layerList.length; i++)
 {

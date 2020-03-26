@@ -203,7 +203,7 @@ public class SEng{
 		 Utils utils = new Utils();
 		 String pathString = utils.GetPathFromResource("PostDocument.js");
 		 String scriptString = "tell application "+ '"' +"Applications:Adobe Illustrator "+ MessageQueue.VERSION +":Adobe Illustrator.app"+'"' +"\n with timeout of "+ timeOutSec +" seconds \n"
-			+ "do javascript (file "+'"'+pathString+'"'+")  with arguments {"+ '"'+arryStr[2]+'"' +"} \n"
+			+ "do javascript (file "+'"'+pathString+'"'+")  with arguments {"+ '"'+arryStr[2]+'"' +", "+ '"'+arryStr[3]+'"' +"} \n"
 			+ "end timeout \n"
 			+ "end tell";
 		 ExecuteAppleScript(scriptString);

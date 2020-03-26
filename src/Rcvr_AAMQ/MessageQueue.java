@@ -24,7 +24,7 @@ public class MessageQueue extends Action {
 	  protected final static String TORNADO_HOST_DEV = "http://172.28.42.151:8082/tornado"; // JAVA DEV
 	  /*
 //	  protected final static String TORNADO_HOST = "http://172.28.42.157:8080/tornado"; // JAVA LIVE IP
-	  protected final static String TORNADO_HOST = "https://172.28.42.157:8443/tornado"; // JAVA LIVE IP WITH SECURE
+//	  protected final static String TORNADO_HOST = "https://172.28.42.157:8443/tornado"; // JAVA LIVE IP WITH SECURE
 //	  protected final static String TORNADO_HOST = "https://devtornado.schawk.com";	//Dev tornado
 //	  protected final static String TORNADO_HOST = "http://172.28.42.151:8082/tornado"; //JAVA DEV Tornado 
 	  */
@@ -48,7 +48,7 @@ public class MessageQueue extends Action {
 	  
 
 //	 protected final static String HOST_IP = "10.112.128.54";			// local system
-//	 protected final static String HOST_IP = "192.168.43.10";			// local system
+//	 protected final static String HOST_IP = "192.168.43.11";			// local system
 //	 protected final static String HOST_IP = "172.28.42.158";			// LIVE
 	 protected final static String HOST_IP =  "S2PTTRNMSGQ01P.asia.schawk.com"; //LIVE Dns
 	 
@@ -85,6 +85,8 @@ public class MessageQueue extends Action {
 		        }
 		      };
 		      channel.basicConsume(queueName, true, consumer);
+		      
+		      
 		 	}
 		  }
 	  

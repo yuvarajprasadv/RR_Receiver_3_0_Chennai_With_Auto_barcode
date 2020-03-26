@@ -12,6 +12,8 @@ import java.util.Set;
 import org.apache.log4j.Logger;
 import org.json.simple.JSONObject;
 
+import Rcvr_AAMQ.ImageConvertor;
+
 public class Action {
 	static Logger log = LogMQ.monitor("Rcvr_AAMQ.Action");
 	
@@ -117,23 +119,44 @@ public class Action {
 			
 			if(MessageQueue.sPdfNormal)
 			{
+				String printXML = jspr.getJsonValueFromGroupKey(jsonObj, "region", "PrintXML");
+				ImageConvertor imageConvertor = new ImageConvertor();
 				if (fileNameToSave != null)
 				{
 					SEng.PostDocumentProcessForSingleJobFilename(fileName);
-					
-					
-					//// Layer Visiblity off
-					SEng.SetLayerVisibleOff();
-					SEng.PostDocumentProcessForSingleJobFilenameJPEG(fileName);
-					
+					if(printXML != null)
+					if(printXML.equalsIgnoreCase("true"))
+					{
+						//// Layer Visiblity off
+						Thread.sleep(5000);
+						SEng.SetLayerVisibleOff();
+						SEng.PostDocumentProcessForSingleJobFilenameJPEG(fileName);
+						
+						String imageFormat = "bmp";
+				        String inputImagePath = fileName[2] + ".jpg";
+				        String outputImagePath = fileName[2] + "." + imageFormat;
+				        Thread.sleep(1000);
+				        imageConvertor.ConvertImageTo(inputImagePath, outputImagePath, imageFormat);
+					}
 				}
 				else
 				{
 					SEng.PostDocumentProcess(jspr.getPath(jsonObj));
-					
-					//// Layer Visiblity off
-					SEng.SetLayerVisibleOff();
-					SEng.PostDocumentProcessJPEG(fileName);
+					if(printXML != null)
+					if(printXML.equalsIgnoreCase("true"))
+					{
+						//// Layer Visiblity off
+						Thread.sleep(5000);
+						SEng.SetLayerVisibleOff();
+						SEng.PostDocumentProcessJPEG(jspr.getPath(jsonObj));
+						
+						String imageFormat = "bmp";
+				        String inputImagePath = GetLastIndex(docPath[2]) + jspr.getJsonValueForKey(jsonObj, "WO") + ".jpg";
+				        String outputImagePath = GetLastIndex(docPath[2]) + jspr.getJsonValueForKey(jsonObj, "WO") + "." + imageFormat;
+				        Thread.sleep(1000);
+				      
+				        imageConvertor.ConvertImageTo(inputImagePath, outputImagePath, imageFormat);
+					}
 				}
 			}
 			else if(MessageQueue.sPdfPreset)
@@ -197,13 +220,9 @@ public class Action {
 			log.info(MessageQueue.WORK_ORDER + ": " + "Pdf and xml generated..");	
 
 		}
-		
-		
-		
-		Thread.sleep(8000);
-		
 
-		
+		Thread.sleep(8000);
+
 		SEng.PostDocumentClose();
 		
 		sendRespStatusMsg("delivered");

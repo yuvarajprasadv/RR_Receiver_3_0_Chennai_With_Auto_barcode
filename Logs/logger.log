@@ -5830,3 +5830,368 @@
 2020-01-14 11:40:17 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
 2020-03-20 10:57:54 INFO  MQRcv:78 - TestRR:TestRRDivision
 2020-03-20 10:57:54 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-24 16:43:08 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-24 16:43:08 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-24 16:45:22 INFO  Action:529 - 401406405: Message received acknowledgement for job id  '98c93604-b533-4234-8fd4-a202d3a8ce65' 
+2020-03-24 16:45:23 INFO  Action:49 - 401406405: Illustrator activated to load file..
+2020-03-24 16:45:32 INFO  Action:55 - 401406405: AI file and other dependend file opening..
+2020-03-24 16:45:42 INFO  Action:95 - 401406405: TyphoonShadow called
+2020-03-24 16:45:52 INFO  Action:197 - 401406405: Pdf and xml generated..
+2020-03-24 16:46:03 INFO  Action:210 - 401406405: Completed process for job id  '98c93604-b533-4234-8fd4-a202d3a8ce65' 
+2020-03-24 16:46:04 INFO  Action:578 - 401406405: Before calling update to server post method
+2020-03-24 16:47:19 ERROR Action:685 - 401406405: Http IO exception: Operation timed out (Connection timed out)
+2020-03-24 16:47:19 INFO  Action:214 - 401406405: Xml comparision completed..
+2020-03-25 13:34:00 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-25 13:34:00 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-25 13:35:38 INFO  Action:550 - 401406405: Message received acknowledgement for job id  '5d184a35-7096-4d46-b2d5-cda31a473cb3' 
+2020-03-25 13:35:39 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-25 13:35:46 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-25 13:35:47 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-25 13:35:52 INFO  Action:218 - 401406405: Pdf and xml generated..
+2020-03-25 13:36:01 INFO  Action:231 - 401406405: Completed process for job id  '5d184a35-7096-4d46-b2d5-cda31a473cb3' 
+2020-03-25 13:36:02 INFO  Action:599 - 401406405: Before calling update to server post method
+2020-03-25 13:37:18 ERROR Action:706 - 401406405: Http IO exception: Operation timed out (Connection timed out)
+2020-03-25 13:37:18 INFO  Action:235 - 401406405: Xml comparision completed..
+2020-03-25 15:09:07 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-25 15:09:07 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-25 15:09:55 INFO  Action:551 - 401406405: Message received acknowledgement for job id  '1ad4db3c-846d-4ca2-b08c-ca1b740796c9' 
+2020-03-25 15:09:56 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-25 15:10:03 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-25 15:10:04 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-25 15:21:22 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-25 15:21:22 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-25 15:21:26 INFO  Action:551 - 401406405: Message received acknowledgement for job id  'aa44d137-db74-4c37-8359-4584046b2731' 
+2020-03-25 15:21:26 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-25 15:21:33 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-25 15:21:35 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-25 15:21:39 INFO  Action:219 - 401406405: Pdf and xml generated..
+2020-03-25 15:21:48 INFO  Action:232 - 401406405: Completed process for job id  'aa44d137-db74-4c37-8359-4584046b2731' 
+2020-03-25 15:21:49 INFO  Action:600 - 401406405: Before calling update to server post method
+2020-03-25 15:23:05 ERROR Action:707 - 401406405: Http IO exception: Operation timed out (Connection timed out)
+2020-03-25 15:23:05 INFO  Action:236 - 401406405: Xml comparision completed..
+2020-03-25 15:24:51 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-25 15:24:51 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-25 15:24:56 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-25 15:24:56 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-25 15:25:01 INFO  Action:551 - 401406405: Message received acknowledgement for job id  'd5246289-81c0-4c52-8140-9f234b6ba08e' 
+2020-03-25 15:25:02 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-25 15:25:09 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-25 15:25:10 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-25 15:25:14 INFO  Action:219 - 401406405: Pdf and xml generated..
+2020-03-25 15:25:23 INFO  Action:232 - 401406405: Completed process for job id  'd5246289-81c0-4c52-8140-9f234b6ba08e' 
+2020-03-25 15:25:24 INFO  Action:600 - 401406405: Before calling update to server post method
+2020-03-25 15:26:03 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-25 15:26:03 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-25 15:26:07 INFO  Action:551 - 401406405: Message received acknowledgement for job id  '054bf057-7d5a-4921-b6f3-b47d3ae10bcf' 
+2020-03-25 15:26:08 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-25 15:26:15 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-25 15:26:16 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-25 15:26:21 INFO  Action:219 - 401406405: Pdf and xml generated..
+2020-03-25 15:26:30 INFO  Action:232 - 401406405: Completed process for job id  '054bf057-7d5a-4921-b6f3-b47d3ae10bcf' 
+2020-03-25 15:26:31 INFO  Action:600 - 401406405: Before calling update to server post method
+2020-03-25 15:27:47 ERROR Action:707 - 401406405: Http IO exception: Operation timed out (Connection timed out)
+2020-03-25 15:27:47 INFO  Action:236 - 401406405: Xml comparision completed..
+2020-03-25 15:28:02 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-25 15:28:02 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-25 15:28:05 INFO  Action:551 - 401406405: Message received acknowledgement for job id  'dc630d7c-1ab4-4a9e-a359-71a80d28c0f7' 
+2020-03-25 15:28:05 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-25 15:28:12 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-25 15:28:13 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-25 15:28:19 INFO  Action:219 - 401406405: Pdf and xml generated..
+2020-03-25 15:28:28 INFO  Action:232 - 401406405: Completed process for job id  'dc630d7c-1ab4-4a9e-a359-71a80d28c0f7' 
+2020-03-25 15:28:29 INFO  Action:600 - 401406405: Before calling update to server post method
+2020-03-25 15:28:48 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-25 15:28:48 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-25 15:28:52 INFO  Action:554 - 401406405: Message received acknowledgement for job id  '6cca969e-2c04-4df0-ab6d-365c108de363' 
+2020-03-25 15:28:52 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-25 15:28:59 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-25 15:29:00 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-25 15:29:05 INFO  Action:222 - 401406405: Pdf and xml generated..
+2020-03-25 15:29:14 INFO  Action:235 - 401406405: Completed process for job id  '6cca969e-2c04-4df0-ab6d-365c108de363' 
+2020-03-25 15:29:15 INFO  Action:603 - 401406405: Before calling update to server post method
+2020-03-25 15:29:44 ERROR Action:707 - 401406405: Http IO exception: Operation timed out (Connection timed out)
+2020-03-25 15:29:44 INFO  Action:236 - 401406405: Xml comparision completed..
+2020-03-25 15:30:31 ERROR Action:710 - 401406405: Http IO exception: Operation timed out (Connection timed out)
+2020-03-25 15:30:31 INFO  Action:239 - 401406405: Xml comparision completed..
+2020-03-25 15:35:43 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-25 15:35:43 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-25 15:35:46 INFO  Action:551 - 401406405: Message received acknowledgement for job id  'ac035c12-2ae6-4177-8767-3e2847ca41d4' 
+2020-03-25 15:35:48 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-25 15:35:55 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-25 15:35:56 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-25 15:36:01 INFO  Action:219 - 401406405: Pdf and xml generated..
+2020-03-25 15:36:11 INFO  Action:232 - 401406405: Completed process for job id  'ac035c12-2ae6-4177-8767-3e2847ca41d4' 
+2020-03-25 15:36:12 INFO  Action:600 - 401406405: Before calling update to server post method
+2020-03-25 15:36:41 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-25 15:36:41 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-25 15:36:45 INFO  Action:554 - 401406405: Message received acknowledgement for job id  '3651bb8a-0c77-4e86-addb-18005b9b63ae' 
+2020-03-25 15:36:45 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-25 15:36:52 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-25 15:36:53 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-25 15:36:58 INFO  Action:222 - 401406405: Pdf and xml generated..
+2020-03-25 15:37:08 INFO  Action:235 - 401406405: Completed process for job id  '3651bb8a-0c77-4e86-addb-18005b9b63ae' 
+2020-03-25 15:37:09 INFO  Action:603 - 401406405: Before calling update to server post method
+2020-03-25 15:38:00 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-25 15:38:00 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-25 15:38:13 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-25 15:38:13 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-25 15:38:17 INFO  Action:554 - 401406405: Message received acknowledgement for job id  'f979d5b1-1052-4159-b018-f4f56bf7abbf' 
+2020-03-25 15:38:18 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-25 15:38:25 ERROR Action:710 - 401406405: Http IO exception: Operation timed out (Connection timed out)
+2020-03-25 15:38:25 INFO  Action:239 - 401406405: Xml comparision completed..
+2020-03-25 15:38:25 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-25 15:38:26 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-25 15:38:46 INFO  Action:222 - 401406405: Pdf and xml generated..
+2020-03-25 15:38:55 INFO  Action:235 - 401406405: Completed process for job id  'f979d5b1-1052-4159-b018-f4f56bf7abbf' 
+2020-03-25 15:38:56 INFO  Action:603 - 401406405: Before calling update to server post method
+2020-03-25 15:40:12 ERROR Action:? - 401406405: Http IO exception: Operation timed out (Connection timed out)
+2020-03-25 15:40:12 INFO  Action:? - 401406405: Xml comparision completed..
+2020-03-25 15:41:03 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-25 15:41:04 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-25 15:41:07 INFO  Action:554 - 401406405: Message received acknowledgement for job id  'cfea6ac9-e2e5-454e-acc2-bd40b1c91451' 
+2020-03-25 15:41:08 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-25 15:41:15 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-25 15:41:17 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-25 15:41:22 INFO  Action:222 - 401406405: Pdf and xml generated..
+2020-03-25 15:41:31 INFO  Action:235 - 401406405: Completed process for job id  'cfea6ac9-e2e5-454e-acc2-bd40b1c91451' 
+2020-03-25 15:41:32 INFO  Action:603 - 401406405: Before calling update to server post method
+2020-03-25 15:43:40 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-25 15:43:40 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-25 15:43:59 INFO  Action:554 - 401406405: Message received acknowledgement for job id  '34cf15b5-e22f-4151-897f-5c33e2b62ae2' 
+2020-03-25 15:43:59 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-25 15:44:06 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-25 15:44:07 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-25 15:44:12 INFO  Action:222 - 401406405: Pdf and xml generated..
+2020-03-25 15:44:22 INFO  Action:235 - 401406405: Completed process for job id  '34cf15b5-e22f-4151-897f-5c33e2b62ae2' 
+2020-03-25 15:44:23 INFO  Action:603 - 401406405: Before calling update to server post method
+2020-03-25 15:45:12 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-25 15:45:12 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-25 15:45:18 INFO  Action:555 - 401406405: Message received acknowledgement for job id  '6c14ad24-ed88-452c-a70d-3c3d04efa3e5' 
+2020-03-25 15:45:18 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-25 15:45:25 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-25 15:45:26 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-25 15:45:38 ERROR Action:710 - 401406405: Http IO exception: Operation timed out (Connection timed out)
+2020-03-25 15:45:38 INFO  Action:239 - 401406405: Xml comparision completed..
+2020-03-25 15:47:54 INFO  Action:223 - 401406405: Pdf and xml generated..
+2020-03-25 15:48:04 INFO  Action:236 - 401406405: Completed process for job id  '6c14ad24-ed88-452c-a70d-3c3d04efa3e5' 
+2020-03-25 15:48:05 INFO  Action:604 - 401406405: Before calling update to server post method
+2020-03-25 15:49:20 ERROR Action:? - 401406405: Http IO exception: Operation timed out (Connection timed out)
+2020-03-25 15:49:20 INFO  Action:? - 401406405: Xml comparision completed..
+2020-03-25 15:52:56 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-25 15:52:56 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-25 15:53:39 INFO  Action:553 - 401406405: Message received acknowledgement for job id  'a4677743-53b8-49ea-88e1-4cc729cc49d2' 
+2020-03-25 15:53:40 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-25 15:53:47 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-25 15:53:48 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-25 15:53:52 INFO  Action:221 - 401406405: Pdf and xml generated..
+2020-03-25 15:54:02 INFO  Action:234 - 401406405: Completed process for job id  'a4677743-53b8-49ea-88e1-4cc729cc49d2' 
+2020-03-25 15:54:03 INFO  Action:602 - 401406405: Before calling update to server post method
+2020-03-25 15:54:49 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-25 15:54:49 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-25 15:54:54 INFO  Action:555 - 401406405: Message received acknowledgement for job id  'fe69d79a-627e-4b02-9209-ffdfafd55893' 
+2020-03-25 15:54:55 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-25 15:55:01 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-25 15:55:02 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-25 15:55:07 INFO  Action:223 - 401406405: Pdf and xml generated..
+2020-03-25 15:55:16 INFO  Action:236 - 401406405: Completed process for job id  'fe69d79a-627e-4b02-9209-ffdfafd55893' 
+2020-03-25 15:55:17 INFO  Action:604 - 401406405: Before calling update to server post method
+2020-03-25 15:58:05 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-25 15:58:05 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-25 15:58:09 INFO  Action:552 - 401406405: Message received acknowledgement for job id  '5c276e48-55fb-459e-b972-a252e8401277' 
+2020-03-25 15:58:09 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-25 15:58:16 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-25 15:58:17 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-25 15:58:21 INFO  Action:220 - 401406405: Pdf and xml generated..
+2020-03-25 15:58:31 INFO  Action:233 - 401406405: Completed process for job id  '5c276e48-55fb-459e-b972-a252e8401277' 
+2020-03-25 15:58:32 INFO  Action:601 - 401406405: Before calling update to server post method
+2020-03-25 15:59:47 ERROR Action:708 - 401406405: Http IO exception: Operation timed out (Connection timed out)
+2020-03-25 15:59:47 INFO  Action:237 - 401406405: Xml comparision completed..
+2020-03-25 16:00:56 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-25 16:00:56 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-25 16:03:16 INFO  Action:552 - 401406405: Message received acknowledgement for job id  '3151d375-7ea9-4d0d-8483-80c6de34a7f7' 
+2020-03-25 16:03:17 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-25 16:03:25 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-25 16:03:29 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-25 16:03:36 INFO  Action:220 - 401406405: Pdf and xml generated..
+2020-03-25 16:03:46 INFO  Action:233 - 401406405: Completed process for job id  '3151d375-7ea9-4d0d-8483-80c6de34a7f7' 
+2020-03-25 16:03:47 INFO  Action:601 - 401406405: Before calling update to server post method
+2020-03-25 18:24:20 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-25 18:24:20 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-25 18:24:20 INFO  Action:552 - 401406405: Message received acknowledgement for job id  '8335fdad-73b2-49ca-b59e-f91f2dff9995' 
+2020-03-25 18:24:21 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-25 18:24:35 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-25 18:24:38 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-25 18:24:48 INFO  Action:220 - 401406405: Pdf and xml generated..
+2020-03-25 18:24:58 INFO  Action:233 - 401406405: Completed process for job id  '8335fdad-73b2-49ca-b59e-f91f2dff9995' 
+2020-03-25 18:24:59 INFO  Action:601 - 401406405: Before calling update to server post method
+2020-03-25 18:26:15 ERROR Action:708 - 401406405: Http IO exception: Operation timed out (Connection timed out)
+2020-03-25 18:26:15 INFO  Action:237 - 401406405: Xml comparision completed..
+2020-03-25 18:30:25 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-25 18:30:25 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-25 18:30:25 INFO  Action:552 - 401406405: Message received acknowledgement for job id  '53983a96-833e-40ca-ba1e-6cd739f701df' 
+2020-03-25 18:30:25 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-25 18:30:34 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-25 18:31:59 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-25 18:32:12 INFO  Action:220 - 401406405: Pdf and xml generated..
+2020-03-25 18:32:20 INFO  Action:233 - 401406405: Completed process for job id  '53983a96-833e-40ca-ba1e-6cd739f701df' 
+2020-03-25 18:32:21 INFO  Action:601 - 401406405: Before calling update to server post method
+2020-03-25 18:33:37 ERROR Action:708 - 401406405: Http IO exception: Operation timed out (Connection timed out)
+2020-03-25 18:33:37 INFO  Action:237 - 401406405: Xml comparision completed..
+2020-03-25 18:34:08 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-25 18:34:08 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-25 18:34:16 INFO  Action:552 - 401406405: Message received acknowledgement for job id  '37c93db3-c869-4f30-ad83-1f3c3983996a' 
+2020-03-25 18:34:16 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-25 18:34:32 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-25 18:35:08 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-25 18:35:18 INFO  Action:220 - 401406405: Pdf and xml generated..
+2020-03-25 18:35:29 INFO  Action:233 - 401406405: Completed process for job id  '37c93db3-c869-4f30-ad83-1f3c3983996a' 
+2020-03-25 18:35:30 INFO  Action:601 - 401406405: Before calling update to server post method
+2020-03-25 18:36:45 ERROR Action:708 - 401406405: Http IO exception: Operation timed out (Connection timed out)
+2020-03-25 18:36:45 INFO  Action:237 - 401406405: Xml comparision completed..
+2020-03-25 18:38:01 ERROR HttpConnection:61 - Network is unreachable (connect failed)
+2020-03-26 10:54:20 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-26 10:54:20 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-26 10:55:05 INFO  Action:552 - 401406405: Message received acknowledgement for job id  'cfa66458-65b6-478b-9ce8-b47453e46263' 
+2020-03-26 10:55:06 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-26 10:55:15 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-26 10:55:18 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-26 10:55:26 INFO  Action:220 - 401406405: Pdf and xml generated..
+2020-03-26 10:55:37 INFO  Action:233 - 401406405: Completed process for job id  'cfa66458-65b6-478b-9ce8-b47453e46263' 
+2020-03-26 10:55:38 INFO  Action:601 - 401406405: Before calling update to server post method
+2020-03-26 10:56:39 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-26 10:56:39 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-26 10:56:43 INFO  Action:554 - 401406405: Message received acknowledgement for job id  '572a98ce-cedb-4134-8c24-f24780b83193' 
+2020-03-26 10:56:43 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-26 10:56:52 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-26 10:56:55 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-26 10:57:02 INFO  Action:222 - 401406405: Pdf and xml generated..
+2020-03-26 10:57:13 INFO  Action:235 - 401406405: Completed process for job id  '572a98ce-cedb-4134-8c24-f24780b83193' 
+2020-03-26 10:57:14 INFO  Action:603 - 401406405: Before calling update to server post method
+2020-03-26 10:58:29 ERROR Action:710 - 401406405: Http IO exception: Operation timed out (Connection timed out)
+2020-03-26 10:58:29 INFO  Action:239 - 401406405: Xml comparision completed..
+2020-03-26 10:59:09 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-26 10:59:09 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-26 10:59:13 INFO  Action:554 - 401406405: Message received acknowledgement for job id  '31a419e4-7790-4878-af1b-bf81aff47e55' 
+2020-03-26 10:59:14 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-26 10:59:22 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-26 10:59:25 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-26 10:59:35 INFO  Action:222 - 401406405: Pdf and xml generated..
+2020-03-26 10:59:46 INFO  Action:235 - 401406405: Completed process for job id  '31a419e4-7790-4878-af1b-bf81aff47e55' 
+2020-03-26 10:59:47 INFO  Action:603 - 401406405: Before calling update to server post method
+2020-03-26 11:01:02 ERROR Action:710 - 401406405: Http IO exception: Operation timed out (Connection timed out)
+2020-03-26 11:01:02 INFO  Action:239 - 401406405: Xml comparision completed..
+2020-03-26 11:01:20 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-26 11:01:20 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-26 11:01:25 INFO  Action:554 - 401406405: Message received acknowledgement for job id  '40d46bb5-19de-45fc-8cfa-eb4ade50af76' 
+2020-03-26 11:01:26 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-26 11:01:34 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-26 11:01:38 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-26 11:01:48 INFO  Action:222 - 401406405: Pdf and xml generated..
+2020-03-26 11:01:59 INFO  Action:235 - 401406405: Completed process for job id  '40d46bb5-19de-45fc-8cfa-eb4ade50af76' 
+2020-03-26 11:02:00 INFO  Action:603 - 401406405: Before calling update to server post method
+2020-03-26 11:03:15 ERROR Action:710 - 401406405: Http IO exception: Operation timed out (Connection timed out)
+2020-03-26 11:03:15 INFO  Action:239 - 401406405: Xml comparision completed..
+2020-03-26 11:03:36 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-26 11:03:36 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-26 11:03:45 INFO  Action:554 - 401406405: Message received acknowledgement for job id  'ea712d6f-7f6e-4a4b-be5b-12d8a52e053a' 
+2020-03-26 11:03:45 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-26 11:03:54 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-26 11:03:57 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-26 11:04:01 INFO  Action:222 - 401406405: Pdf and xml generated..
+2020-03-26 11:04:11 INFO  Action:235 - 401406405: Completed process for job id  'ea712d6f-7f6e-4a4b-be5b-12d8a52e053a' 
+2020-03-26 11:04:12 INFO  Action:603 - 401406405: Before calling update to server post method
+2020-03-26 11:05:28 ERROR Action:710 - 401406405: Http IO exception: Operation timed out (Connection timed out)
+2020-03-26 11:05:28 INFO  Action:239 - 401406405: Xml comparision completed..
+2020-03-26 11:08:43 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-26 11:08:43 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-26 11:08:46 INFO  Action:554 - 401406405: Message received acknowledgement for job id  'b5dfa470-1823-4297-afb1-7afe0eb3e2f1' 
+2020-03-26 11:08:47 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-26 11:08:56 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-26 11:08:59 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-26 11:08:59 INFO  Action:222 - 401406405: Pdf and xml generated..
+2020-03-26 11:09:10 INFO  Action:235 - 401406405: Completed process for job id  'b5dfa470-1823-4297-afb1-7afe0eb3e2f1' 
+2020-03-26 11:09:11 INFO  Action:603 - 401406405: Before calling update to server post method
+2020-03-26 11:10:26 ERROR Action:710 - 401406405: Http IO exception: Operation timed out (Connection timed out)
+2020-03-26 11:10:26 INFO  Action:239 - 401406405: Xml comparision completed..
+2020-03-26 11:10:37 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-26 11:10:37 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-26 11:10:45 INFO  Action:554 - 401406405: Message received acknowledgement for job id  '65bd0f92-3ad8-4873-a57e-571ae5cdbc0d' 
+2020-03-26 11:10:46 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-26 11:10:54 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-26 11:10:57 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-26 11:10:57 INFO  Action:222 - 401406405: Pdf and xml generated..
+2020-03-26 11:11:08 INFO  Action:235 - 401406405: Completed process for job id  '65bd0f92-3ad8-4873-a57e-571ae5cdbc0d' 
+2020-03-26 11:11:09 INFO  Action:603 - 401406405: Before calling update to server post method
+2020-03-26 11:12:24 ERROR Action:710 - 401406405: Http IO exception: Operation timed out (Connection timed out)
+2020-03-26 11:12:24 INFO  Action:239 - 401406405: Xml comparision completed..
+2020-03-26 11:13:19 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-26 11:13:19 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-26 11:13:31 INFO  Action:554 - 401406405: Message received acknowledgement for job id  '1eb8647a-6738-4834-80f2-71b54c3f5b35' 
+2020-03-26 11:13:31 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-26 11:13:40 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-26 11:13:44 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-26 11:13:47 INFO  Action:222 - 401406405: Pdf and xml generated..
+2020-03-26 11:13:58 INFO  Action:235 - 401406405: Completed process for job id  '1eb8647a-6738-4834-80f2-71b54c3f5b35' 
+2020-03-26 11:13:59 INFO  Action:603 - 401406405: Before calling update to server post method
+2020-03-26 11:15:26 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-26 11:15:26 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-26 11:15:29 INFO  Action:554 - 401406405: Message received acknowledgement for job id  'b40d0c25-15e6-417d-b2bd-bb6e615c8987' 
+2020-03-26 11:15:30 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-26 11:15:38 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-26 11:15:42 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-26 11:15:55 INFO  Action:222 - 401406405: Pdf and xml generated..
+2020-03-26 11:16:06 INFO  Action:235 - 401406405: Completed process for job id  'b40d0c25-15e6-417d-b2bd-bb6e615c8987' 
+2020-03-26 11:16:07 INFO  Action:603 - 401406405: Before calling update to server post method
+2020-03-26 11:17:23 ERROR Action:710 - 401406405: Http IO exception: Operation timed out (Connection timed out)
+2020-03-26 11:17:23 INFO  Action:239 - 401406405: Xml comparision completed..
+2020-03-26 15:04:11 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-26 15:04:11 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-26 15:04:11 INFO  Action:554 - 401406405: Message received acknowledgement for job id  '8d339656-09cf-4968-bb10-6f8dbc09b965' 
+2020-03-26 15:04:12 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-26 15:04:21 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-26 15:04:25 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-26 15:04:25 ERROR JsonParser:172 - 401406405: Invalid Key value search 'region, PrintXML'  null
+2020-03-26 15:04:31 ERROR Action:563 - 401406405: Msg Ack err: java.lang.NullPointerException
+2020-03-26 15:10:00 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-26 15:10:00 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-26 15:10:11 INFO  Action:554 - 401406405: Message received acknowledgement for job id  'f31e4520-b767-4b59-829e-1c1d803516e3' 
+2020-03-26 15:10:12 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-26 15:10:20 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-26 15:10:24 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-26 15:10:24 ERROR JsonParser:172 - 401406405: Invalid Key value search 'region, PrintXML'  null
+2020-03-26 15:10:28 ERROR Action:563 - 401406405: Msg Ack err: java.lang.NullPointerException
+2020-03-26 15:12:10 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-26 15:12:10 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-26 15:12:20 INFO  Action:553 - 401406405: Message received acknowledgement for job id  'c23b8110-2779-49de-8099-47fbc0f876e2' 
+2020-03-26 15:12:21 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-26 15:12:29 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-26 15:12:33 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-26 15:12:33 ERROR JsonParser:172 - 401406405: Invalid Key value search 'region, PrintXML'  null
+2020-03-26 15:12:37 ERROR Action:562 - 401406405: Msg Ack err: java.lang.NullPointerException
+2020-03-26 15:14:12 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-26 15:14:12 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-26 15:14:15 INFO  Action:553 - 401406405: Message received acknowledgement for job id  'e135e82b-8d7b-402a-9970-b85472236867' 
+2020-03-26 15:14:15 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-26 15:14:24 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-26 15:14:27 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-26 15:14:27 ERROR JsonParser:172 - 401406405: Invalid Key value search 'region, PrintXML'  null
+2020-03-26 15:14:31 ERROR Action:562 - 401406405: Msg Ack err: java.lang.NullPointerException
+2020-03-26 15:16:47 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-26 15:16:47 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-26 15:16:52 INFO  Action:553 - 401406405: Message received acknowledgement for job id  'a6d7487b-12ca-4f14-a5db-4a795425e250' 
+2020-03-26 15:16:52 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-26 15:17:12 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-26 15:17:15 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-26 15:17:24 ERROR JsonParser:172 - 401406405: Invalid Key value search 'region, PrintXML'  null
+2020-03-26 15:19:15 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-03-26 15:19:15 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-03-26 15:19:22 INFO  Action:553 - 401406405: Message received acknowledgement for job id  '2ccf1eba-c74f-403a-9124-7f1d284de82e' 
+2020-03-26 15:19:22 INFO  Action:51 - 401406405: Illustrator activated to load file..
+2020-03-26 15:19:31 INFO  Action:57 - 401406405: AI file and other dependend file opening..
+2020-03-26 15:19:34 INFO  Action:97 - 401406405: TyphoonShadow called
+2020-03-26 15:19:38 ERROR JsonParser:172 - 401406405: Invalid Key value search 'region, PrintXML'  null
+2020-03-26 15:19:58 INFO  Action:221 - 401406405: Pdf and xml generated..
+2020-03-26 15:20:16 INFO  Action:234 - 401406405: Completed process for job id  '2ccf1eba-c74f-403a-9124-7f1d284de82e' 
+2020-03-26 15:20:19 INFO  Action:602 - 401406405: Before calling update to server post method
+2020-03-26 15:21:34 ERROR Action:709 - 401406405: Http IO exception: Operation timed out (Connection timed out)
+2020-03-26 15:26:35 INFO  Action:238 - 401406405: Xml comparision completed..
