@@ -8,6 +8,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -488,6 +491,49 @@ public class Utils {
 		    	}
 
 	    }
+	    
+	    public String CopyFileFromSourceToDestination(String fromSourceFile, String ToDestinationFolder) throws Exception
+	    {
+	    		Utils utls = new Utils();
+	    		int index = ToDestinationFolder.lastIndexOf("/");
+	    		String fileName = ToDestinationFolder.substring(index, ToDestinationFolder.length());
+	    		String destinationFolderpath = ToDestinationFolder.substring(0, index) + fileName;
+	    		String SourceFile = fromSourceFile +"/"+ fileName;
+	    		if(!utls.FileExists(SourceFile))
+			{
+
+					log.error(MessageQueue.WORK_ORDER + ": " + "File path doesn't exists: " + SourceFile);
+					ThrowException.CustomExit(new Exception("File Path or File does not exists "), "File path or File not exist: " + SourceFile);
+	
+			}
+	    		
+		    	try
+		    	{
+	    	        Path source = Paths.get(SourceFile);
+	    	        Path destination = Paths.get(destinationFolderpath);
+	    	        Path retString = Files.copy(source, destination);
+	    	        return retString.toString();
+		    	}
+		    	catch (java.nio.file.FileAlreadyExistsException fileAlreadyExists)
+		    	{
+		    		Path deletExistFile = Paths.get(ToDestinationFolder);
+		    		Files.deleteIfExists(deletExistFile);
+		    		CopyFileFromSourceToDestination(fromSourceFile, ToDestinationFolder);
+		    		return "exists";
+		    	}
+		    	catch(java.nio.file.AccessDeniedException fileAccessDenied)
+		    	{
+		    		ThrowException.CustomExit(new Exception("File or Folder access denied:  "), "File or Folder access denied: " + SourceFile);
+		    		return "access denied";
+		    	}
+		    	catch(java.nio.file.NoSuchFileException noSuchFile)
+		    	{
+		    		ThrowException.CustomExit(new Exception("File or Folder not found:  "), "File or Folder not found: " + fromSourceFile);
+		    		return "no such file";
+		    	}
+
+	    }
+	    
 	    
   
 	   public static void main(String args[]) throws Exception

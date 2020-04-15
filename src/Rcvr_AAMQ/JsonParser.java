@@ -174,6 +174,17 @@ public String getJsonValueFromGroupKey(JSONObject jsonObj, String jsonGroupKey, 
 	return null;
 }
 
+
+public String getMasterAIWithoutPathValidate(JSONObject jsonObj, String keyString)
+{
+	Utils utils = new Utils();
+	JSONArray array = (JSONArray)jsonObj.get("aaw");
+	JSONObject jsonRegionArr = (JSONObject)array.get(0);
+	String docFilePath = utils.RemoveForwardSlash((String) jsonRegionArr.get("Path") + (String) jsonRegionArr.get(keyString));
+	return docFilePath;
+}
+
+
 	public static void main(String[] args)
 	{
 		
