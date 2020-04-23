@@ -94,21 +94,51 @@ public class Action {
 			String[] fileName = new String[4];
 			if (fileNameToSave != null) {
 				fileName[0] = "none"; // dummy
-				fileName[1] = "none"; // dummy
+				fileName[1] = GetLastIndex(docPath[2]) + "/" + fileNameToSave;
 				fileName[2] = GetLastIndex(docPath[2]) + "/" + fileNameToSave;
 				fileName[3] = GetLastIndex(docPath[1]) + "/" + fileNameToSave;
 			}
 
 			if (MessageQueue.sPdfNormal) {
 				String printXML = jspr.getJsonValueFromGroupKey(jsonObj, "region", "printXML");
+				String barCodeVisible = jspr.getJsonValueFromGroupKey(jsonObj, "region", "barCodeVisible");
 				ImageConvertor imageConvertor = new ImageConvertor();
 				if (fileNameToSave != null) {
-					SEng.PostDocumentProcessForSingleJobFilename(fileName);
+					{
+						String pdfOnlyPath = jspr.getJsonValueFromGroupKey(jsonObj, "aaw", "Path") + "/090_Deliverables/PDF_ONLY/";
+						if(!utils.IsFolderExists(pdfOnlyPath))
+						{
+							log.error(MessageQueue.WORK_ORDER + ": " + "Directory doesn't exist: " + pdfOnlyPath);
+							System.out.println("Directory doesn't exist: " + pdfOnlyPath);
+						}
+						else
+							fileName[2] = pdfOnlyPath + fileNameToSave;
+						SEng.PostDocumentProcessForSingleJobFilename(fileName);
+					}
 					if (printXML != null)
 						if (printXML.equalsIgnoreCase("true")) {
 							//// Layer Visiblity off
 							Thread.sleep(5000);
-							SEng.SetLayerVisibleOff();
+							if (barCodeVisible != null)
+							{
+								if (barCodeVisible.equalsIgnoreCase("false"))
+									SEng.SetLayerVisibleOff("false");
+								else
+									SEng.SetLayerVisibleOff("true");
+							}
+							else
+								SEng.SetLayerVisibleOff("true");
+							
+							String dataCollectionPath = jspr.getJsonValueFromGroupKey(jsonObj, "aaw", "Path") + "/090_Deliverables/Data_Collection/";
+							if(!utils.IsFolderExists(dataCollectionPath))
+							{
+								log.error(MessageQueue.WORK_ORDER + ": " + "Directory doesn't exist: " + dataCollectionPath);
+								System.out.println("Directory doesn't exist: " + dataCollectionPath);
+							}
+							else
+								fileName[2] = dataCollectionPath + fileNameToSave;
+							
+							
 							SEng.PostDocumentProcessForSingleJobFilenameJPEG(fileName);
 
 							String imageFormat = "bmp";
@@ -117,20 +147,62 @@ public class Action {
 							Thread.sleep(1000);
 							imageConvertor.ConvertImageTo(inputImagePath, outputImagePath, imageFormat);
 						}
-				} else {
-					SEng.PostDocumentProcess(jspr.getPath(jsonObj));
+				} 
+				else 
+				{
+					String[] pathArray = new String[4];
+					
+					pathArray[0] = "none"; // dummy
+					pathArray[1] = GetLastIndex(docPath[2]);
+					pathArray[2] = GetLastIndex(docPath[2]);
+					pathArray[3] = GetLastIndex(docPath[1]);
+					
+					
+					String pdfOnlyPath = jspr.getJsonValueFromGroupKey(jsonObj, "aaw", "Path") + "/090_Deliverables/PDF_ONLY/";
+					if(!utils.IsFolderExists(pdfOnlyPath))
+					{
+						log.error(MessageQueue.WORK_ORDER + ": " + "Directory doesn't exist: " + pdfOnlyPath);
+						System.out.println("Directory doesn't exist: " + pdfOnlyPath);
+					}
+					else
+						pathArray[2] = pdfOnlyPath;
+					
+					
+				//	SEng.PostDocumentProcess(jspr.getPath(jsonObj));
+					SEng.PostDocumentProcess(pathArray);
+					
 					if (printXML != null)
 						if (printXML.equalsIgnoreCase("true")) {
 							//// Layer Visiblity off
 							Thread.sleep(5000);
-							SEng.SetLayerVisibleOff();
+							if (barCodeVisible != null)
+							{
+								if (barCodeVisible.equalsIgnoreCase("false"))
+									SEng.SetLayerVisibleOff("false");
+								else
+									SEng.SetLayerVisibleOff("true");
+							}
+							else
+							{
+								SEng.SetLayerVisibleOff("true");
+							}
+							
+							
+							String dataCollectionPath = jspr.getJsonValueFromGroupKey(jsonObj, "aaw", "Path") + "/090_Deliverables/Data_Collection/";
+							if(!utils.IsFolderExists(dataCollectionPath))
+							{
+								log.error(MessageQueue.WORK_ORDER + ": " + "Directory doesn't exist: " + dataCollectionPath);
+								System.out.println("Directory doesn't exist: " + dataCollectionPath);
+							}
+							else
+								pathArray[2] = dataCollectionPath + jspr.getJsonValueForKey(jsonObj, "WO");
+							
+							
 							SEng.PostDocumentProcessJPEG(jspr.getPath(jsonObj));
 
 							String imageFormat = "bmp";
-							String inputImagePath = GetLastIndex(docPath[2]) + jspr.getJsonValueForKey(jsonObj, "WO")
-									+ ".jpg";
-							String outputImagePath = GetLastIndex(docPath[2]) + jspr.getJsonValueForKey(jsonObj, "WO")
-									+ "." + imageFormat;
+							String inputImagePath = pathArray[2] + ".jpg";
+							String outputImagePath = pathArray[2] + "." + imageFormat;
 							Thread.sleep(1000);
 
 							imageConvertor.ConvertImageTo(inputImagePath, outputImagePath, imageFormat);

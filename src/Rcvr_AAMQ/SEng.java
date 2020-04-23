@@ -203,7 +203,7 @@ public class SEng{
 		 Utils utils = new Utils();
 		 String pathString = utils.GetPathFromResource("PostDocument.js");
 		 String scriptString = "tell application "+ '"' +"Applications:Adobe Illustrator "+ MessageQueue.VERSION +":Adobe Illustrator.app"+'"' +"\n with timeout of "+ timeOutSec +" seconds \n"
-			+ "do javascript (file "+'"'+pathString+'"'+")  with arguments {"+ '"'+arryStr[2]+'"' +", "+ '"'+arryStr[3]+'"' +"} \n"
+			+ "do javascript (file "+'"'+pathString+'"'+")  with arguments {"+ '"'+arryStr[2]+'"' +", "+ '"'+arryStr[3]+'"' +", "+ '"'+arryStr[1]+'"' +"} \n"
 			+ "end timeout \n"
 			+ "end tell";
 		 ExecuteAppleScript(scriptString);
@@ -225,7 +225,7 @@ public class SEng{
 		 Utils utils = new Utils();
 		 String pathString = utils.GetPathFromResource("PostDocumentWithFileName.js");
 		 String scriptString = "tell application "+ '"' +"Applications:Adobe Illustrator "+ MessageQueue.VERSION +":Adobe Illustrator.app"+'"' +"\n with timeout of "+ timeOutSec +" seconds \n"
-			+ "do javascript (file "+'"'+pathString+'"'+")  with arguments {"+ '"'+arryStr[2]+'"' +", "+ '"'+arryStr[3]+'"' +"} \n"
+			+ "do javascript (file "+'"'+pathString+'"'+")  with arguments {"+ '"'+arryStr[2]+'"' +", "+ '"'+arryStr[3]+'"'+", "+ '"'+arryStr[1]+'"' +"} \n"
 			+ "end timeout \n"
 			+ "end tell";
 		 ExecuteAppleScript(scriptString);
@@ -287,10 +287,10 @@ public class SEng{
 		 
 	 	}
 	 
-	 public static String SetLayerVisibleOff() throws Exception  
+	 public static String SetLayerVisibleOff(String barCodeVisible) throws Exception  
 	 {
 		 String[] arryStr1 = new String[1];
-		 arryStr1[0] = "none";
+		 arryStr1[0] = barCodeVisible;
 		 Utils utils = new Utils();
 		 String pathString = utils.GetPathFromResource("LayerOff.js");
 		 String scriptString = "tell application "+ '"' +"Applications:Adobe Illustrator "+ MessageQueue.VERSION +":Adobe Illustrator.app"+'"' +"\n with timeout of "+ timeOutSec +" seconds \n"

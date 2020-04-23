@@ -8,7 +8,18 @@ function main(argv)
 
 
 
-var layerList = ["Dimensions", "Barcode", "Legend", "Dimension", "Cutter", "Print Marks"];
+var layerList = ["Dimensions", "Legend", "Dimension", "Cutter", "Print Marks"];
+/*
+$.writeln("\n\n ERRCODE:  " + argv[0].equals("false") + "   " + argv[0].localeCompare("false"));
+*/
+if(argv[0] == "false")
+{
+	layerList.push("Barcode");
+	layerList.push("Barcodes");
+}
+
+
+
 
 for(var i = 0; i < layerList.length; i++)
 {
