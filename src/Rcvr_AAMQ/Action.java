@@ -88,6 +88,13 @@ public class Action {
 
 			INIReader ini = new INIReader();
 			ini.readIniForSingle();
+			
+			
+			String printXML = jspr.getJsonValueFromGroupKey(jsonObj, "region", "printXML");
+			if (printXML == null)
+				printXML = "false";
+			if (printXML.equalsIgnoreCase("true"))
+			{
 
 			String[] docPath = jspr.getPath(jsonObj);
 			String fileNameToSave = xmlUtil.getFileNameFromElement((docPath[0].split("~"))[0]);
@@ -100,7 +107,6 @@ public class Action {
 			}
 
 			if (MessageQueue.sPdfNormal) {
-				String printXML = jspr.getJsonValueFromGroupKey(jsonObj, "region", "printXML");
 				String barCodeVisible = jspr.getJsonValueFromGroupKey(jsonObj, "region", "barCodeVisible");
 				ImageConvertor imageConvertor = new ImageConvertor();
 				if (fileNameToSave != null) {
@@ -153,7 +159,7 @@ public class Action {
 					String[] pathArray = new String[4];
 					
 					pathArray[0] = "none"; // dummy
-					pathArray[1] = GetLastIndex(docPath[2]);
+					pathArray[1] = GetLastIndex(docPath[2]) + jspr.getJsonValueForKey(jsonObj, "WO");
 					pathArray[2] = GetLastIndex(docPath[2]);
 					pathArray[3] = GetLastIndex(docPath[1]);
 					
@@ -165,7 +171,7 @@ public class Action {
 						System.out.println("Directory doesn't exist: " + pdfOnlyPath);
 					}
 					else
-						pathArray[2] = pdfOnlyPath;
+						pathArray[2] = pdfOnlyPath +  "/" + jspr.getJsonValueForKey(jsonObj, "WO");
 					
 					
 				//	SEng.PostDocumentProcess(jspr.getPath(jsonObj));
@@ -195,10 +201,10 @@ public class Action {
 								System.out.println("Directory doesn't exist: " + dataCollectionPath);
 							}
 							else
-								pathArray[2] = dataCollectionPath + jspr.getJsonValueForKey(jsonObj, "WO");
+								pathArray[2] = dataCollectionPath + "/" + jspr.getJsonValueForKey(jsonObj, "WO");
 							
 							
-							SEng.PostDocumentProcessJPEG(jspr.getPath(jsonObj));
+							SEng.PostDocumentProcessJPEG(pathArray);
 
 							String imageFormat = "bmp";
 							String inputImagePath = pathArray[2] + ".jpg";
@@ -256,6 +262,86 @@ public class Action {
 						MessageQueue.ERROR += resultPdfExport + "\n";
 					}
 				}
+			}
+			}
+			else if(printXML.equalsIgnoreCase("false"))
+			{
+				String[] docPath = jspr.getPath(jsonObj);
+				String fileNameToSave = xmlUtil.getFileNameFromElement((docPath[0].split("~"))[0]);
+				String[] fileName = new String[4];
+				if(fileNameToSave != null)
+				{
+					fileName[0] = "none"; //dummy
+					fileName[1] = "none"; //dummy
+					fileName[2] = GetLastIndex(docPath[2]) + "/" + fileNameToSave;
+					fileName[3] = GetLastIndex(docPath[1]) + "/" + fileNameToSave;
+				}
+				
+				if(MessageQueue.sPdfNormal)
+				{
+					if (fileNameToSave != null)
+						SEng.PostDocumentProcessForSingleJobFilename(fileName);
+					else
+						SEng.PostDocumentProcess(jspr.getPath(jsonObj));
+				}
+				else if(MessageQueue.sPdfPreset)
+				{
+
+					String pdfPreset[] = utils.getPresetFileFromDirectory(utils.GetParentPath(jspr.geFilePathFromJson(jsonObj, "Master")), "joboptions");
+					String[] pdfPresetArr = new String[2];
+					if(pdfPreset.length !=0 )
+					{
+						pdfPresetArr[0] = utils.GetParentPath(jspr.geFilePathFromJson(jsonObj, "Master")) +"/"+ pdfPreset[0];
+						pdfPresetArr[1] = pdfPreset[0].split("\\.")[0];
+						String resultPdfExport = "";
+						if (fileNameToSave != null)
+							resultPdfExport = SEng.PostDocMultiPDFPreset(fileName, pdfPresetArr);
+						else
+						{
+							String[] dcPath = new String[4];
+							dcPath[0] = "";
+							dcPath[1] = "";
+							dcPath[2] = docPath[2];
+							dcPath[3] = docPath[1];
+							resultPdfExport = SEng.PostDocMultiPDFPreset(dcPath, pdfPresetArr);
+						}
+				    		if(!resultPdfExport.equalsIgnoreCase("null"))
+				    		{
+				    			fls.AppendFileString("\n PDF with preset export failed: " + resultPdfExport + " \n");
+				    			MessageQueue.ERROR += resultPdfExport + "\n";
+				    		}
+					}
+					else
+					{
+						fls.AppendFileString("\n PDF with preset export failed, preset file not found in master ai file path \n");
+		    				MessageQueue.ERROR += "\n PDF with preset export failed, preset file not found in master ai file path \n";
+					}
+				}
+				else if(MessageQueue.sPdfNormalised)
+				{
+					if(PostMultipleJobPreProcess())
+					{
+						docPath[2] = docPath[2].split("\\.")[0];
+						String resultPdfExport = "";
+						if (fileNameToSave != null)
+							resultPdfExport = SEng.PostDocumentMultipleProcess(fileName);
+						else
+						{
+							String[] dcPath = new String[4];
+							dcPath[0] = "";
+							dcPath[1] = "";
+							dcPath[2] = docPath[2];
+							dcPath[3] = docPath[1];
+							resultPdfExport = SEng.PostDocumentMultipleProcess(dcPath);
+						}
+				    		if(!resultPdfExport.equalsIgnoreCase("null"))
+				    		{
+				    			fls.AppendFileString("\n Normalized PDF export failed: " + resultPdfExport + " \n");
+				    			MessageQueue.ERROR += resultPdfExport + "\n";
+				    		}
+					}
+				}
+				
 			}
 
 			log.info(MessageQueue.WORK_ORDER + ": " + "Pdf and xml generated..");

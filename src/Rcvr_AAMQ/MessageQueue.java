@@ -17,9 +17,9 @@ public class MessageQueue extends Action {
 	  protected static String TORNADO_HOST = "";
 	  protected static String TORNADO_ENV = "";
 	  
-	  protected final static String TORNADO_HOST_LIVE_1 = "http://tornado.schawk.com/tornado";	//LIVE  
+	  protected final static String TORNADO_HOST_LIVE_1 = "http://172.28.42.157:8080/tornado";
 	  protected final static String TORNADO_HOST_LIVE_2 = "http://172.26.42.39:8080/tornado";	//LIVE alternative    //for Http 8080
-	  protected final static String TORNADO_HOST_LIVE_3 = "http://172.28.42.157:8080/tornado";   //LIVE alternative // for https 8443
+	  protected final static String TORNADO_HOST_LIVE_3 = "http://tornado.schawk.com/tornado";  //LIVE alternative // for https 8443
 	  
 	  protected final static String TORNADO_HOST_DEV = "http://172.28.42.151:8082/tornado"; // JAVA DEV
 	  protected final static String TORNADO_HOST_QA = "http://172.28.42.168:8080/tornado"; // JAVA QA
