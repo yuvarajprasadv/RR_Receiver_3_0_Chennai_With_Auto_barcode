@@ -197,9 +197,9 @@ public class SEng{
 		  }
  
      }
-	 
-	 public static void PostDocumentProcess(String arryStr[]) throws Exception  {
 
+
+	 public static void PostDocumentProcess(String arryStr[]) throws Exception  {
 		 Utils utils = new Utils();
 		 String pathString = utils.GetPathFromResource("PostDocument.js");
 		 String scriptString = "tell application "+ '"' +"Applications:Adobe Illustrator "+ MessageQueue.VERSION +":Adobe Illustrator.app"+'"' +"\n with timeout of "+ timeOutSec +" seconds \n"

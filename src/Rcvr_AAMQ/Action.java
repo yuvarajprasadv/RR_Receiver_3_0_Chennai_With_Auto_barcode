@@ -115,6 +115,7 @@ public class Action {
 						if(!utils.IsFolderExists(pdfOnlyPath))
 						{
 							log.error(MessageQueue.WORK_ORDER + ": " + "Directory doesn't exist: " + pdfOnlyPath);
+							fls.AppendFileString("Directory doesn't exist: " + pdfOnlyPath + "\n");
 							System.out.println("Directory doesn't exist: " + pdfOnlyPath);
 						}
 						else
@@ -139,6 +140,7 @@ public class Action {
 							if(!utils.IsFolderExists(dataCollectionPath))
 							{
 								log.error(MessageQueue.WORK_ORDER + ": " + "Directory doesn't exist: " + dataCollectionPath);
+								fls.AppendFileString("Directory doesn't exist: " + dataCollectionPath + "\n");
 								System.out.println("Directory doesn't exist: " + dataCollectionPath);
 							}
 							else
