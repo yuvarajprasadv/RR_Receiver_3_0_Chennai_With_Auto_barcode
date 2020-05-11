@@ -426,11 +426,11 @@ public class Utils {
 	   
 	   
 	   
-	   public boolean CreateNewDirectory(String newFolderPath) throws IOException
+	   public boolean CreateNewDirectory(String newFolderPath, boolean deleteExistDirectory) throws IOException
 	   {
 		   boolean success;
 		   File dirPath = new File(newFolderPath);
-		   if(dirPath.exists())
+		   if(dirPath.exists() && deleteExistDirectory)
 			   DeleteDirectory(newFolderPath);
 		   success = (new File(newFolderPath)).mkdirs();
 		   return success;

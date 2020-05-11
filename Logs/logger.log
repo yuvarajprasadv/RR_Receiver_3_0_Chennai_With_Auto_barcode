@@ -1058,3 +1058,61 @@
 2020-04-28 16:35:17 INFO  Action:689 - 401359263: Before calling update to server post method
 2020-04-28 16:35:17 ERROR Action:730 - 401359263: XML compare API response : 500
 2020-04-28 16:35:17 INFO  Action:360 - 401359263: Xml comparision completed..
+2020-05-07 10:23:56 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-05-07 10:23:56 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-05-07 10:25:10 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-05-07 10:25:10 INFO  Action:664 - 401359263: Message received acknowledgement for job id  'fc87ce55-2ef6-4ba4-84c0-6506e88d2cf3' 
+2020-05-07 10:25:12 INFO  Action:42 - 401359263: Illustrator activated to load file..
+2020-05-07 10:25:19 INFO  Action:48 - 401359263: AI file and other dependend file opening..
+2020-05-07 10:25:21 INFO  Action:80 - 401359263: TyphoonShadow called
+2020-05-07 10:25:25 INFO  Action:360 - 401359263: Pdf and xml generated..
+2020-05-07 10:25:34 INFO  Action:369 - 401359263: Completed process for job id  'fc87ce55-2ef6-4ba4-84c0-6506e88d2cf3' 
+2020-05-07 10:25:35 INFO  Action:702 - 401359263: Before calling update to server post method
+2020-05-07 10:25:35 ERROR Action:743 - 401359263: XML compare API response : 500
+2020-05-07 10:25:35 INFO  Action:373 - 401359263: Xml comparision completed..
+2020-05-07 10:26:11 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-05-07 10:26:11 INFO  Action:664 - 401359263: Message received acknowledgement for job id  '8b8fa78d-cb3d-45c7-8d83-de7c463ef9e8' 
+2020-05-07 10:26:11 INFO  Action:42 - 401359263: Illustrator activated to load file..
+2020-05-07 10:26:18 INFO  Action:48 - 401359263: AI file and other dependend file opening..
+2020-05-07 10:26:19 INFO  Action:80 - 401359263: TyphoonShadow called
+2020-05-07 10:26:30 INFO  Action:360 - 401359263: Pdf and xml generated..
+2020-05-07 10:26:39 INFO  Action:369 - 401359263: Completed process for job id  '8b8fa78d-cb3d-45c7-8d83-de7c463ef9e8' 
+2020-05-07 10:26:40 INFO  Action:702 - 401359263: Before calling update to server post method
+2020-05-07 10:26:40 ERROR Action:743 - 401359263: XML compare API response : 500
+2020-05-07 10:26:40 INFO  Action:373 - 401359263: Xml comparision completed..
+2020-05-07 10:27:10 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-05-07 10:27:11 INFO  Action:664 - 401359263: Message received acknowledgement for job id  '5637f4db-fe14-4af7-87e0-2e94839c45da' 
+2020-05-07 10:27:11 INFO  Action:42 - 401359263: Illustrator activated to load file..
+2020-05-07 10:27:17 INFO  Action:48 - 401359263: AI file and other dependend file opening..
+2020-05-07 10:27:18 INFO  Action:80 - 401359263: TyphoonShadow called
+2020-05-07 10:27:29 INFO  Action:360 - 401359263: Pdf and xml generated..
+2020-05-07 10:27:38 INFO  Action:369 - 401359263: Completed process for job id  '5637f4db-fe14-4af7-87e0-2e94839c45da' 
+2020-05-07 10:27:39 INFO  Action:702 - 401359263: Before calling update to server post method
+2020-05-07 10:27:39 ERROR Action:743 - 401359263: XML compare API response : 500
+2020-05-07 10:27:39 INFO  Action:373 - 401359263: Xml comparision completed..
+2020-05-07 10:46:10 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-05-07 10:46:10 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-05-07 13:29:20 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-05-07 13:29:20 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-05-08 10:14:00 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-05-08 10:14:01 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-05-08 10:14:19 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-05-08 10:14:19 INFO  Action:670 - 401359263: Message received acknowledgement for job id  'a16d16b0-f31b-4b9f-a8f4-a34b717bbece' 
+2020-05-08 10:14:34 INFO  Action:42 - 401359263: Illustrator activated to load file..
+2020-05-08 10:14:36 INFO  Action:48 - 401359263: AI file and other dependend file opening..
+2020-05-08 10:14:37 INFO  Action:80 - 401359263: TyphoonShadow called
+2020-05-08 10:14:37 INFO  Action:366 - 401359263: Pdf and xml generated..
+2020-05-08 10:14:46 INFO  Action:375 - 401359263: Completed process for job id  'a16d16b0-f31b-4b9f-a8f4-a34b717bbece' 
+2020-05-08 10:14:47 INFO  Action:712 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=a16d16b0-f31b-4b9f-a8f4-a34b717bbece
+2020-05-08 10:14:47 INFO  Action:716 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=a16d16b0-f31b-4b9f-a8f4-a34b717bbece
+2020-05-08 10:14:47 ERROR Action:900 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=a16d16b0-f31b-4b9f-a8f4-a34b717bbece - response : 500
+2020-05-08 10:14:47 INFO  Action:379 - 401359263: Xml comparision completed..
+2020-05-08 10:15:18 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-05-08 10:15:19 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-05-08 10:15:21 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-05-08 10:15:22 INFO  Action:670 - 401359263: Message received acknowledgement for job id  '6706873f-70cf-45c3-a1f4-04b1bfda5bc8' 
+2020-05-08 10:15:22 INFO  Action:42 - 401359263: Illustrator activated to load file..
+2020-05-08 10:15:32 INFO  Action:48 - 401359263: AI file and other dependend file opening..
+2020-05-08 10:15:38 INFO  Action:80 - 401359263: TyphoonShadow called
+2020-05-08 10:15:38 INFO  Action:366 - 401359263: Pdf and xml generated..
+2020-05-08 10:15:47 INFO  Action:375 - 401359263: Completed process for job id  '6706873f-70cf-45c3-a1f4-04b1bfda5bc8' 

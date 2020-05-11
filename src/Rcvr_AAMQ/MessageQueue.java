@@ -1,6 +1,8 @@
 package Rcvr_AAMQ;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.apache.log4j.Logger;
 
@@ -74,7 +76,9 @@ public class MessageQueue extends Action {
 					log.error(e.getMessage());
 				}
 		          String message = new String(body, "UTF-8");
-		          System.out.println(" [x] Received '" + envelope.getRoutingKey() + "':'" + message + "'");
+		          Date date = new Date();
+		          SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+		          System.out.println(" [x] Received: "+formatter.format(date)+" '" + envelope.getRoutingKey() + "':'" + message + "'");
 				  try {
 					  MESSAGE = message;
 					Action.acknowledge(message);
