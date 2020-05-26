@@ -533,6 +533,47 @@ public class Utils {
 		    	}
 
 	    }
+	    public boolean CheckSGKConfigExists(String pathString) throws IOException
+		{
+	    	 	FileSystem fls = new FileSystem();
+			try
+			{
+				File file = new File(pathString);
+				return file.exists();
+			}
+			catch (Exception Ex)
+			{
+				System.out.println("RR not exist or corrupted for version:" + MessageQueue.VERSION + ": " + Ex.getMessage());
+				fls.AppendFileString("\n RR not exist or corrupted for that version: " + pathString + " \n");
+				//Action.UpdateErrorStatusWithRemark("14", "RR plugin error: check illustrator version used or RR plugin doesn't exist for that version: " + "/Applications/Adobe Illustrator "+ MessageQueue.VERSION);
+				return false;
+			}
+		}
+	    
+	    public boolean CheckRRExistForVersion() throws Exception
+	    {
+	    		Path iniFilePath = Paths.get(ConvertToAbsolutePath("/Applications/Adobe Illustrator "+ MessageQueue.VERSION +"/Plug-ins.localized/Sgk/Configuration/RoadRunner.ini"));
+	    		Path errorTextFilePath = Paths.get(ConvertToAbsolutePath("/Applications/Adobe Illustrator "+ MessageQueue.VERSION +"/Plug-ins.localized/Sgk/Configuration/error.txt"));
+	    		Path reportTextFilePath = Paths.get(ConvertToAbsolutePath("/Applications/Adobe Illustrator "+ MessageQueue.VERSION +"/Plug-ins.localized/Sgk/Configuration/Report.txt"));
+	    		
+	    		if(!CheckSGKConfigExists(iniFilePath.toString()))
+	    		{
+	    			System.out.println("RR not exist or corrupted - for version:" + MessageQueue.VERSION);
+	    			return false;	
+	    		}
+	    		else if(!CheckSGKConfigExists(errorTextFilePath.toString()))
+	    		{
+	    			System.out.println("RR not exist or corrupted - for version:" + MessageQueue.VERSION);
+	    			return false;
+	    		}
+	    		else if(!CheckSGKConfigExists(reportTextFilePath.toString()))
+	    		{
+	    			System.out.println("RR not exist or corrupted - for version:" + MessageQueue.VERSION);
+	    			return false; 	
+	    		}
+	    		return true;
+	    		
+	    }
 	    
 	    
   

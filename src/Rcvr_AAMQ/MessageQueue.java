@@ -78,8 +78,9 @@ public class MessageQueue extends Action {
 		          String message = new String(body, "UTF-8");
 		          Date date = new Date();
 		          SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-		          System.out.println(" [x] Received: "+formatter.format(date)+" '" + envelope.getRoutingKey() + "':'" + message + "'");
-				  try {
+		          System.out.println("Received: "+formatter.format(date)+" '" + envelope.getRoutingKey() + "':'" + message + "'");
+		          log.info("Message received: "+formatter.format(date)+" '" + envelope.getRoutingKey() + "':'" + message + "'");
+		          try {
 					  MESSAGE = message;
 					Action.acknowledge(message);
 				} catch (Exception e) {

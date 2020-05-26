@@ -609,11 +609,16 @@ public class Action {
 	}
 
 	public static void acknowledge(String jsonString) throws Exception {
+		Utils utls = new Utils();
 		JSONObject jsonObj = JsonParser.ParseJson(jsonString);
 		JsonParser jsonPars = new JsonParser();
 		String version = (String) jsonObj.get("version");
 		MessageQueue.VERSION = version;
 		MessageQueue.WORK_ORDER = jsonPars.getJsonValueForKey(jsonObj, "WO");
+		Thread.sleep(1000);
+		
+		if (utls.CheckRRExistForVersion())
+		{
 		try {
 			MessageQueue.TORNADO_ENV = (String) jsonPars.getJsonValueFromGroupKey(jsonObj, "region", "env");
 			if (MessageQueue.TORNADO_ENV.equals("development"))
@@ -644,7 +649,6 @@ public class Action {
 		
 		// ***CHENNAi Spec req to copy from master template path***// This is to copy from different part to 050_Production.
 		
-		Utils utls = new Utils();
 		String copyFileStatus = "";
 		String sourceFile = jsonPars.getJsonValueFromGroupKey(jsonObj, "aaw", "MasterTemplate");
 		if(sourceFile != null)
@@ -677,6 +681,13 @@ public class Action {
 		} catch (Exception ex) {
 			log.error(MessageQueue.WORK_ORDER + ": " + "Msg Ack err: " + ex);
 		}
+	}
+	else {
+		ThrowException.CustomExit(new Exception("Invalid version: "),
+				"RR plugin error: check illustrator version used or RR plugin doesn't exist for that version: "
+						+ "/Applications/Adobe Illustrator " + MessageQueue.VERSION);
+
+	}
 
 	}
 
