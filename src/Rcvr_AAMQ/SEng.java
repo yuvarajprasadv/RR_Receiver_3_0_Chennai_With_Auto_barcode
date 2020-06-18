@@ -1,5 +1,6 @@
 package Rcvr_AAMQ;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.script.ScriptEngine; 
@@ -42,9 +43,40 @@ public class SEng{
 		catch(Exception ex)
 		{
 			return ex.getMessage();
+		} 
+	}
+	
+	public static  String ExecuteAppleScriptForJS(String appleScriptString) throws Exception
+	{
+		String result = null;
+		try
+		{
+			ScriptEngineManager mgr = new ScriptEngineManager();
+			List<ScriptEngineFactory> factories =
+			        mgr.getEngineFactories();
+			 for (ScriptEngineFactory factory : factories) 
+			 {
+			        List<String> extensions = factory.getExtensions(); 
+			        for (String ext : extensions) 
+			        { 
+			            mgr.registerEngineExtension(ext, factory); 
+			        }
+			        
+			        List<String> mimes = factory.getMimeTypes(); 
+			        for (String mime : mimes) 
+			        { 
+			        		mgr.registerEngineExtension(mime, factory); 
+			        }
+			 }
+			ScriptEngine engine = mgr.getEngineByName("AppleScriptEngine");
+			result = (engine.eval(appleScriptString)).toString();
+			return result;
 		}
-		
-        
+		catch(Exception ex)
+		{
+			result = ex.getMessage();
+			return result;
+		}  
 	}
 	
 	 public static  void CallAdobeIllustrator() throws Exception 
@@ -358,6 +390,102 @@ public class SEng{
 		   String scriptString = fls.ReadFile("/Users/yuvaraj/Desktop/Desktop 2/FindTheVersion.txt");
 		   System.out.println(ExecuteAppleScript(scriptString)); 
 	 }
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 public static String ExecuteJS(String jsFile, String fileSavePath) throws Exception  {
+		 Utils utils = new Utils();
+		 String pathString = utils.GetPathFromResource(jsFile);
+		 String scriptString = "tell application "+ '"' +"Applications:Adobe Illustrator "+ MessageQueue.VERSION +":Adobe Illustrator.app"+'"' +"\n with timeout of "+ timeOutSec +" seconds \n"
+			+ "do javascript (file "+'"'+pathString+'"'+")  with arguments {"+ '"'+fileSavePath+'"' +"} \n"
+			+ "end timeout \n"
+			+ "end tell";
+		 return ExecuteAppleScriptForJS(scriptString);
+	 	}
+	 
+	 public static String ExecuteJS(String jsFile, String fileSavePath, String[] jsProperties) throws Exception  {
+		 Utils utils = new Utils();
+		
+		 String pathString = utils.GetPathFromResource(jsFile);
+		 String scriptString = "tell application "+ '"' +"Applications:Adobe Illustrator "+ MessageQueue.VERSION +":Adobe Illustrator.app"+'"' +"\n with timeout of "+ timeOutSec +" seconds \n"
+			+ "do javascript (file "+'"'+pathString+'"'+")  with arguments {"+ '"'+fileSavePath+'"' +", "+ Arrays.deepToString(jsProperties) +"} \n"
+			+ "end timeout \n"
+			+ "end tell";
+		 
+		 return ExecuteAppleScriptForJS(scriptString);
+	 	}
+	 
+	 public static String ExecuteJS(String jsFile, String fileSavePath, String[] jsProperties, String extraArgument) throws Exception  {
+		 Utils utils = new Utils();
+		
+		 String pathString = utils.GetPathFromResource(jsFile);
+		 String scriptString = "tell application "+ '"' +"Applications:Adobe Illustrator "+ MessageQueue.VERSION +":Adobe Illustrator.app"+'"' +"\n with timeout of "+ timeOutSec +" seconds \n"
+			+ "do javascript (file "+'"'+pathString+'"'+")  with arguments {"+ '"'+fileSavePath+'"' +", "+ Arrays.deepToString(jsProperties) +", "+ extraArgument +"} \n"
+			+ "end timeout \n"
+			+ "end tell";
+		 return ExecuteAppleScriptForJS(scriptString);
+	 	}
+	 
+	 public static String ExportAsNormalPDF(String pdfSavePath, String jsonString) throws Exception  {
+		 JSUtils jsUtils = new JSUtils();
+		 String[] pdfProperties = {"acrobatLayers", "optimization"};
+		 jsonString = "{ \"acrobatLayers\":\"true\", \"optimization\":true}";
+		 
+		 return ExecuteJS("JS_ExportAsNormalPDF.js", pdfSavePath, jsUtils.ExtractJsonToStringArray(pdfProperties, jsonString));
+	 	}
+	 
+	 public static String ExportAsClipJPEG(String jpegSavePath, String jsonString) throws Exception  {
+		 JSUtils jsUtils = new JSUtils();
+		 String[] jpegProperties = {"antiAliasing", "qualitySetting", "artBoardClipping", "horizontalScale", "verticalScale"};
+		 jsonString = "{ \"antiAliasing\":\"true\", \"qualitySetting\":35, \"artBoardClipping\":false,\"horizontalScale\":500, \"verticalScale\":500}";
+		 
+		 return ExecuteJS("JS_ExportAsClipJPEG.js", jpegSavePath, jsUtils.ExtractJsonToStringArray(jpegProperties, jsonString));
+	 	}
+	 
+	 public static String ExportAsNormalJPEG(String jpegSavePath, String jsonString) throws Exception  {
+		 JSUtils jsUtils = new JSUtils();
+		 String[] jpegProperties = {"antiAliasing", "qualitySetting", "artBoardClipping", "horizontalScale", "verticalScale"};
+		 jsonString = "{ \"antiAliasing\":\"true\", \"qualitySetting\":70, \"artBoardClipping\":true,\"horizontalScale\":100, \"verticalScale\":100}";
+		 
+		 return ExecuteJS("JS_ExportAsClipJPEG.js", jpegSavePath, jsUtils.ExtractJsonToStringArray(jpegProperties, jsonString));
+
+	 	}
+	 
+	 
+	 public static String ExportAsNormalisedPDF(String pdfSavePath, String jsonString) throws Exception  {
+		 JSUtils jsUtils = new JSUtils();
+		 String[] jpegProperties = {"antiAliasing", "qualitySetting", "artBoardClipping", "horizontalScale", "verticalScale"};
+		 jsonString = "{ \"antiAliasing\":\"true\", \"qualitySetting\":70, \"artBoardClipping\":true,\"horizontalScale\":100, \"verticalScale\":100}";
+		 
+		 return ExecuteJS("JS_ExportAsClipJPEG.js", pdfSavePath, jsUtils.ExtractJsonToStringArray(jpegProperties, jsonString), MessageQueue.VERSION );
+
+	 	}
+	 
+	 public static String SaveDocAs(String docSavePath, String jsonString) throws Exception  {
+		 JSUtils jsUtils = new JSUtils();
+		 String[] docProperties = {"fontSubsetThreshold", "pdfCompatible"};
+		 jsonString = "{ \"fontSubsetThreshold\":0, \"pdfCompatible\":true}";
+
+		 return ExecuteJS("JS_SaveDocAs.js", docSavePath, jsUtils.ExtractJsonToStringArray(docProperties, jsonString));
+	 	}
+	 
+	 
 	 
 	 public static void main(String[] args) throws Exception
 	 {

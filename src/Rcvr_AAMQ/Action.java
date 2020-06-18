@@ -1,5 +1,6 @@
 package Rcvr_AAMQ;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -93,7 +94,7 @@ public class Action {
 			String printXML = jspr.getJsonValueFromGroupKey(jsonObj, "region", "printXML");
 			if (printXML == null)
 				printXML = "false";
-			if (printXML.equalsIgnoreCase("true"))
+			if(printXML.equalsIgnoreCase("true"))
 			{
 
 			String[] docPath = jspr.getPath(jsonObj);
@@ -105,28 +106,35 @@ public class Action {
 				fileName[2] = GetLastIndex(docPath[2]) + "/" + fileNameToSave;
 				fileName[3] = GetLastIndex(docPath[1]) + "/" + fileNameToSave;
 			}
-
+			
+			boolean clipJPEG = true;
+			boolean bmpformat = true;
+			boolean pdfOnly = true;
+			
 			if (MessageQueue.sPdfNormal) {
 				String barCodeVisible = jspr.getJsonValueFromGroupKey(jsonObj, "region", "barCodeVisible");
 				ImageConvertor imageConvertor = new ImageConvertor();
 				if (fileNameToSave != null) {
 					{
-						String pdfOnlyPath = jspr.getJsonValueFromGroupKey(jsonObj, "aaw", "Path") + "/090_Deliverables/PDF_ONLY/";
-						if(!utils.IsFolderExists(pdfOnlyPath))
+						SEng.SaveDocAs(fileName[3], "");
+						SEng.ExportAsNormalPDF(fileName[1], "");
+						
+						if(pdfOnly)
 						{
-							/*
-							log.error(MessageQueue.WORK_ORDER + ": " + "Directory doesn't exist: " + pdfOnlyPath);
-							fls.AppendFileString("Directory doesn't exist: " + pdfOnlyPath + "\n");
-							System.out.println("Directory doesn't exist: " + pdfOnlyPath);
-							*/
+							String pdfOnlyPath = jspr.getJsonValueFromGroupKey(jsonObj, "aaw", "Path") + "/090_Deliverables/PDF_ONLY/";
+							if(!utils.IsFolderExists(pdfOnlyPath))
+							{
+								utils.CreateNewDirectory(pdfOnlyPath, false);
+								fileName[2] = pdfOnlyPath + fileNameToSave;
+								
+							}
+							else
+								fileName[2] = pdfOnlyPath + fileNameToSave;
 							
-							utils.CreateNewDirectory(pdfOnlyPath, false);
-							fileName[2] = pdfOnlyPath + fileNameToSave;
-							
+							SEng.ExportAsNormalPDF(fileName[2], "");
 						}
-						else
-							fileName[2] = pdfOnlyPath + fileNameToSave;
-						SEng.PostDocumentProcessForSingleJobFilename(fileName);
+						
+						
 					}
 					if (printXML != null)
 						if (printXML.equalsIgnoreCase("true")) {
@@ -145,26 +153,40 @@ public class Action {
 							String dataCollectionPath = jspr.getJsonValueFromGroupKey(jsonObj, "aaw", "Path") + "/090_Deliverables/Data_Collection/";
 							if(!utils.IsFolderExists(dataCollectionPath))
 							{
-								/*
-								log.error(MessageQueue.WORK_ORDER + ": " + "Directory doesn't exist: " + dataCollectionPath);
-								fls.AppendFileString("Directory doesn't exist: " + dataCollectionPath + "\n");
-								System.out.println("Directory doesn't exist: " + dataCollectionPath);
-								*/
 								utils.CreateNewDirectory(dataCollectionPath, false);
 								fileName[2] = dataCollectionPath + fileNameToSave;
 								
 							}
 							else
 								fileName[2] = dataCollectionPath + fileNameToSave;
-							
-							
-							SEng.PostDocumentProcessForSingleJobFilenameJPEG(fileName);
 
-							String imageFormat = "bmp";
-							String inputImagePath = fileName[2] + ".jpg";
-							String outputImagePath = fileName[2] + "." + imageFormat;
-							Thread.sleep(1000);
-							imageConvertor.ConvertImageTo(inputImagePath, outputImagePath, imageFormat);
+							
+							if(clipJPEG)
+								SEng.ExportAsClipJPEG(fileName[2], "");
+
+							if(bmpformat)
+							{
+								if(clipJPEG == false)
+									SEng.ExportAsClipJPEG(fileName[2], "");
+								
+								String imageFormat = "bmp";
+								String inputImagePath = fileName[2] + ".jpg";
+								String outputImagePath = fileName[2] + "." + imageFormat;
+								Thread.sleep(1000);
+								
+								if(!utils.FileExists(inputImagePath))
+								{
+									SEng.ExportAsClipJPEG(fileName[2], "");
+								}
+									
+								imageConvertor.ConvertImageTo(inputImagePath, outputImagePath, imageFormat);
+								
+								if(clipJPEG == false)
+								{
+									File file = new File(fileName[2] + ".jpg");
+									file.delete();
+								}
+							}
 						}
 				} 
 				else 
@@ -176,22 +198,25 @@ public class Action {
 					pathArray[2] = GetLastIndex(docPath[2]);
 					pathArray[3] = GetLastIndex(docPath[1]);
 					
+					SEng.SaveDocAs(pathArray[3], "");
+					SEng.ExportAsNormalPDF(pathArray[1], "");
 					
-					String pdfOnlyPath = jspr.getJsonValueFromGroupKey(jsonObj, "aaw", "Path") + "/090_Deliverables/PDF_ONLY/";
-					if(!utils.IsFolderExists(pdfOnlyPath))
+					if(pdfOnly)
 					{
-						/*log.error(MessageQueue.WORK_ORDER + ": " + "Directory doesn't exist: " + pdfOnlyPath);
-						System.out.println("Directory doesn't exist: " + pdfOnlyPath);*/
+						String pdfOnlyPath = jspr.getJsonValueFromGroupKey(jsonObj, "aaw", "Path") + "/090_Deliverables/PDF_ONLY/";
+						if(!utils.IsFolderExists(pdfOnlyPath))
+						{
+							utils.CreateNewDirectory(pdfOnlyPath, false);
+							pathArray[2] = pdfOnlyPath +  "/" + jspr.getJsonValueForKey(jsonObj, "WO");
+						}
+						else
+							pathArray[2] = pdfOnlyPath +  "/" + jspr.getJsonValueForKey(jsonObj, "WO");
 						
-						utils.CreateNewDirectory(pdfOnlyPath, false);
-						pathArray[2] = pdfOnlyPath +  "/" + jspr.getJsonValueForKey(jsonObj, "WO");
+						SEng.ExportAsNormalPDF(pathArray[2], "");
 					}
-					else
-						pathArray[2] = pdfOnlyPath +  "/" + jspr.getJsonValueForKey(jsonObj, "WO");
 					
-					
-				//	SEng.PostDocumentProcess(jspr.getPath(jsonObj));
-					SEng.PostDocumentProcess(pathArray);
+
+					//SEng.PostDocumentProcess(pathArray);
 					
 					if (printXML != null)
 						if (printXML.equalsIgnoreCase("true")) {
@@ -213,24 +238,32 @@ public class Action {
 							String dataCollectionPath = jspr.getJsonValueFromGroupKey(jsonObj, "aaw", "Path") + "/090_Deliverables/Data_Collection/";
 							if(!utils.IsFolderExists(dataCollectionPath))
 							{
-								/*log.error(MessageQueue.WORK_ORDER + ": " + "Directory doesn't exist: " + dataCollectionPath);
-								System.out.println("Directory doesn't exist: " + dataCollectionPath);
-								*/
 								utils.CreateNewDirectory(dataCollectionPath, false);
 								pathArray[2] = dataCollectionPath + "/" + jspr.getJsonValueForKey(jsonObj, "WO");
 							}
 							else
 								pathArray[2] = dataCollectionPath + "/" + jspr.getJsonValueForKey(jsonObj, "WO");
 							
-							
-							SEng.PostDocumentProcessJPEG(pathArray);
+							if(clipJPEG)
+								SEng.ExportAsClipJPEG(pathArray[2], "");
 
-							String imageFormat = "bmp";
-							String inputImagePath = pathArray[2] + ".jpg";
-							String outputImagePath = pathArray[2] + "." + imageFormat;
-							Thread.sleep(1000);
-
-							imageConvertor.ConvertImageTo(inputImagePath, outputImagePath, imageFormat);
+							if(bmpformat)
+							{
+								if(clipJPEG == false)
+									SEng.ExportAsClipJPEG(pathArray[2], "");
+								
+								String imageFormat = "bmp";
+								String inputImagePath = pathArray[2] + ".jpg";
+								String outputImagePath = pathArray[2] + "." + imageFormat;
+								Thread.sleep(1000);
+								imageConvertor.ConvertImageTo(inputImagePath, outputImagePath, imageFormat);
+								
+								if(clipJPEG == false)
+								{
+									File file = new File(pathArray[2] + ".jpg");
+									file.delete();
+								}
+							}
 						}
 				}
 			} else if (MessageQueue.sPdfPreset) {
@@ -288,20 +321,37 @@ public class Action {
 				String[] docPath = jspr.getPath(jsonObj);
 				String fileNameToSave = xmlUtil.getFileNameFromElement((docPath[0].split("~"))[0]);
 				String[] fileName = new String[4];
+				String[] pathArray = new String[4];
 				if(fileNameToSave != null)
 				{
 					fileName[0] = "none"; //dummy
-					fileName[1] = "none"; //dummy
+					fileName[1] = "none";
 					fileName[2] = GetLastIndex(docPath[2]) + "/" + fileNameToSave;
 					fileName[3] = GetLastIndex(docPath[1]) + "/" + fileNameToSave;
+				}
+				else
+				{
+					pathArray[0] = "none"; // dummy
+					pathArray[1] = "none";
+					pathArray[2] = GetLastIndex(docPath[2]) + jspr.getJsonValueForKey(jsonObj, "WO");
+					pathArray[3] = GetLastIndex(docPath[1]);
 				}
 				
 				if(MessageQueue.sPdfNormal)
 				{
 					if (fileNameToSave != null)
-						SEng.PostDocumentProcessForSingleJobFilename(fileName);
+					{
+					//	SEng.PostDocumentProcessForSingleJobFilename(fileName);
+						System.out.println( SEng.SaveDocAs(fileName[3], ""));
+						SEng.ExportAsNormalPDF(fileName[2], "");
+						
+					}
 					else
-						SEng.PostDocumentProcess(jspr.getPath(jsonObj));
+					{
+						//SEng.PostDocumentProcess(jspr.getPath(jsonObj));
+						SEng.SaveDocAs(pathArray[3], "");
+						SEng.ExportAsNormalPDF(pathArray[2], "");
+					}
 				}
 				else if(MessageQueue.sPdfPreset)
 				{
@@ -375,10 +425,10 @@ public class Action {
 		log.info(MessageQueue.WORK_ORDER + ": " + "Completed process for job id  '" + MessageQueue.MSGID + "' ");
 		Thread.sleep(1000);
 
-		Action.UpdateToServer(jsonObj, "xmlcompare");
+		Action.UpdateToServer("xmlcompare", true);
 		log.info(MessageQueue.WORK_ORDER + ": " + "Xml comparision completed..");
 
-		Action.UpdateReport(jsonObj, fls.ReadFileReport("Report.txt"));
+		Action.UpdateReport(fls.ReadFileReport("Report.txt"));
 
 		MessageQueue.ERROR += errorMsg;
 		Action.sendStatusMsg((String) MessageQueue.ERROR);
@@ -518,13 +568,13 @@ public class Action {
 		sendRespStatusMsg("delivered");
 		log.info(MessageQueue.WORK_ORDER + ": " + "Completed process for job id  '" + MessageQueue.MSGID + "' ");
 
-		Action.UpdateToServer(jsonObj, "xmlcompare");
+		Action.UpdateToServer("xmlcompare", true);
 		// Action.UpdateToServer(jsonObj, "xmlcompare&type=multi");
 		log.info(MessageQueue.WORK_ORDER + ": " + "Xml comparision completed..");
 
 		Action.sendStatusMsg(arrConsolidateErrorReport.toString());
 		log.info(MessageQueue.WORK_ORDER + ": " + "Completed sending error report..");
-		Action.UpdateReport(jsonObj, arrConsolidateDetailedReport.toString());
+		Action.UpdateReport(arrConsolidateDetailedReport.toString());
 		log.info(MessageQueue.WORK_ORDER + ": " + "Completed sending of detailed report..");
 
 		MessageQueue.ERROR = "";
@@ -642,6 +692,7 @@ public class Action {
 		FileSystem fls = new FileSystem();
 		fls.CreateFile("Report.txt");
 		fls.CreateFile("error.txt");
+		fls.CreateFile("Export.txt");
 
 		INetwork iNet = new INetwork();
 
@@ -712,392 +763,389 @@ public class Action {
 
 	}
 	
-	public static void UpdateToServer(JSONObject jsonObj, String actionStr) throws IOException {
+	public static void UpdateToServer(String actionStr, boolean repeatCheck) throws IOException {
 		URL urlStr = new URL(
-				MessageQueue.TORNADO_HOST + "/rest/pub/aaw/" + actionStr + "?mqid=" + (String) jsonObj.get("Id"));
-		try 
-		{
+				MessageQueue.TORNADO_HOST + "/rest/pub/aaw/" + actionStr + "?mqid=" + MessageQueue.MSGID);
+		try {
 			HttpsConnection httpsCon = new HttpsConnection();
 			HttpURLConnection connection;
 
 			log.info(MessageQueue.WORK_ORDER + ": " + "Before calling url: " + urlStr.toString());
 			connection = (httpsCon.getURLConnection(urlStr, true));
-			if(connection != null)
-			{
+			log.info(MessageQueue.WORK_ORDER + ": " + "response for url: " + urlStr.toString() + " - response " + connection.getResponseCode());
+			if (connection != null) {
 				log.info(MessageQueue.WORK_ORDER + ": " + "Waiting for response of url: " + urlStr.toString());
 				connection.setConnectTimeout(60000 * 6);
 				connection.setReadTimeout(60000 * 6);
 			}
-			if(connection == null)
-			{
-			//	System.out.println("XML compare : API connection failed");
-				log.error(MessageQueue.WORK_ORDER + ": " + "XML compare : API connection failed - "+ urlStr.toString());
+			if (connection == null) {
+				// System.out.println("XML compare : API connection failed");
+				log.error(
+						MessageQueue.WORK_ORDER + ": " + "XML compare : API connection failed - " + urlStr.toString());
 			}
-			 if((connection.getResponseCode() != HttpURLConnection.HTTP_OK || connection == null) && MessageQueue.TORNADO_HOST.equals(MessageQueue.TORNADO_HOST_LIVE_1) && MessageQueue.TORNADO_ENV.equals("production"))
-			{
-				 
-					if(connection != null)
-						connection.disconnect();
-					
-					HttpsConnection httpsCon2 = new HttpsConnection();
-					HttpURLConnection connection2;
-		
-					URL urlStr_2 = new URL(
-							MessageQueue.TORNADO_HOST_LIVE_2 + "/rest/pub/aaw/" + actionStr + "?mqid=" + (String) jsonObj.get("Id"));
-					try
-					{
-					
+			if ((connection.getResponseCode() != HttpURLConnection.HTTP_OK || connection == null)
+					&& MessageQueue.TORNADO_HOST.equals(MessageQueue.TORNADO_HOST_LIVE_1)
+					&& MessageQueue.TORNADO_ENV.equals("production")) {
+
+				if (connection != null)
+					connection.disconnect();
+
+				HttpsConnection httpsCon2 = new HttpsConnection();
+				HttpURLConnection connection2;
+
+				URL urlStr_2 = new URL(MessageQueue.TORNADO_HOST_LIVE_2 + "/rest/pub/aaw/" + actionStr + "?mqid="
+						+  MessageQueue.MSGID);
+				try {
+
 					log.info(MessageQueue.WORK_ORDER + ": " + "Before calling url: " + urlStr_2.toString());
 					connection2 = (httpsCon2.getURLConnection(urlStr_2, true));
-					
-					if(connection2 != null)
-					{
-						log.info(MessageQueue.WORK_ORDER + ": " + "Waiting for response of url: " + urlStr_2.toString());
+					log.info(MessageQueue.WORK_ORDER + ": " + "response for url: " + urlStr_2.toString() + " - response " + connection2.getResponseCode());
+
+					if (connection2 != null) {
+						log.info(
+								MessageQueue.WORK_ORDER + ": " + "Waiting for response of url: " + urlStr_2.toString());
 						connection2.setConnectTimeout(60000 * 6);
 						connection2.setReadTimeout(60000 * 6);
 					}
-					if(connection2 == null)
-					{
-					//	System.out.println("XML compare : API connection failed");
-						log.error(MessageQueue.WORK_ORDER + ": " + "XML compare : API connection failed - " + urlStr_2.toString());
+					if (connection2 == null) {
+						// System.out.println("XML compare : API connection failed");
+						log.error(MessageQueue.WORK_ORDER + ": " + "XML compare : API connection failed - "
+								+ urlStr_2.toString());
 					}
-					if((connection2.getResponseCode() != HttpURLConnection.HTTP_OK || connection2 == null) && MessageQueue.TORNADO_HOST.equals(MessageQueue.TORNADO_HOST_LIVE_2) && MessageQueue.TORNADO_ENV.equals("production"))
-					{
-						if(connection2 != null)
+					if ((connection2.getResponseCode() != HttpURLConnection.HTTP_OK || connection2 == null)
+							&& !(MessageQueue.TORNADO_HOST.equals(MessageQueue.TORNADO_HOST_LIVE_2))
+							&& MessageQueue.TORNADO_ENV.equals("production")) {
+						if (connection2 != null)
 							connection2.disconnect();
-						URL urlStr_3 = new URL(
-								MessageQueue.TORNADO_HOST_LIVE_3 + "/rest/pub/aaw/" + actionStr + "?mqid=" + (String) jsonObj.get("Id"));
-						try
-						{
-						HttpsConnection httpsCon3= new HttpsConnection();
-						HttpURLConnection connection3;
-						
-						log.info(MessageQueue.WORK_ORDER + ": " + "Before calling url: " + urlStr_3.toString());
-						connection3 = (httpsCon3.getURLConnection(urlStr_3, true));
-						
-						if(connection3 != null)
-						{
-							log.info(MessageQueue.WORK_ORDER + ": " + "Waiting for response of url: " + urlStr_3.toString());
-							connection3.setConnectTimeout(60000 * 6);
-							connection3.setReadTimeout(60000 * 6);
-						}
-						if(connection3 == null)
-						{
-							System.out.println("XML compare : API connection failed");
-							log.error(MessageQueue.WORK_ORDER + ": " + "XML compare : API connection failed - " +  urlStr_3.toString());
-							System.out.println("Road Runner not received any response - connection time out");
-						}
-						else
-						{
-							System.out.println("XML compare : " + connection3.getResponseCode());
-							log.error(MessageQueue.WORK_ORDER + ": " + "XML compare API: "+ MessageQueue.TORNADO_HOST_LIVE_3 + "/rest/pub/aaw/" + actionStr + "?mqid=" + (String) jsonObj.get("Id")  +" - response : " + connection3.getResponseCode());
-						}
-						
-						
-						if(connection3 != null)
-							connection3.disconnect();
-						}
-						catch(java.net.SocketTimeoutException ex3)
-						{
-							log.error(MessageQueue.WORK_ORDER + ": " + urlStr_3.toString()  + " Http response time out: " + (String)ex3.getMessage());
-							System.out.println("XML compare : Road Runner not received any response: " +  (String) ex3.getMessage());
-						}
-						catch (IOException ex3)
-						{
-							log.error(MessageQueue.WORK_ORDER + ": " + urlStr_3.toString()   + " Http IO exception: " + ex3.getMessage());
-							System.out.println("XML compare : Road Runner not received any response: " +  (String) ex3.getMessage());
-						}
-						catch (Exception ex3) 
-						{
-							log.error(MessageQueue.WORK_ORDER + ": " + urlStr_3.toString()   + " Error Http connection: " + (String) ex3.getMessage());
-							System.out.println("XML compare : Road Runner not received any response: " +  (String) ex3.getMessage());
-						}
-						
-					}
-					else
-					{
-						System.out.println("XML compare: " + connection.getResponseCode());
-						//	log.error(MessageQueue.WORK_ORDER + ": " + "XML compare API response : " + connection.getResponseCode());
-							log.error(MessageQueue.WORK_ORDER + ": " + "XML compare API: "+ MessageQueue.TORNADO_HOST_LIVE_2 + "/rest/pub/aaw/" + actionStr + "?mqid=" + (String) jsonObj.get("Id")  +" - response : " + connection.getResponseCode());
-							
-					}
-					
-					
-					if(connection != null)
-						connection.disconnect();
-					}
-					catch(java.net.SocketTimeoutException ex2)
-					{
-						
-						if(MessageQueue.TORNADO_HOST.equals(MessageQueue.TORNADO_HOST_LIVE_2) && MessageQueue.TORNADO_ENV.equals("production"))
-						{
-							URL urlStr_3 = new URL(
-									MessageQueue.TORNADO_HOST_LIVE_3 + "/rest/pub/aaw/" + actionStr + "?mqid=" + (String) jsonObj.get("Id"));
-							try
-							{
-							HttpsConnection httpsCon3= new HttpsConnection();
+						URL urlStr_3 = new URL(MessageQueue.TORNADO_HOST_LIVE_3 + "/rest/pub/aaw/" + actionStr
+								+ "?mqid=" +  MessageQueue.MSGID);
+						try {
+							HttpsConnection httpsCon3 = new HttpsConnection();
 							HttpURLConnection connection3;
-							
+
 							log.info(MessageQueue.WORK_ORDER + ": " + "Before calling url: " + urlStr_3.toString());
 							connection3 = (httpsCon3.getURLConnection(urlStr_3, true));
-							if(connection3 != null)
-							{
-								log.info(MessageQueue.WORK_ORDER + ": " + "wating for response - " + urlStr_3.toString());
+							log.info(MessageQueue.WORK_ORDER + ": " + "response for url: " + urlStr_3.toString() + " - response " + connection3.getResponseCode());
+							
+
+							if (connection3 != null) {
+								log.info(MessageQueue.WORK_ORDER + ": " + "Waiting for response of url: "
+										+ urlStr_3.toString());
 								connection3.setConnectTimeout(60000 * 6);
 								connection3.setReadTimeout(60000 * 6);
 							}
-							if(connection3 == null)
-							{
+							if (connection3 == null) {
 								System.out.println("XML compare : API connection failed");
-								log.error(MessageQueue.WORK_ORDER + ": " + "XML compare : API connection failed");
-								System.out.println("XML compare : Road Runner not received any response " + "'connection not established'");
+								log.error(MessageQueue.WORK_ORDER + ": " + "XML compare : API connection failed - "
+										+ urlStr_3.toString());
+							} else {
+								log.error(MessageQueue.WORK_ORDER + ": " + "XML compare API: "
+										+ MessageQueue.TORNADO_HOST_LIVE_3 + "/rest/pub/aaw/" + actionStr + "?mqid="
+										+  MessageQueue.MSGID + " - response : "
+										+ connection3.getResponseCode());
 								
-							}
-							else
-							{
-								System.out.println("XML compare : " + connection3.getResponseCode());
-								log.error(MessageQueue.WORK_ORDER + ": " + "XML compare API: "+ MessageQueue.TORNADO_HOST_LIVE_3 + "/rest/pub/aaw/" + actionStr + "?mqid=" + (String) jsonObj.get("Id")  +" - response : " + connection3.getResponseCode());
-							}
+								if(connection3.getResponseCode() != HttpURLConnection.HTTP_OK)
+								{
+									if(repeatCheck)
+										UpdateToServer(actionStr, false);
+									else
+									{
+										System.out.println("XML compare : " + connection3.getResponseCode());
+									}
+								}
+								else
+									System.out.println("XML compare : " + connection3.getResponseCode());
 							
-							
-							if(connection3 != null)
+							}
+
+							if (connection3 != null)
 								connection3.disconnect();
-							}
-							catch(java.net.SocketTimeoutException ex3)
-							{
-								log.error(MessageQueue.WORK_ORDER + ": " + MessageQueue.TORNADO_HOST_LIVE_3 + " Http response time out: " + (String)ex3.getMessage());
-								System.out.println("XML compare : Road Runner not received any response: " +  (String) ex3.getMessage());
-							}
-							catch (IOException ex3)
-							{
-								log.error(MessageQueue.WORK_ORDER + ": " + urlStr_3.toString()   + " Http IO exception: " + ex3.getMessage());
-								System.out.println("XML compare : Road Runner not received any response: " +  (String) ex3.getMessage());
-								
-							}
-							catch (Exception ex3) 
-							{
-								log.error(MessageQueue.WORK_ORDER + ": " + urlStr_3.toString()   + " Error Http connection: " + (String) ex3.getMessage());
-								System.out.println("XML compare : Road Runner not received any response: " +  (String) ex3.getMessage());
-								
-							}
-						
+						} catch (java.net.SocketTimeoutException ex3) {
+							log.error(MessageQueue.WORK_ORDER + ": " + urlStr_3.toString() + " Http response time out: "
+									+ (String) ex3.getMessage());
+						} catch (IOException ex3) {
+							log.error(MessageQueue.WORK_ORDER + ": " + urlStr_3.toString() + " Http IO exception: "
+									+ ex3.getMessage());
+						} catch (Exception ex3) {
+							log.error(MessageQueue.WORK_ORDER + ": " + urlStr_3.toString() + " Error Http connection: "
+									+ (String) ex3.getMessage());
 						}
-						else
-						{
-						
-						log.error(MessageQueue.WORK_ORDER + ": " +  MessageQueue.TORNADO_HOST_LIVE_2 + " Http response time out: " + (String)ex2.getMessage());
-						System.out.println("Http response time out: " + (String)ex2.getMessage());
-						}
-					
-					}
-					catch (IOException ex2)
-					{
-						log.error(MessageQueue.WORK_ORDER + ": " + urlStr_2.toString()   + " Http IO exception: " + ex2.getMessage());
-						System.out.println("XML compare : Road Runner not received any response: " +  (String) ex2.getMessage());
-						
-					}
-					catch (Exception ex2) 
-					{
-						log.error(MessageQueue.WORK_ORDER + ": " + urlStr_2.toString()   + " Error Http connection: " + (String) ex2.getMessage());
-						System.out.println("XML compare: Road Runner not received any response: " +  (String) ex2.getMessage());
-						
-					}
 
-				}
-				else
-				{
-					System.out.println("XML compare: " + connection.getResponseCode());
-				//	log.error(MessageQueue.WORK_ORDER + ": " + "XML compare API response : " + connection.getResponseCode());
-					log.error(MessageQueue.WORK_ORDER + ": " + "XML compare API: "+ MessageQueue.TORNADO_HOST + "/rest/pub/aaw/" + actionStr + "?mqid=" + (String) jsonObj.get("Id")  +" - response : " + connection.getResponseCode());
-					
-				}
-
-			if(connection != null)
-			connection.disconnect();
-			
-		}
-		catch (java.net.SocketTimeoutException ex)
-		{
-			//Connect1 catch
-			
-			if(MessageQueue.TORNADO_HOST.equals(MessageQueue.TORNADO_HOST_LIVE_1) && MessageQueue.TORNADO_ENV.equals("production"))
-			{
-
-					HttpsConnection httpsCon2 = new HttpsConnection();
-					HttpURLConnection connection2;
-		
-					URL urlStr_2 = new URL(
-							MessageQueue.TORNADO_HOST_LIVE_2 + "/rest/pub/aaw/" + actionStr + "?mqid=" + (String) jsonObj.get("Id"));
-					try
-					{
-					
-					log.info(MessageQueue.WORK_ORDER + ": " + "Before calling url: " + urlStr_2.toString());
-					connection2 = (httpsCon2.getURLConnection(urlStr_2, true));
-					
-					if(connection2 != null)
-					{
-						log.info(MessageQueue.WORK_ORDER + ": " + "Waiting for response of url: " + urlStr_2.toString());
-						connection2.setConnectTimeout(60000 * 6);
-						connection2.setReadTimeout(60000 * 6);
-					}
-					if(connection2 == null)
-					{
-						log.error(MessageQueue.WORK_ORDER + ": " + "XML compare : API connection failed - " + urlStr_2.toString());
-					}
-					if((connection2.getResponseCode() != HttpURLConnection.HTTP_OK || connection2 == null) && MessageQueue.TORNADO_HOST.equals(MessageQueue.TORNADO_HOST_LIVE_2) && MessageQueue.TORNADO_ENV.equals("production"))
-					{
-						if(connection2 != null)
-							connection2.disconnect();
-						URL urlStr_3 = new URL(
-								MessageQueue.TORNADO_HOST_LIVE_3 + "/rest/pub/aaw/" + actionStr + "?mqid=" + (String) jsonObj.get("Id"));
-						try
-						{
-						HttpsConnection httpsCon3= new HttpsConnection();
-						HttpURLConnection connection3;
-						
-						log.info(MessageQueue.WORK_ORDER + ": " + "Before calling url: " + urlStr_3.toString());
-						connection3 = (httpsCon3.getURLConnection(urlStr_3, true));
-						
-						if(connection3 != null)
-						{
-							log.info(MessageQueue.WORK_ORDER + ": " + "Waiting for response of url: " + urlStr_3.toString());
-							connection3.setConnectTimeout(60000 * 6);
-							connection3.setReadTimeout(60000 * 6);
-						}
-						if(connection3 == null)
-						{
-							System.out.println("XML compare : API connection failed");
-							log.error(MessageQueue.WORK_ORDER + ": " + "XML compare : API connection failed - " +  urlStr_3.toString());
-							System.out.println( "XML compare: Road Runner not received any response - connection time out");
-						}
-						else
-						{
-							System.out.println("XML compare : " + connection3.getResponseCode());
-							log.error(MessageQueue.WORK_ORDER + ": " + "XML compare API: "+ MessageQueue.TORNADO_HOST_LIVE_3 + "/rest/pub/aaw/" + actionStr + "?mqid=" + (String) jsonObj.get("Id")  +" - response : " + connection3.getResponseCode());
-						}
-						
-						
-						if(connection3 != null)
-							connection3.disconnect();
-						}
-						catch(java.net.SocketTimeoutException ex3)
-						{
-							log.error(MessageQueue.WORK_ORDER + ": " + urlStr_3.toString()  + " Http response time out: " + (String)ex3.getMessage());
-							System.out.println("XML compare: Road Runner not received any response: " +  (String) ex3.getMessage());
-						}
-						catch (IOException ex3)
-						{
-							log.error(MessageQueue.WORK_ORDER + ": " + urlStr_3.toString()   + " Http IO exception: " + ex3.getMessage());
-							System.out.println("XML compare: Road Runner not received any response: " +  (String) ex3.getMessage());
-						}
-						catch (Exception ex3) 
-						{
-							log.error(MessageQueue.WORK_ORDER + ": " + urlStr_3.toString()   + " Error Http connection: " + (String) ex3.getMessage());
-							System.out.println("XML compare: Road Runner not received any response: " +  (String) ex3.getMessage());
-						}
-						
-					}
-					else
-					{
+					} else {
 						System.out.println("XML compare: " + connection2.getResponseCode());
-						log.error(MessageQueue.WORK_ORDER + ": " + "XML compare API: "+ MessageQueue.TORNADO_HOST_LIVE_2 + "/rest/pub/aaw/" + actionStr + "?mqid=" + (String) jsonObj.get("Id")  +" - response : " + connection2.getResponseCode());
-					}
+						// log.error(MessageQueue.WORK_ORDER + ": " + "XML compare API response : " +
+						// connection.getResponseCode());
+						log.error(MessageQueue.WORK_ORDER + ": " + "XML compare API: "
+								+ MessageQueue.TORNADO_HOST_LIVE_2 + "/rest/pub/aaw/" + actionStr + "?mqid="
+								+  MessageQueue.MSGID + " - response : " + connection2.getResponseCode());
 
 					}
-					catch(java.net.SocketTimeoutException ex2)
-					{
-						
-						if(MessageQueue.TORNADO_HOST.equals(MessageQueue.TORNADO_HOST_LIVE_2) && MessageQueue.TORNADO_ENV.equals("production"))
-						{
-							URL urlStr_3 = new URL(
-									MessageQueue.TORNADO_HOST_LIVE_3 + "/rest/pub/aaw/" + actionStr + "?mqid=" + (String) jsonObj.get("Id"));
-							try
-							{
-							HttpsConnection httpsCon3= new HttpsConnection();
+
+					if (connection != null)
+						connection.disconnect();
+				} catch (java.net.SocketTimeoutException ex2) {
+
+					if (!(MessageQueue.TORNADO_HOST.equals(MessageQueue.TORNADO_HOST_LIVE_2))
+							&& MessageQueue.TORNADO_ENV.equals("production")) {
+						URL urlStr_3 = new URL(MessageQueue.TORNADO_HOST_LIVE_3 + "/rest/pub/aaw/" + actionStr
+								+ "?mqid=" +  MessageQueue.MSGID);
+						try {
+							HttpsConnection httpsCon3 = new HttpsConnection();
 							HttpURLConnection connection3;
-							
+
 							log.info(MessageQueue.WORK_ORDER + ": " + "Before calling url: " + urlStr_3.toString());
 							connection3 = (httpsCon3.getURLConnection(urlStr_3, true));
-							if(connection3 != null)
-							{
-								log.info(MessageQueue.WORK_ORDER + ": " + "wating for response - " + urlStr_3.toString());
+							log.info(MessageQueue.WORK_ORDER + ": " + "response for url: " + urlStr_3.toString() + " - response " + connection3.getResponseCode());
+							if (connection3 != null) {
+								log.info(MessageQueue.WORK_ORDER + ": " + "wating for response - "
+										+ urlStr_3.toString());
 								connection3.setConnectTimeout(60000 * 6);
 								connection3.setReadTimeout(60000 * 6);
 							}
-							if(connection3 == null)
-							{
+							if (connection3 == null) {
 								System.out.println("XML compare : API connection failed");
 								log.error(MessageQueue.WORK_ORDER + ": " + "XML compare : API connection failed");
-								System.out.println("XML compare: Road Runner not received any response " + "'connection not established'");
+
+							} else {
 								
-							}
-							else
-							{
-								System.out.println("XML compare : " + connection3.getResponseCode());
-								log.error(MessageQueue.WORK_ORDER + ": " + "XML compare API: "+ MessageQueue.TORNADO_HOST_LIVE_3 + "/rest/pub/aaw/" + actionStr + "?mqid=" + (String) jsonObj.get("Id")  +" - response : " + connection3.getResponseCode());
-							}
+								log.error(MessageQueue.WORK_ORDER + ": " + "XML compare API: "
+										+ MessageQueue.TORNADO_HOST_LIVE_3 + "/rest/pub/aaw/" + actionStr + "?mqid="
+										+  MessageQueue.MSGID + " - response : "
+										+ connection3.getResponseCode());
+								
+								if(connection3.getResponseCode() != HttpURLConnection.HTTP_OK)
+								{
+									if(repeatCheck)
+										UpdateToServer(actionStr, false);
+									else
+									{
+										System.out.println("XML compare : " + connection3.getResponseCode());
+									}
+								}
+								else
+									System.out.println("XML compare : " + connection3.getResponseCode());
 							
-							
-							if(connection3 != null)
+							}
+
+							if (connection3 != null)
 								connection3.disconnect();
-							}
-							catch(java.net.SocketTimeoutException ex3)
-							{
-								log.error(MessageQueue.WORK_ORDER + ": " + MessageQueue.TORNADO_HOST_LIVE_3 + " Http response time out: " + (String)ex3.getMessage());
-								System.out.println("XML compare: Road Runner not received any response: " +  (String) ex3.getMessage());
-							}
-							catch (IOException ex3)
-							{
-								log.error(MessageQueue.WORK_ORDER + ": " + urlStr_3.toString()   + " Http IO exception: " + ex3.getMessage());
-								System.out.println("XML compare: Road Runner not received any response: " +  (String) ex3.getMessage());
-								
-							}
-							catch (Exception ex3) 
-							{
-								log.error(MessageQueue.WORK_ORDER + ": " + urlStr_3.toString()   + " Error Http connection: " + (String) ex3.getMessage());
-								System.out.println("XML compare: Road Runner not received any response: " +  (String) ex3.getMessage());
-								
-							}
-						
+						} catch (java.net.SocketTimeoutException ex3) {
+							log.error(MessageQueue.WORK_ORDER + ": " + MessageQueue.TORNADO_HOST_LIVE_3
+									+ " Http response time out: " + (String) ex3.getMessage());
+						} catch (IOException ex3) {
+							log.error(MessageQueue.WORK_ORDER + ": " + urlStr_3.toString() + " Http IO exception: "
+									+ ex3.getMessage());
+
+						} catch (Exception ex3) {
+							log.error(MessageQueue.WORK_ORDER + ": " + urlStr_3.toString() + " Error Http connection: "
+									+ (String) ex3.getMessage());
+
 						}
-						else
-						{
-						
-						log.error(MessageQueue.WORK_ORDER + ": " +  MessageQueue.TORNADO_HOST_LIVE_2 + " Http response time out: " + (String)ex2.getMessage());
-						System.out.println("XML compare: Road Runner not received any response: " +  (String) ex2.getMessage());
-						}
-					
-					}
-					catch (IOException ex2)
-					{
-						log.error(MessageQueue.WORK_ORDER + ": " + urlStr_2.toString()   + " Http IO exception: " + ex2.getMessage());
-						System.out.println("XML compare: Road Runner not received any response: " +  (String) ex2.getMessage());
-						
-					}
-					catch (Exception ex2) 
-					{
-						log.error(MessageQueue.WORK_ORDER + ": " + urlStr_2.toString()   + " Error Http connection: " + (String) ex2.getMessage());
-						System.out.println("XML compare: Road Runner not received any response: " +  (String) ex2.getMessage());
-						
+
+					} else {
+
+						log.error(MessageQueue.WORK_ORDER + ": " + MessageQueue.TORNADO_HOST_LIVE_2
+								+ " Http response time out: " + (String) ex2.getMessage());
 					}
 
-				}
-				else
-				{
-					log.error(MessageQueue.WORK_ORDER + ": Error Http connection 'Failed' " + MessageQueue.TORNADO_HOST_LIVE_1 + " <> " +  MessageQueue.TORNADO_HOST );
-					System.out.println("XML Compare connection not able to establish " );
+				} catch (IOException ex2) {
+					log.error(MessageQueue.WORK_ORDER + ": " + urlStr_2.toString() + " Http IO exception: "
+							+ ex2.getMessage());
+
+				} catch (Exception ex2) {
+					log.error(MessageQueue.WORK_ORDER + ": " + urlStr_2.toString() + " Error Http connection: "
+							+ (String) ex2.getMessage());
+
 				}
 
-		}
-		catch (IOException ex1)
-		{
+			} else {
+				System.out.println("XML compare: " + connection.getResponseCode());
+				// log.error(MessageQueue.WORK_ORDER + ": " + "XML compare API response : " +
+				// connection.getResponseCode());
+				log.error(MessageQueue.WORK_ORDER + ": " + "XML compare API: " + MessageQueue.TORNADO_HOST
+						+ "/rest/pub/aaw/" + actionStr + "?mqid=" +  MessageQueue.MSGID + " - response : "
+						+ connection.getResponseCode());
+			}
+
+			if (connection != null)
+				connection.disconnect();
+
+		} catch (java.net.SocketTimeoutException ex) {
+			// Connect1 catch
+
+			if (MessageQueue.TORNADO_HOST.equals(MessageQueue.TORNADO_HOST_LIVE_1)
+					&& MessageQueue.TORNADO_ENV.equals("production")) {
+
+				HttpsConnection httpsCon2 = new HttpsConnection();
+				HttpURLConnection connection2;
+
+				URL urlStr_2 = new URL(MessageQueue.TORNADO_HOST_LIVE_2 + "/rest/pub/aaw/" + actionStr + "?mqid="
+						+  MessageQueue.MSGID);
+				try {
+
+					log.info(MessageQueue.WORK_ORDER + ": " + "Before calling url: " + urlStr_2.toString());
+					connection2 = (httpsCon2.getURLConnection(urlStr_2, true));
+					log.info(MessageQueue.WORK_ORDER + ": " + "response for url: " + urlStr_2.toString() + " - response " + connection2.getResponseCode());
+
+					if (connection2 != null) {
+						log.info(
+								MessageQueue.WORK_ORDER + ": " + "Waiting for response of url: " + urlStr_2.toString());
+						connection2.setConnectTimeout(60000 * 6);
+						connection2.setReadTimeout(60000 * 6);
+					}
+					if (connection2 == null) {
+						log.error(MessageQueue.WORK_ORDER + ": " + "XML compare : API connection failed - "
+								+ urlStr_2.toString());
+					}
+					if ((connection2.getResponseCode() != HttpURLConnection.HTTP_OK || connection2 == null)
+							&& !(MessageQueue.TORNADO_HOST.equals(MessageQueue.TORNADO_HOST_LIVE_2))
+							&& MessageQueue.TORNADO_ENV.equals("production")) {
+						if (connection2 != null)
+							connection2.disconnect();
+						URL urlStr_3 = new URL(MessageQueue.TORNADO_HOST_LIVE_3 + "/rest/pub/aaw/" + actionStr
+								+ "?mqid=" +  MessageQueue.MSGID);
+						try {
+							HttpsConnection httpsCon3 = new HttpsConnection();
+							HttpURLConnection connection3;
+
+							log.info(MessageQueue.WORK_ORDER + ": " + "Before calling url: " + urlStr_3.toString());
+							connection3 = (httpsCon3.getURLConnection(urlStr_3, true));
+							log.info(MessageQueue.WORK_ORDER + ": " + "response for url: " + urlStr_3.toString() + " - response " + connection3.getResponseCode());
+
+							if (connection3 != null) {
+								log.info(MessageQueue.WORK_ORDER + ": " + "Waiting for response of url: "
+										+ urlStr_3.toString());
+								connection3.setConnectTimeout(60000 * 6);
+								connection3.setReadTimeout(60000 * 6);
+							}
+							if (connection3 == null) {
+								System.out.println("XML compare : API connection failed");
+								log.error(MessageQueue.WORK_ORDER + ": " + "XML compare : API connection failed - "
+										+ urlStr_3.toString());
+							} else {
+								log.error(MessageQueue.WORK_ORDER + ": " + "XML compare API: "
+										+ MessageQueue.TORNADO_HOST_LIVE_3 + "/rest/pub/aaw/" + actionStr + "?mqid="
+										+  MessageQueue.MSGID + " - response : "
+										+ connection3.getResponseCode());
+								
+								if(connection3.getResponseCode() != HttpURLConnection.HTTP_OK)
+								{
+									if(repeatCheck)
+										UpdateToServer(actionStr, false);
+									else
+									{
+										System.out.println("XML compare : " + connection3.getResponseCode());
+									}
+								}
+								else
+									System.out.println("XML compare : " + connection3.getResponseCode());
+							
+							}
+
+							if (connection3 != null)
+								connection3.disconnect();
+						} catch (java.net.SocketTimeoutException ex3) {
+							log.error(MessageQueue.WORK_ORDER + ": " + urlStr_3.toString() + " Http response time out: "
+									+ (String) ex3.getMessage());
+						} catch (IOException ex3) {
+							log.error(MessageQueue.WORK_ORDER + ": " + urlStr_3.toString() + " Http IO exception: "
+									+ ex3.getMessage());
+						} catch (Exception ex3) {
+							log.error(MessageQueue.WORK_ORDER + ": " + urlStr_3.toString() + " Error Http connection: "
+									+ (String) ex3.getMessage());
+						}
+
+					} else {
+						System.out.println("XML compare: " + connection2.getResponseCode());
+						log.error(MessageQueue.WORK_ORDER + ": " + "XML compare API: "
+								+ MessageQueue.TORNADO_HOST_LIVE_2 + "/rest/pub/aaw/" + actionStr + "?mqid="
+								+  MessageQueue.MSGID + " - response : " + connection2.getResponseCode());
+					}
+
+				} catch (java.net.SocketTimeoutException ex2) {
+
+					if (!(MessageQueue.TORNADO_HOST.equals(MessageQueue.TORNADO_HOST_LIVE_2))
+							&& MessageQueue.TORNADO_ENV.equals("production")) {
+						URL urlStr_3 = new URL(MessageQueue.TORNADO_HOST_LIVE_3 + "/rest/pub/aaw/" + actionStr
+								+ "?mqid=" +  MessageQueue.MSGID);
+						try {
+							HttpsConnection httpsCon3 = new HttpsConnection();
+							HttpURLConnection connection3;
+
+							log.info(MessageQueue.WORK_ORDER + ": " + "Before calling url: " + urlStr_3.toString());
+							connection3 = (httpsCon3.getURLConnection(urlStr_3, true));
+							log.info(MessageQueue.WORK_ORDER + ": " + "response for url: " + urlStr_3.toString() + " - response " + connection3.getResponseCode());
+							if (connection3 != null) {
+								log.info(MessageQueue.WORK_ORDER + ": " + "wating for response - "
+										+ urlStr_3.toString());
+								connection3.setConnectTimeout(60000 * 6);
+								connection3.setReadTimeout(60000 * 6);
+							}
+							if (connection3 == null) {
+								System.out.println("XML compare : API connection failed");
+								log.error(MessageQueue.WORK_ORDER + ": " + "XML compare : API connection failed");
+
+							} else {
+								
+								log.error(MessageQueue.WORK_ORDER + ": " + "XML compare API: "
+										+ MessageQueue.TORNADO_HOST_LIVE_3 + "/rest/pub/aaw/" + actionStr + "?mqid="
+										+  MessageQueue.MSGID + " - response : "
+										+ connection3.getResponseCode());
+								
+								
+								if(connection3.getResponseCode() != HttpURLConnection.HTTP_OK)
+								{
+									if(repeatCheck)
+										UpdateToServer(actionStr, false);
+									else
+									{
+										System.out.println("XML compare : " + connection3.getResponseCode());
+									}
+								}
+								else
+									System.out.println("XML compare : " + connection3.getResponseCode());
+							}
+
+							if (connection3 != null)
+								connection3.disconnect();
+						} catch (java.net.SocketTimeoutException ex3) {
+							log.error(MessageQueue.WORK_ORDER + ": " + MessageQueue.TORNADO_HOST_LIVE_3
+									+ " Http response time out: " + (String) ex3.getMessage());
+						} catch (IOException ex3) {
+							log.error(MessageQueue.WORK_ORDER + ": " + urlStr_3.toString() + " Http IO exception: "
+									+ ex3.getMessage());
+
+						} catch (Exception ex3) {
+							log.error(MessageQueue.WORK_ORDER + ": " + urlStr_3.toString() + " Error Http connection: "
+									+ (String) ex3.getMessage());
+
+						}
+
+					} else {
+
+						log.error(MessageQueue.WORK_ORDER + ": " + MessageQueue.TORNADO_HOST_LIVE_2
+								+ " Http response time out: " + (String) ex2.getMessage());
+					}
+
+				} catch (IOException ex2) {
+					log.error(MessageQueue.WORK_ORDER + ": " + urlStr_2.toString() + " Http IO exception: "
+							+ ex2.getMessage());
+
+				} catch (Exception ex2) {
+					log.error(MessageQueue.WORK_ORDER + ": " + urlStr_2.toString() + " Error Http connection: "
+							+ (String) ex2.getMessage());
+
+				}
+
+			} else {
+				log.error(MessageQueue.WORK_ORDER + ": Error Http connection 'Failed' "
+						+ MessageQueue.TORNADO_HOST_LIVE_1 + " <> " + MessageQueue.TORNADO_HOST);
+			}
+
+		} catch (IOException ex1) {
 			log.error(MessageQueue.WORK_ORDER + ": " + "Http IO exception: " + ex1.getMessage());
-			System.out.println("XML compare: Road Runner not received any response: " +  (String) ex1.getMessage());
-		}
-		catch (Exception ex1) 
-		{
+		} catch (Exception ex1) {
 			log.error(MessageQueue.WORK_ORDER + ": " + "Error Http connection: " + (String) ex1.getMessage());
-			System.out.println("XML compare: Road Runner not received any response: " +  (String) ex1.getMessage());
 		}
 	}
 	
@@ -1198,13 +1246,36 @@ public class Action {
 		}
 	}
 */
-	public static void UpdateReport(JSONObject jsonObj, String reportStr) throws IOException {
+	public static void UpdateReport(String reportStr) throws IOException {
 		try {
 			HttpsConnection httpsCon = new HttpsConnection();
-			httpsCon.excuteHttpJsonPost(MessageQueue.TORNADO_HOST + "/rest/pub/aaw/finalreport",
-					(String) jsonObj.get("Id"), reportStr);
+			log.info(MessageQueue.WORK_ORDER + ": " + "Before calling update report post method" + " - " + MessageQueue.TORNADO_HOST + "/rest/pub/aaw/finalreport "
+					+ MessageQueue.MSGID );
+			String postResponse = httpsCon.excuteHttpJsonPost(MessageQueue.TORNADO_HOST + "/rest/pub/aaw/finalreport",
+					MessageQueue.MSGID, reportStr);
+			log.info(MessageQueue.WORK_ORDER + ": " + "Error report status sent : " + MessageQueue.TORNADO_HOST
+					+ "/rest/pub/rr/updatestatus - " + MessageQueue.MSGID + " - " + "\n response : " + postResponse);
+			
+			if(!(postResponse.toString()).equalsIgnoreCase("{\"status\":\"success\",\"code\":\"0\",\"detailsObj\":null}"))
+			{
+				
+				String postResponse2 = httpsCon.excuteHttpJsonPost(MessageQueue.TORNADO_HOST + "/rest/pub/aaw/finalreport",
+						MessageQueue.MSGID, reportStr);
+				log.info(MessageQueue.WORK_ORDER + ": " + "Error report status sent : " + MessageQueue.TORNADO_HOST
+						+ "/rest/pub/rr/updatestatus - " + MessageQueue.MSGID + " - " + "\n response : " + postResponse2);
+				
+				if(!(postResponse2.toString()).equalsIgnoreCase("{\"status\":\"success\",\"code\":\"0\",\"detailsObj\":null}"))
+				{
+					
+					String postResponse3 = httpsCon.excuteHttpJsonPost(MessageQueue.TORNADO_HOST + "/rest/pub/aaw/finalreport",
+							MessageQueue.MSGID, reportStr);
+					log.info(MessageQueue.WORK_ORDER + ": " + "Error report status sent : " + MessageQueue.TORNADO_HOST
+							+ "/rest/pub/rr/updatestatus - " + MessageQueue.MSGID + " - " + "\n response : " + postResponse3);
+				}
+			}
+			
 		} catch (Exception ex) {
-			log.error((String) ex.getMessage());
+			log.error(MessageQueue.WORK_ORDER + ": " + "Error when updating report " + (String) ex.getMessage());
 		}
 	}
 
@@ -1270,7 +1341,8 @@ public class Action {
 
 	public static void main(String args[]) throws Exception {
 		String str = "//Users//yuvaraj//TEST FILES//AAW//446512A//100 XML//A02//dummy.xml";
-		System.out.println(str.split("\\.")[0]);
+		 MessageQueue.VERSION = "CC 2018";
+		SEng.SaveDocAs("/Users/yuvaraj/Desktop/Chennai Print xml/401359263/050_Production_Art/WOOOO.ai", "");
 
 	}
 

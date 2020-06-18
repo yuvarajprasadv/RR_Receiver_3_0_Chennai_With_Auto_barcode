@@ -63,7 +63,7 @@ public class ImageConvertor
         		}
         		
         } catch (IOException ex) {
-            System.out.println("Error during exporting bmp image.");
+            System.out.println("Exception: Error during exporting bmp image.");
          //   ex.printStackTrace();
             return false;
         }

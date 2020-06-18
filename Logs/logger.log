@@ -18,3 +18,300 @@
 2020-05-21 16:19:13 INFO  Action:727 - 401892793: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=256a97ec-12d7-4904-8205-4b5abcebe83a
 2020-05-21 16:19:13 ERROR Action:911 - 401892793: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=256a97ec-12d7-4904-8205-4b5abcebe83a - response : 200
 2020-05-21 16:19:13 INFO  Action:379 - 401892793: Xml comparision completed..
+2020-05-26 12:17:39 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-05-26 12:17:39 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-05-26 12:17:46 INFO  MessageQueue:82 - Message received: 26-05-2020 12:17:46 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_3.xml"}],"Id":"a76be760-3bbd-453e-be86-a5636c360f0b","region":[{"printXML":"true","barCodeVisible":"true","ProjectName":"TEST_TUCXML_v001","env":"development","key":"vitastar","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-05-26 12:21:54 INFO  MessageQueue:82 - Message received: 26-05-2020 12:21:54 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_3.xml"}],"Id":"64b3174f-24e3-430b-afa6-1f498ed53c11","region":[{"printXML":"true","barCodeVisible":"true","ProjectName":"TEST_TUCXML_v001","env":"development","key":"vitastar","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-05-26 12:21:55 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-05-26 12:21:56 INFO  Action:679 - 401359263: Message received acknowledgement for job id  '64b3174f-24e3-430b-afa6-1f498ed53c11' 
+2020-05-26 12:21:56 INFO  Action:42 - 401359263: Illustrator activated to load file..
+2020-05-26 12:22:12 INFO  Action:48 - 401359263: AI file and other dependend file opening..
+2020-05-26 12:22:18 INFO  Action:80 - 401359263: TyphoonShadow called
+2020-05-26 12:22:33 INFO  Action:371 - 401359263: Pdf and xml generated..
+2020-05-26 12:22:41 INFO  Action:380 - 401359263: Completed process for job id  '64b3174f-24e3-430b-afa6-1f498ed53c11' 
+2020-05-26 12:22:42 INFO  Action:728 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=64b3174f-24e3-430b-afa6-1f498ed53c11
+2020-05-26 12:22:42 INFO  Action:732 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=64b3174f-24e3-430b-afa6-1f498ed53c11
+2020-05-26 12:22:43 ERROR Action:916 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=64b3174f-24e3-430b-afa6-1f498ed53c11 - response : 200
+2020-05-26 12:22:43 INFO  Action:384 - 401359263: Xml comparision completed..
+2020-05-26 12:24:09 INFO  MessageQueue:82 - Message received: 26-05-2020 12:24:09 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"6f8470fb-e1f3-4a90-bdcd-74ed755ad982","region":[{"printXML":"true","barCodeVisible":"true","ProjectName":"TEST_TUCXML_v001","env":"development","key":"vitastar","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-05-26 12:24:10 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-05-26 12:24:11 INFO  Action:679 - 401359263: Message received acknowledgement for job id  '6f8470fb-e1f3-4a90-bdcd-74ed755ad982' 
+2020-05-26 12:24:13 INFO  Action:42 - 401359263: Illustrator activated to load file..
+2020-05-26 12:24:22 INFO  Action:48 - 401359263: AI file and other dependend file opening..
+2020-05-26 12:24:27 INFO  Action:80 - 401359263: TyphoonShadow called
+2020-05-26 12:24:37 INFO  Action:371 - 401359263: Pdf and xml generated..
+2020-05-26 12:24:46 INFO  Action:380 - 401359263: Completed process for job id  '6f8470fb-e1f3-4a90-bdcd-74ed755ad982' 
+2020-05-26 12:24:47 INFO  Action:728 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=6f8470fb-e1f3-4a90-bdcd-74ed755ad982
+2020-05-26 12:24:47 INFO  Action:732 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=6f8470fb-e1f3-4a90-bdcd-74ed755ad982
+2020-05-26 12:24:47 ERROR Action:916 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=6f8470fb-e1f3-4a90-bdcd-74ed755ad982 - response : 200
+2020-05-26 12:24:47 INFO  Action:384 - 401359263: Xml comparision completed..
+2020-05-26 12:24:49 INFO  MessageQueue:82 - Message received: 26-05-2020 12:24:49 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"56de78c7-0b25-4c1b-a99d-2e5178488238","region":[{"printXML":"true","barCodeVisible":"false","ProjectName":"TEST_TUCXML_v001","env":"development","key":"vitastar","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-05-26 12:24:50 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-05-26 12:24:50 INFO  Action:679 - 401359263: Message received acknowledgement for job id  '56de78c7-0b25-4c1b-a99d-2e5178488238' 
+2020-05-26 12:24:50 INFO  Action:42 - 401359263: Illustrator activated to load file..
+2020-05-26 12:24:59 INFO  Action:48 - 401359263: AI file and other dependend file opening..
+2020-05-26 12:25:05 INFO  Action:80 - 401359263: TyphoonShadow called
+2020-05-26 12:25:15 INFO  Action:371 - 401359263: Pdf and xml generated..
+2020-05-26 12:25:23 INFO  Action:380 - 401359263: Completed process for job id  '56de78c7-0b25-4c1b-a99d-2e5178488238' 
+2020-05-26 12:25:24 INFO  Action:728 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=56de78c7-0b25-4c1b-a99d-2e5178488238
+2020-05-26 12:25:24 INFO  Action:732 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=56de78c7-0b25-4c1b-a99d-2e5178488238
+2020-05-26 12:25:24 ERROR Action:916 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=56de78c7-0b25-4c1b-a99d-2e5178488238 - response : 200
+2020-05-26 12:25:24 INFO  Action:384 - 401359263: Xml comparision completed..
+2020-05-26 12:31:47 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-05-26 12:31:47 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-05-26 12:32:33 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-05-26 12:32:35 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-05-26 12:33:12 INFO  MessageQueue:82 - Message received: 26-05-2020 12:33:12 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"fb4d9279-8118-4bde-9862-67e08cc5ff6f","region":[{"printXML":"true","barCodeVisible":"false","ProjectName":"TEST_TUCXML_v001","env":"development","key":"vitastar","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-05-26 12:33:13 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-05-26 12:33:14 INFO  Action:689 - 401359263: Message received acknowledgement for job id  'fb4d9279-8118-4bde-9862-67e08cc5ff6f' 
+2020-05-26 12:33:16 INFO  Action:43 - 401359263: Illustrator activated to load file..
+2020-05-26 12:33:25 INFO  Action:49 - 401359263: AI file and other dependend file opening..
+2020-05-26 12:33:31 INFO  Action:81 - 401359263: TyphoonShadow called
+2020-05-26 12:33:42 INFO  Action:381 - 401359263: Pdf and xml generated..
+2020-05-26 12:33:51 INFO  Action:390 - 401359263: Completed process for job id  'fb4d9279-8118-4bde-9862-67e08cc5ff6f' 
+2020-05-26 12:33:52 INFO  Action:738 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=fb4d9279-8118-4bde-9862-67e08cc5ff6f
+2020-05-26 12:33:52 INFO  Action:742 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=fb4d9279-8118-4bde-9862-67e08cc5ff6f
+2020-05-26 12:33:52 ERROR Action:926 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=fb4d9279-8118-4bde-9862-67e08cc5ff6f - response : 200
+2020-05-26 12:33:52 INFO  Action:394 - 401359263: Xml comparision completed..
+2020-05-26 12:34:40 INFO  MessageQueue:82 - Message received: 26-05-2020 12:34:40 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"6b6afe08-63f4-4251-8357-fd6146cc9e8e","region":[{"printXML":"true","barCodeVisible":"false","ProjectName":"TEST_TUCXML_v001","env":"development","key":"vitastar","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-05-26 12:34:41 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-05-26 12:34:42 INFO  Action:689 - 401359263: Message received acknowledgement for job id  '6b6afe08-63f4-4251-8357-fd6146cc9e8e' 
+2020-05-26 12:34:42 INFO  Action:43 - 401359263: Illustrator activated to load file..
+2020-05-26 12:34:51 INFO  Action:49 - 401359263: AI file and other dependend file opening..
+2020-05-26 12:34:57 INFO  Action:81 - 401359263: TyphoonShadow called
+2020-05-26 12:35:07 INFO  Action:381 - 401359263: Pdf and xml generated..
+2020-05-26 12:35:15 INFO  Action:390 - 401359263: Completed process for job id  '6b6afe08-63f4-4251-8357-fd6146cc9e8e' 
+2020-05-26 12:35:16 INFO  Action:738 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=6b6afe08-63f4-4251-8357-fd6146cc9e8e
+2020-05-26 12:35:16 INFO  Action:742 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=6b6afe08-63f4-4251-8357-fd6146cc9e8e
+2020-05-26 12:35:16 ERROR Action:926 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=6b6afe08-63f4-4251-8357-fd6146cc9e8e - response : 200
+2020-05-26 12:35:16 INFO  Action:394 - 401359263: Xml comparision completed..
+2020-05-26 12:36:11 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-05-26 12:36:11 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-05-26 12:36:44 INFO  MessageQueue:82 - Message received: 26-05-2020 12:36:44 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"597c8b6f-92bb-49e4-8c36-2634275baf24","region":[{"printXML":"true","barCodeVisible":"false","ProjectName":"TEST_TUCXML_v001","env":"development","key":"vitastar","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-05-26 12:36:45 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-05-26 12:36:46 INFO  Action:689 - 401359263: Message received acknowledgement for job id  '597c8b6f-92bb-49e4-8c36-2634275baf24' 
+2020-05-26 12:36:46 INFO  Action:43 - 401359263: Illustrator activated to load file..
+2020-05-26 12:36:54 INFO  Action:49 - 401359263: AI file and other dependend file opening..
+2020-05-26 12:37:00 INFO  Action:81 - 401359263: TyphoonShadow called
+2020-05-26 12:37:10 INFO  Action:381 - 401359263: Pdf and xml generated..
+2020-05-26 12:37:19 INFO  Action:390 - 401359263: Completed process for job id  '597c8b6f-92bb-49e4-8c36-2634275baf24' 
+2020-05-26 12:37:20 INFO  Action:738 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=597c8b6f-92bb-49e4-8c36-2634275baf24
+2020-05-26 12:37:20 INFO  Action:742 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=597c8b6f-92bb-49e4-8c36-2634275baf24
+2020-05-26 12:37:20 ERROR Action:926 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=597c8b6f-92bb-49e4-8c36-2634275baf24 - response : 200
+2020-05-26 12:37:20 INFO  Action:394 - 401359263: Xml comparision completed..
+2020-05-26 12:38:45 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-05-26 12:38:46 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-05-26 12:38:48 INFO  MessageQueue:82 - Message received: 26-05-2020 12:38:48 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"622df7df-9b3f-4cce-a0e6-103a8701a3b1","region":[{"printXML":"true","barCodeVisible":"false","ProjectName":"TEST_TUCXML_v001","env":"development","key":"vitastar","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-05-26 12:38:50 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-05-26 12:38:50 INFO  Action:695 - 401359263: Message received acknowledgement for job id  '622df7df-9b3f-4cce-a0e6-103a8701a3b1' 
+2020-05-26 12:38:50 INFO  Action:43 - 401359263: Illustrator activated to load file..
+2020-05-26 12:38:59 INFO  Action:49 - 401359263: AI file and other dependend file opening..
+2020-05-26 12:39:05 INFO  Action:81 - 401359263: TyphoonShadow called
+2020-05-26 12:39:15 INFO  Action:387 - 401359263: Pdf and xml generated..
+2020-05-26 12:39:23 INFO  Action:396 - 401359263: Completed process for job id  '622df7df-9b3f-4cce-a0e6-103a8701a3b1' 
+2020-05-26 12:39:24 INFO  Action:744 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=622df7df-9b3f-4cce-a0e6-103a8701a3b1
+2020-05-26 12:39:24 INFO  Action:748 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=622df7df-9b3f-4cce-a0e6-103a8701a3b1
+2020-05-26 12:39:24 ERROR Action:932 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=622df7df-9b3f-4cce-a0e6-103a8701a3b1 - response : 200
+2020-05-26 12:39:24 INFO  Action:400 - 401359263: Xml comparision completed..
+2020-05-26 12:39:41 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-05-26 12:39:42 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-05-26 12:39:46 INFO  MessageQueue:82 - Message received: 26-05-2020 12:39:46 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"085a4280-96e3-456b-8da9-fc5544798b39","region":[{"printXML":"true","barCodeVisible":"false","ProjectName":"TEST_TUCXML_v001","env":"development","key":"vitastar","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-05-26 12:39:47 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-05-26 12:39:47 INFO  Action:695 - 401359263: Message received acknowledgement for job id  '085a4280-96e3-456b-8da9-fc5544798b39' 
+2020-05-26 12:39:47 INFO  Action:43 - 401359263: Illustrator activated to load file..
+2020-05-26 12:39:56 INFO  Action:49 - 401359263: AI file and other dependend file opening..
+2020-05-26 12:40:10 INFO  Action:81 - 401359263: TyphoonShadow called
+2020-05-26 12:41:38 INFO  Action:387 - 401359263: Pdf and xml generated..
+2020-05-26 12:41:46 INFO  Action:396 - 401359263: Completed process for job id  '085a4280-96e3-456b-8da9-fc5544798b39' 
+2020-05-26 12:41:47 INFO  Action:744 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=085a4280-96e3-456b-8da9-fc5544798b39
+2020-05-26 12:41:47 INFO  Action:748 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=085a4280-96e3-456b-8da9-fc5544798b39
+2020-05-26 12:41:48 ERROR Action:932 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=085a4280-96e3-456b-8da9-fc5544798b39 - response : 200
+2020-05-26 12:41:48 INFO  Action:400 - 401359263: Xml comparision completed..
+2020-05-26 12:43:00 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-05-26 12:43:01 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-05-26 12:43:11 INFO  MessageQueue:82 - Message received: 26-05-2020 12:43:11 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"9076e332-8e88-4597-b980-0915e1bc5ab8","region":[{"printXML":"true","barCodeVisible":"false","ProjectName":"TEST_TUCXML_v001","env":"development","key":"vitastar","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-05-26 12:43:12 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-05-26 12:43:13 INFO  Action:695 - 401359263: Message received acknowledgement for job id  '9076e332-8e88-4597-b980-0915e1bc5ab8' 
+2020-05-26 12:43:13 INFO  Action:43 - 401359263: Illustrator activated to load file..
+2020-05-26 12:43:22 INFO  Action:49 - 401359263: AI file and other dependend file opening..
+2020-05-26 12:43:28 INFO  Action:81 - 401359263: TyphoonShadow called
+2020-05-26 12:43:54 INFO  Action:387 - 401359263: Pdf and xml generated..
+2020-05-26 12:44:03 INFO  Action:396 - 401359263: Completed process for job id  '9076e332-8e88-4597-b980-0915e1bc5ab8' 
+2020-05-26 12:44:04 INFO  Action:744 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=9076e332-8e88-4597-b980-0915e1bc5ab8
+2020-05-26 12:44:04 INFO  Action:748 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=9076e332-8e88-4597-b980-0915e1bc5ab8
+2020-05-26 12:44:04 ERROR Action:932 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=9076e332-8e88-4597-b980-0915e1bc5ab8 - response : 200
+2020-05-26 12:44:04 INFO  Action:400 - 401359263: Xml comparision completed..
+2020-05-26 12:44:14 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-05-26 12:44:14 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-05-26 12:44:22 INFO  MessageQueue:82 - Message received: 26-05-2020 12:44:22 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"86ca038a-b7b9-412d-9a89-30f698dc7d53","region":[{"printXML":"true","barCodeVisible":"false","ProjectName":"TEST_TUCXML_v001","env":"development","key":"vitastar","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-05-26 12:44:23 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-05-26 12:44:24 INFO  Action:695 - 401359263: Message received acknowledgement for job id  '86ca038a-b7b9-412d-9a89-30f698dc7d53' 
+2020-05-26 12:44:24 INFO  Action:43 - 401359263: Illustrator activated to load file..
+2020-05-26 12:44:33 INFO  Action:49 - 401359263: AI file and other dependend file opening..
+2020-05-26 12:44:38 INFO  Action:81 - 401359263: TyphoonShadow called
+2020-05-26 12:44:48 INFO  Action:387 - 401359263: Pdf and xml generated..
+2020-05-26 12:44:57 INFO  Action:396 - 401359263: Completed process for job id  '86ca038a-b7b9-412d-9a89-30f698dc7d53' 
+2020-05-26 12:44:58 INFO  Action:744 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=86ca038a-b7b9-412d-9a89-30f698dc7d53
+2020-05-26 12:44:58 INFO  Action:748 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=86ca038a-b7b9-412d-9a89-30f698dc7d53
+2020-05-26 12:44:58 ERROR Action:932 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=86ca038a-b7b9-412d-9a89-30f698dc7d53 - response : 200
+2020-05-26 12:44:58 INFO  Action:400 - 401359263: Xml comparision completed..
+2020-05-26 15:35:35 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-05-26 15:35:35 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-05-26 15:35:35 INFO  MessageQueue:82 - Message received: 26-05-2020 15:35:35 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_3.xml"}],"Id":"227677ce-14df-458e-b00f-c1d4b18efba6","region":[{"printXML":"false","barCodeVisible":"false","ProjectName":"TEST_TUCXML_v001","env":"development","key":"vitastar","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-05-26 15:35:36 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-05-26 15:35:37 INFO  Action:711 - 401359263: Message received acknowledgement for job id  '227677ce-14df-458e-b00f-c1d4b18efba6' 
+2020-05-26 15:35:39 INFO  Action:43 - 401359263: Illustrator activated to load file..
+2020-05-26 15:35:50 INFO  Action:49 - 401359263: AI file and other dependend file opening..
+2020-05-26 15:35:56 INFO  Action:81 - 401359263: TyphoonShadow called
+2020-05-26 15:35:58 INFO  Action:403 - 401359263: Pdf and xml generated..
+2020-05-26 15:36:07 INFO  Action:412 - 401359263: Completed process for job id  '227677ce-14df-458e-b00f-c1d4b18efba6' 
+2020-05-26 15:36:08 INFO  Action:760 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=227677ce-14df-458e-b00f-c1d4b18efba6
+2020-05-26 15:36:08 INFO  Action:764 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=227677ce-14df-458e-b00f-c1d4b18efba6
+2020-05-26 15:36:08 ERROR Action:948 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=227677ce-14df-458e-b00f-c1d4b18efba6 - response : 200
+2020-05-26 15:36:08 INFO  Action:416 - 401359263: Xml comparision completed..
+2020-05-26 15:40:00 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-05-26 15:40:01 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-05-26 15:40:05 INFO  MessageQueue:82 - Message received: 26-05-2020 15:40:05 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_3.xml"}],"Id":"cb10bf69-96e6-4482-943e-21c125909237","region":[{"printXML":"false","barCodeVisible":"false","ProjectName":"TEST_TUCXML_v001","env":"development","key":"vitastar","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-05-26 15:40:06 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-05-26 15:40:07 INFO  Action:711 - 401359263: Message received acknowledgement for job id  'cb10bf69-96e6-4482-943e-21c125909237' 
+2020-05-26 15:40:07 INFO  Action:43 - 401359263: Illustrator activated to load file..
+2020-05-26 15:40:16 INFO  Action:49 - 401359263: AI file and other dependend file opening..
+2020-05-26 15:40:21 INFO  Action:81 - 401359263: TyphoonShadow called
+2020-05-26 15:40:23 INFO  Action:403 - 401359263: Pdf and xml generated..
+2020-05-26 15:40:31 INFO  Action:412 - 401359263: Completed process for job id  'cb10bf69-96e6-4482-943e-21c125909237' 
+2020-05-26 15:40:32 INFO  Action:760 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=cb10bf69-96e6-4482-943e-21c125909237
+2020-05-26 15:40:32 INFO  Action:764 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=cb10bf69-96e6-4482-943e-21c125909237
+2020-05-26 15:40:33 ERROR Action:948 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=cb10bf69-96e6-4482-943e-21c125909237 - response : 200
+2020-05-26 15:40:33 INFO  Action:416 - 401359263: Xml comparision completed..
+2020-05-26 15:41:39 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-05-26 15:41:39 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-05-26 15:42:04 INFO  MessageQueue:82 - Message received: 26-05-2020 15:42:04 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_3.xml"}],"Id":"20797060-01ce-4b96-b988-ef033172e70f","region":[{"printXML":"false","barCodeVisible":"false","ProjectName":"TEST_TUCXML_v001","env":"development","key":"vitastar","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-05-26 15:42:05 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-05-26 15:42:06 INFO  Action:711 - 401359263: Message received acknowledgement for job id  '20797060-01ce-4b96-b988-ef033172e70f' 
+2020-05-26 15:42:06 INFO  Action:43 - 401359263: Illustrator activated to load file..
+2020-05-26 15:42:15 INFO  Action:49 - 401359263: AI file and other dependend file opening..
+2020-05-26 15:42:20 INFO  Action:81 - 401359263: TyphoonShadow called
+2020-05-26 15:43:13 INFO  Action:403 - 401359263: Pdf and xml generated..
+2020-05-26 15:43:30 INFO  Action:412 - 401359263: Completed process for job id  '20797060-01ce-4b96-b988-ef033172e70f' 
+2020-05-26 15:43:31 INFO  Action:760 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=20797060-01ce-4b96-b988-ef033172e70f
+2020-05-26 15:43:31 INFO  Action:764 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=20797060-01ce-4b96-b988-ef033172e70f
+2020-05-26 15:43:32 ERROR Action:948 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=20797060-01ce-4b96-b988-ef033172e70f - response : 200
+2020-05-26 15:43:32 INFO  Action:416 - 401359263: Xml comparision completed..
+2020-05-26 15:46:17 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-05-26 15:46:17 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-05-26 15:46:20 INFO  MessageQueue:82 - Message received: 26-05-2020 15:46:20 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_3.xml"}],"Id":"97ecea31-05a0-41fc-853d-65104096c5ab","region":[{"printXML":"false","barCodeVisible":"false","ProjectName":"TEST_TUCXML_v001","env":"development","key":"vitastar","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-05-26 15:46:21 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-05-26 15:46:22 INFO  Action:718 - 401359263: Message received acknowledgement for job id  '97ecea31-05a0-41fc-853d-65104096c5ab' 
+2020-05-26 15:46:24 INFO  Action:43 - 401359263: Illustrator activated to load file..
+2020-05-26 15:46:33 INFO  Action:49 - 401359263: AI file and other dependend file opening..
+2020-05-26 15:46:39 INFO  Action:81 - 401359263: TyphoonShadow called
+2020-05-26 15:46:41 INFO  Action:410 - 401359263: Pdf and xml generated..
+2020-05-26 15:46:49 INFO  Action:419 - 401359263: Completed process for job id  '97ecea31-05a0-41fc-853d-65104096c5ab' 
+2020-05-26 15:46:50 INFO  Action:767 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=97ecea31-05a0-41fc-853d-65104096c5ab
+2020-05-26 15:46:50 INFO  Action:771 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=97ecea31-05a0-41fc-853d-65104096c5ab
+2020-05-26 15:46:51 ERROR Action:955 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=97ecea31-05a0-41fc-853d-65104096c5ab - response : 200
+2020-05-26 15:46:51 INFO  Action:423 - 401359263: Xml comparision completed..
+2020-05-26 15:48:09 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-05-26 15:48:10 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-05-26 15:48:13 INFO  MessageQueue:82 - Message received: 26-05-2020 15:48:13 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"08194657-8a72-4859-ad33-97af36c0bd17","region":[{"printXML":"false","barCodeVisible":"false","ProjectName":"TEST_TUCXML_v001","env":"development","key":"vitastar","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-05-26 15:48:14 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-05-26 15:48:14 INFO  Action:718 - 401359263: Message received acknowledgement for job id  '08194657-8a72-4859-ad33-97af36c0bd17' 
+2020-05-26 15:48:15 INFO  Action:43 - 401359263: Illustrator activated to load file..
+2020-05-26 15:48:24 INFO  Action:49 - 401359263: AI file and other dependend file opening..
+2020-05-26 15:48:30 INFO  Action:81 - 401359263: TyphoonShadow called
+2020-05-26 15:48:31 INFO  Action:410 - 401359263: Pdf and xml generated..
+2020-05-26 15:48:40 INFO  Action:419 - 401359263: Completed process for job id  '08194657-8a72-4859-ad33-97af36c0bd17' 
+2020-05-26 15:48:41 INFO  Action:767 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=08194657-8a72-4859-ad33-97af36c0bd17
+2020-05-26 15:48:41 INFO  Action:771 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=08194657-8a72-4859-ad33-97af36c0bd17
+2020-05-26 15:48:41 ERROR Action:955 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=08194657-8a72-4859-ad33-97af36c0bd17 - response : 200
+2020-05-26 15:48:41 INFO  Action:423 - 401359263: Xml comparision completed..
+2020-05-26 15:49:48 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-05-26 15:49:49 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-05-26 15:49:52 INFO  MessageQueue:82 - Message received: 26-05-2020 15:49:52 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"6ebe8e60-c1fe-4754-9613-e5977ddafd17","region":[{"printXML":"false","barCodeVisible":"false","ProjectName":"TEST_TUCXML_v001","env":"development","key":"vitastar","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-05-26 15:49:53 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-05-26 15:49:53 INFO  Action:718 - 401359263: Message received acknowledgement for job id  '6ebe8e60-c1fe-4754-9613-e5977ddafd17' 
+2020-05-26 15:49:53 INFO  Action:43 - 401359263: Illustrator activated to load file..
+2020-05-26 15:50:02 INFO  Action:49 - 401359263: AI file and other dependend file opening..
+2020-05-26 15:50:08 INFO  Action:81 - 401359263: TyphoonShadow called
+2020-05-26 15:50:09 INFO  Action:410 - 401359263: Pdf and xml generated..
+2020-05-26 15:50:18 INFO  Action:419 - 401359263: Completed process for job id  '6ebe8e60-c1fe-4754-9613-e5977ddafd17' 
+2020-05-26 15:50:19 INFO  Action:767 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=6ebe8e60-c1fe-4754-9613-e5977ddafd17
+2020-05-26 15:50:19 INFO  Action:771 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=6ebe8e60-c1fe-4754-9613-e5977ddafd17
+2020-05-26 15:50:19 ERROR Action:955 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=6ebe8e60-c1fe-4754-9613-e5977ddafd17 - response : 200
+2020-05-26 15:50:19 INFO  Action:423 - 401359263: Xml comparision completed..
+2020-05-26 15:52:06 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-05-26 15:52:06 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-05-26 15:52:09 INFO  MessageQueue:82 - Message received: 26-05-2020 15:52:09 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"2fd98d89-1540-4229-bef0-1ee24270dac9","region":[{"printXML":"false","barCodeVisible":"false","ProjectName":"TEST_TUCXML_v001","env":"development","key":"vitastar","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-05-26 15:52:10 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-05-26 15:52:11 INFO  Action:718 - 401359263: Message received acknowledgement for job id  '2fd98d89-1540-4229-bef0-1ee24270dac9' 
+2020-05-26 15:52:12 INFO  Action:43 - 401359263: Illustrator activated to load file..
+2020-05-26 15:52:21 INFO  Action:49 - 401359263: AI file and other dependend file opening..
+2020-05-26 15:52:26 INFO  Action:81 - 401359263: TyphoonShadow called
+2020-05-26 15:52:28 INFO  Action:410 - 401359263: Pdf and xml generated..
+2020-05-26 15:52:36 INFO  Action:419 - 401359263: Completed process for job id  '2fd98d89-1540-4229-bef0-1ee24270dac9' 
+2020-05-26 15:52:37 INFO  Action:767 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=2fd98d89-1540-4229-bef0-1ee24270dac9
+2020-05-26 15:52:37 INFO  Action:771 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=2fd98d89-1540-4229-bef0-1ee24270dac9
+2020-05-26 15:52:38 ERROR Action:955 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=2fd98d89-1540-4229-bef0-1ee24270dac9 - response : 200
+2020-05-26 15:52:38 INFO  Action:423 - 401359263: Xml comparision completed..
+2020-05-26 15:53:14 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-05-26 15:53:14 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-05-26 15:53:17 INFO  MessageQueue:82 - Message received: 26-05-2020 15:53:17 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"9de3c197-1a0f-4e31-a560-e5bf145ce2bb","region":[{"printXML":"false","barCodeVisible":"false","ProjectName":"TEST_TUCXML_v001","env":"development","key":"vitastar","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-05-26 15:53:18 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-05-26 15:53:18 INFO  Action:718 - 401359263: Message received acknowledgement for job id  '9de3c197-1a0f-4e31-a560-e5bf145ce2bb' 
+2020-05-26 15:53:20 INFO  Action:43 - 401359263: Illustrator activated to load file..
+2020-05-26 15:53:29 INFO  Action:49 - 401359263: AI file and other dependend file opening..
+2020-05-26 15:53:35 INFO  Action:81 - 401359263: TyphoonShadow called
+2020-05-26 15:53:36 INFO  Action:410 - 401359263: Pdf and xml generated..
+2020-05-26 15:53:45 INFO  Action:419 - 401359263: Completed process for job id  '9de3c197-1a0f-4e31-a560-e5bf145ce2bb' 
+2020-05-26 15:53:46 INFO  Action:767 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=9de3c197-1a0f-4e31-a560-e5bf145ce2bb
+2020-05-26 15:53:46 INFO  Action:771 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=9de3c197-1a0f-4e31-a560-e5bf145ce2bb
+2020-05-26 15:53:46 ERROR Action:955 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=9de3c197-1a0f-4e31-a560-e5bf145ce2bb - response : 200
+2020-05-26 15:53:46 INFO  Action:423 - 401359263: Xml comparision completed..
+2020-05-26 15:54:28 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-05-26 15:54:28 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-05-26 15:54:31 INFO  MessageQueue:82 - Message received: 26-05-2020 15:54:31 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"78d45ba4-2574-4f5c-94b0-b23ace2a486a","region":[{"printXML":"false","barCodeVisible":"false","ProjectName":"TEST_TUCXML_v001","env":"development","key":"vitastar","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-05-26 15:54:32 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-05-26 15:54:33 INFO  Action:718 - 401359263: Message received acknowledgement for job id  '78d45ba4-2574-4f5c-94b0-b23ace2a486a' 
+2020-05-26 15:54:33 INFO  Action:43 - 401359263: Illustrator activated to load file..
+2020-05-26 15:54:42 INFO  Action:49 - 401359263: AI file and other dependend file opening..
+2020-05-26 15:54:48 INFO  Action:81 - 401359263: TyphoonShadow called
+2020-05-26 16:50:07 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-05-26 16:50:07 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-05-26 16:50:10 INFO  MessageQueue:82 - Message received: 26-05-2020 16:50:10 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"d8b9bd70-20c3-4c67-98cd-066cce66663b","region":[{"printXML":"false","barCodeVisible":"false","ProjectName":"TEST_TUCXML_v001","env":"development","key":"vitastar","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-05-26 16:50:11 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-05-26 16:50:11 INFO  Action:718 - 401359263: Message received acknowledgement for job id  'd8b9bd70-20c3-4c67-98cd-066cce66663b' 
+2020-05-26 16:50:12 INFO  Action:43 - 401359263: Illustrator activated to load file..
+2020-05-26 16:50:23 INFO  Action:49 - 401359263: AI file and other dependend file opening..
+2020-05-26 16:50:29 INFO  Action:81 - 401359263: TyphoonShadow called
+2020-05-26 16:50:33 INFO  Action:410 - 401359263: Pdf and xml generated..
+2020-05-26 16:50:41 INFO  Action:419 - 401359263: Completed process for job id  'd8b9bd70-20c3-4c67-98cd-066cce66663b' 
+2020-05-26 16:50:42 INFO  Action:767 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=d8b9bd70-20c3-4c67-98cd-066cce66663b
+2020-05-26 16:50:42 INFO  Action:771 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=d8b9bd70-20c3-4c67-98cd-066cce66663b
+2020-05-26 16:50:43 ERROR Action:955 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=d8b9bd70-20c3-4c67-98cd-066cce66663b - response : 200
+2020-05-26 16:50:43 INFO  Action:423 - 401359263: Xml comparision completed..
+2020-05-26 16:52:53 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-05-26 16:52:53 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-05-26 16:52:54 INFO  MessageQueue:82 - Message received: 26-05-2020 16:52:54 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"431b7e45-9ee7-4a0a-abe2-1ae8cb5dc134","region":[{"printXML":"true","barCodeVisible":"false","ProjectName":"TEST_TUCXML_v001","env":"development","key":"vitastar","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-05-26 16:52:55 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-05-26 16:52:55 INFO  Action:718 - 401359263: Message received acknowledgement for job id  '431b7e45-9ee7-4a0a-abe2-1ae8cb5dc134' 
+2020-05-26 16:52:56 INFO  Action:43 - 401359263: Illustrator activated to load file..
+2020-05-26 16:53:05 INFO  Action:49 - 401359263: AI file and other dependend file opening..
+2020-05-26 16:53:11 INFO  Action:81 - 401359263: TyphoonShadow called
+2020-05-26 16:53:27 INFO  Action:410 - 401359263: Pdf and xml generated..
+2020-05-26 16:53:35 INFO  Action:419 - 401359263: Completed process for job id  '431b7e45-9ee7-4a0a-abe2-1ae8cb5dc134' 
+2020-05-26 16:53:36 INFO  Action:767 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=431b7e45-9ee7-4a0a-abe2-1ae8cb5dc134
+2020-05-26 16:53:36 INFO  Action:771 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=431b7e45-9ee7-4a0a-abe2-1ae8cb5dc134
+2020-05-26 16:53:36 ERROR Action:955 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=431b7e45-9ee7-4a0a-abe2-1ae8cb5dc134 - response : 200
+2020-05-26 16:53:36 INFO  Action:423 - 401359263: Xml comparision completed..
+2020-05-26 16:53:59 INFO  MessageQueue:82 - Message received: 26-05-2020 16:53:59 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"2cc6ae9a-9348-4de7-b1b7-6cc7a6455378","region":[{"printXML":"true","barCodeVisible":"true","ProjectName":"TEST_TUCXML_v001","env":"development","key":"vitastar","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-05-26 16:54:00 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-05-26 16:54:00 INFO  Action:718 - 401359263: Message received acknowledgement for job id  '2cc6ae9a-9348-4de7-b1b7-6cc7a6455378' 
+2020-05-26 16:54:00 INFO  Action:43 - 401359263: Illustrator activated to load file..
+2020-05-26 16:54:10 INFO  Action:49 - 401359263: AI file and other dependend file opening..
+2020-05-26 16:54:16 INFO  Action:81 - 401359263: TyphoonShadow called
+2020-05-26 16:54:31 INFO  Action:410 - 401359263: Pdf and xml generated..
+2020-05-26 16:54:40 INFO  Action:419 - 401359263: Completed process for job id  '2cc6ae9a-9348-4de7-b1b7-6cc7a6455378' 
+2020-05-26 16:54:41 INFO  Action:767 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=2cc6ae9a-9348-4de7-b1b7-6cc7a6455378
+2020-05-26 16:54:41 INFO  Action:771 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=2cc6ae9a-9348-4de7-b1b7-6cc7a6455378
+2020-05-26 16:54:41 ERROR Action:955 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=2cc6ae9a-9348-4de7-b1b7-6cc7a6455378 - response : 200
+2020-05-26 16:54:41 INFO  Action:423 - 401359263: Xml comparision completed..
