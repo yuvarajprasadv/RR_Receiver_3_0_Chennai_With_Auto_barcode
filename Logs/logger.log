@@ -315,3 +315,504 @@
 2020-05-26 16:54:41 INFO  Action:771 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=2cc6ae9a-9348-4de7-b1b7-6cc7a6455378
 2020-05-26 16:54:41 ERROR Action:955 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=2cc6ae9a-9348-4de7-b1b7-6cc7a6455378 - response : 200
 2020-05-26 16:54:41 INFO  Action:423 - 401359263: Xml comparision completed..
+2020-06-19 10:06:33 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-06-19 10:06:33 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-06-19 10:07:48 INFO  MessageQueue:86 - Message received: 19-06-2020 10:07:48 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"04ac66ca-5e86-4114-af47-d6bbb17f98c6","region":[{"printXML":"true","barCodeVisible":"true","ProjectName":"TEST_TUCXML_v001","env":"development","key":"vitastar","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-06-19 10:07:50 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-06-19 10:07:50 INFO  Action:713 - 401359263: Message received acknowledgement for job id  '04ac66ca-5e86-4114-af47-d6bbb17f98c6' 
+2020-06-19 10:07:51 INFO  Action:28 - 401359263: Illustrator activated to load file..
+2020-06-19 10:08:02 INFO  Action:34 - 401359263: AI file and other dependend file opening..
+2020-06-19 10:08:11 INFO  Action:66 - 401359263: TyphoonShadow called
+2020-06-19 10:08:12 ERROR JsonParser:172 - 401359263: Invalid Key value search 'region, legendVisible'  null
+2020-06-19 10:08:28 INFO  Action:404 - 401359263: Pdf and xml generated..
+2020-06-19 10:08:36 INFO  Action:413 - 401359263: Completed process for job id  '04ac66ca-5e86-4114-af47-d6bbb17f98c6' 
+2020-06-19 10:08:37 INFO  Action:761 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=04ac66ca-5e86-4114-af47-d6bbb17f98c6
+2020-06-19 10:08:37 INFO  Action:763 - 401359263: response for url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=04ac66ca-5e86-4114-af47-d6bbb17f98c6 - response 200
+2020-06-19 10:08:37 INFO  Action:765 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=04ac66ca-5e86-4114-af47-d6bbb17f98c6
+2020-06-19 10:08:37 ERROR Action:953 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=04ac66ca-5e86-4114-af47-d6bbb17f98c6 - response : 200
+2020-06-19 10:08:37 INFO  Action:417 - 401359263: Xml comparision completed..
+2020-06-19 10:08:37 INFO  Action:1240 - 401359263: Before calling update report post method - http://172.28.42.151:8082/tornado/rest/pub/aaw/finalreport 04ac66ca-5e86-4114-af47-d6bbb17f98c6
+2020-06-19 10:08:38 INFO  Action:1244 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 04ac66ca-5e86-4114-af47-d6bbb17f98c6 - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-06-19 10:08:38 INFO  Action:1252 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 04ac66ca-5e86-4114-af47-d6bbb17f98c6 - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-06-19 10:08:38 INFO  Action:1260 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 04ac66ca-5e86-4114-af47-d6bbb17f98c6 - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-06-19 10:12:12 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-06-19 10:12:12 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-06-19 10:19:25 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-06-19 10:19:26 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-06-19 10:19:40 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-06-19 10:19:41 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-06-19 10:19:43 INFO  MessageQueue:86 - Message received: 19-06-2020 10:19:43 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"cdd09c46-a5e1-429f-9bfe-b4650aa08ed9","region":[{"printXML":"true","barCodeVisible":"true","ProjectName":"TEST_TUCXML_v001","env":"development","key":"vitastar","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-06-19 10:19:44 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-06-19 10:19:45 INFO  Action:716 - 401359263: Message received acknowledgement for job id  'cdd09c46-a5e1-429f-9bfe-b4650aa08ed9' 
+2020-06-19 10:19:46 INFO  Action:28 - 401359263: Illustrator activated to load file..
+2020-06-19 10:19:54 INFO  Action:34 - 401359263: AI file and other dependend file opening..
+2020-06-19 10:20:04 INFO  Action:66 - 401359263: TyphoonShadow called
+2020-06-19 10:20:04 ERROR JsonParser:172 - 401359263: Invalid Key value search 'region, legendVisible'  null
+2020-06-19 10:20:27 INFO  Action:407 - 401359263: Pdf and xml generated..
+2020-06-19 10:20:35 INFO  Action:416 - 401359263: Completed process for job id  'cdd09c46-a5e1-429f-9bfe-b4650aa08ed9' 
+2020-06-19 10:20:36 INFO  Action:764 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=cdd09c46-a5e1-429f-9bfe-b4650aa08ed9
+2020-06-19 10:20:37 INFO  Action:766 - 401359263: response for url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=cdd09c46-a5e1-429f-9bfe-b4650aa08ed9 - response 200
+2020-06-19 10:20:37 INFO  Action:768 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=cdd09c46-a5e1-429f-9bfe-b4650aa08ed9
+2020-06-19 10:20:37 ERROR Action:956 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=cdd09c46-a5e1-429f-9bfe-b4650aa08ed9 - response : 200
+2020-06-19 10:20:37 INFO  Action:420 - 401359263: Xml comparision completed..
+2020-06-19 10:20:37 INFO  Action:1243 - 401359263: Before calling update report post method - http://172.28.42.151:8082/tornado/rest/pub/aaw/finalreport cdd09c46-a5e1-429f-9bfe-b4650aa08ed9
+2020-06-19 10:20:37 INFO  Action:1247 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - cdd09c46-a5e1-429f-9bfe-b4650aa08ed9 - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-06-19 10:20:37 INFO  Action:1255 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - cdd09c46-a5e1-429f-9bfe-b4650aa08ed9 - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-06-19 10:20:38 INFO  Action:1263 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - cdd09c46-a5e1-429f-9bfe-b4650aa08ed9 - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-06-19 10:29:46 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-06-19 10:29:47 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-06-19 10:30:02 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-06-19 10:30:02 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-06-19 10:31:27 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-06-19 10:31:27 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-06-19 10:32:02 INFO  MessageQueue:86 - Message received: 19-06-2020 10:32:02 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"e01b6c16-2f28-4173-9f40-0f026ffb51f8","region":[{"jpg":"true","printXML":"false","txt":"false","pdf":"true","bmp":"false","ProjectName":"TEST_TUCXML_v001","barCodeVisible":"true","legendVisible":"false","env":"development","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-06-19 10:32:03 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-06-19 10:32:04 INFO  Action:734 - 401359263: Message received acknowledgement for job id  'e01b6c16-2f28-4173-9f40-0f026ffb51f8' 
+2020-06-19 10:32:05 INFO  Action:28 - 401359263: Illustrator activated to load file..
+2020-06-19 10:32:14 INFO  Action:34 - 401359263: AI file and other dependend file opening..
+2020-06-19 10:32:23 INFO  Action:66 - 401359263: TyphoonShadow called
+2020-06-19 10:32:34 INFO  Action:425 - 401359263: Pdf and xml generated..
+2020-06-19 10:32:43 INFO  Action:434 - 401359263: Completed process for job id  'e01b6c16-2f28-4173-9f40-0f026ffb51f8' 
+2020-06-19 10:32:44 INFO  Action:782 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=e01b6c16-2f28-4173-9f40-0f026ffb51f8
+2020-06-19 10:32:44 INFO  Action:784 - 401359263: response for url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=e01b6c16-2f28-4173-9f40-0f026ffb51f8 - response 200
+2020-06-19 10:32:44 INFO  Action:786 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=e01b6c16-2f28-4173-9f40-0f026ffb51f8
+2020-06-19 10:32:44 ERROR Action:974 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=e01b6c16-2f28-4173-9f40-0f026ffb51f8 - response : 200
+2020-06-19 10:32:44 INFO  Action:438 - 401359263: Xml comparision completed..
+2020-06-19 10:32:44 INFO  Action:1261 - 401359263: Before calling update report post method - http://172.28.42.151:8082/tornado/rest/pub/aaw/finalreport e01b6c16-2f28-4173-9f40-0f026ffb51f8
+2020-06-19 10:32:45 INFO  Action:1265 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - e01b6c16-2f28-4173-9f40-0f026ffb51f8 - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-06-19 10:32:45 INFO  Action:1273 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - e01b6c16-2f28-4173-9f40-0f026ffb51f8 - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-06-19 10:32:45 INFO  Action:1281 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - e01b6c16-2f28-4173-9f40-0f026ffb51f8 - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-06-19 10:33:41 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-06-19 10:33:41 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-06-19 10:34:48 INFO  MessageQueue:86 - Message received: 19-06-2020 10:34:48 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"8c36925a-d9ac-4337-8ae6-33c44ed26264","region":[{"jpg":"true","printXML":"false","txt":"false","pdf":"true","bmp":"false","ProjectName":"TEST_TUCXML_v001","barCodeVisible":"true","legendVisible":"false","env":"development","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-06-19 10:34:49 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-06-19 10:34:49 INFO  Action:734 - 401359263: Message received acknowledgement for job id  '8c36925a-d9ac-4337-8ae6-33c44ed26264' 
+2020-06-19 10:34:50 INFO  Action:28 - 401359263: Illustrator activated to load file..
+2020-06-19 10:34:59 INFO  Action:34 - 401359263: AI file and other dependend file opening..
+2020-06-19 10:35:08 INFO  Action:66 - 401359263: TyphoonShadow called
+2020-06-19 10:35:19 INFO  Action:425 - 401359263: Pdf and xml generated..
+2020-06-19 10:35:28 INFO  Action:434 - 401359263: Completed process for job id  '8c36925a-d9ac-4337-8ae6-33c44ed26264' 
+2020-06-19 10:35:29 INFO  Action:782 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=8c36925a-d9ac-4337-8ae6-33c44ed26264
+2020-06-19 10:35:29 INFO  Action:784 - 401359263: response for url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=8c36925a-d9ac-4337-8ae6-33c44ed26264 - response 200
+2020-06-19 10:35:29 INFO  Action:786 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=8c36925a-d9ac-4337-8ae6-33c44ed26264
+2020-06-19 10:35:29 ERROR Action:974 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=8c36925a-d9ac-4337-8ae6-33c44ed26264 - response : 200
+2020-06-19 10:35:29 INFO  Action:438 - 401359263: Xml comparision completed..
+2020-06-19 10:35:29 INFO  Action:1261 - 401359263: Before calling update report post method - http://172.28.42.151:8082/tornado/rest/pub/aaw/finalreport 8c36925a-d9ac-4337-8ae6-33c44ed26264
+2020-06-19 10:35:29 INFO  Action:1265 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 8c36925a-d9ac-4337-8ae6-33c44ed26264 - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-06-19 10:35:30 INFO  Action:1273 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 8c36925a-d9ac-4337-8ae6-33c44ed26264 - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-06-19 10:35:30 INFO  Action:1281 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 8c36925a-d9ac-4337-8ae6-33c44ed26264 - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-06-19 10:52:04 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-06-19 10:52:04 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-06-19 10:52:04 INFO  MessageQueue:86 - Message received: 19-06-2020 10:52:04 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"8fe32eed-5109-4950-b518-e72b26807b7d","region":[{"jpg":"true","printXML":"false","txt":"false","pdf":"true","bmp":"false","ProjectName":"TEST_TUCXML_v001","barCodeVisible":"false","legendVisible":"false","env":"development","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-06-19 10:52:05 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-06-19 10:52:05 INFO  Action:734 - 401359263: Message received acknowledgement for job id  '8fe32eed-5109-4950-b518-e72b26807b7d' 
+2020-06-19 10:52:06 INFO  Action:28 - 401359263: Illustrator activated to load file..
+2020-06-19 10:52:15 INFO  Action:34 - 401359263: AI file and other dependend file opening..
+2020-06-19 10:52:38 INFO  Action:66 - 401359263: TyphoonShadow called
+2020-06-19 11:00:32 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-06-19 11:00:32 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-06-19 11:00:50 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-06-19 11:00:51 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-06-19 11:00:55 INFO  MessageQueue:86 - Message received: 19-06-2020 11:00:55 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"4ed8e25f-2195-410c-ac46-363a94f120bb","region":[{"jpg":"true","printXML":"false","txt":"false","pdf":"true","bmp":"false","ProjectName":"TEST_TUCXML_v001","barCodeVisible":"false","legendVisible":"false","env":"development","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-06-19 11:00:56 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-06-19 11:00:57 INFO  Action:735 - 401359263: Message received acknowledgement for job id  '4ed8e25f-2195-410c-ac46-363a94f120bb' 
+2020-06-19 11:00:57 INFO  Action:28 - 401359263: Illustrator activated to load file..
+2020-06-19 11:01:06 INFO  Action:34 - 401359263: AI file and other dependend file opening..
+2020-06-19 11:01:16 INFO  Action:66 - 401359263: TyphoonShadow called
+2020-06-19 11:01:28 INFO  Action:426 - 401359263: Pdf and xml generated..
+2020-06-19 11:01:37 INFO  Action:435 - 401359263: Completed process for job id  '4ed8e25f-2195-410c-ac46-363a94f120bb' 
+2020-06-19 11:01:38 INFO  Action:783 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=4ed8e25f-2195-410c-ac46-363a94f120bb
+2020-06-19 11:01:38 INFO  Action:785 - 401359263: response for url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=4ed8e25f-2195-410c-ac46-363a94f120bb - response 200
+2020-06-19 11:01:38 INFO  Action:787 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=4ed8e25f-2195-410c-ac46-363a94f120bb
+2020-06-19 11:01:38 ERROR Action:975 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=4ed8e25f-2195-410c-ac46-363a94f120bb - response : 200
+2020-06-19 11:01:38 INFO  Action:439 - 401359263: Xml comparision completed..
+2020-06-19 11:01:38 INFO  Action:1262 - 401359263: Before calling update report post method - http://172.28.42.151:8082/tornado/rest/pub/aaw/finalreport 4ed8e25f-2195-410c-ac46-363a94f120bb
+2020-06-19 11:01:39 INFO  Action:1266 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 4ed8e25f-2195-410c-ac46-363a94f120bb - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-06-19 11:01:39 INFO  Action:1274 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 4ed8e25f-2195-410c-ac46-363a94f120bb - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-06-19 11:01:39 INFO  Action:1282 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 4ed8e25f-2195-410c-ac46-363a94f120bb - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-06-19 11:06:33 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-06-19 11:06:33 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-06-19 11:06:43 INFO  MessageQueue:86 - Message received: 19-06-2020 11:06:43 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"26ab4630-7fbe-4831-b339-0262f0079a34","region":[{"jpg":"true","printXML":"false","txt":"false","pdf":"true","bmp":"false","ProjectName":"TEST_TUCXML_v001","barCodeVisible":"false","legendVisible":"false","env":"development","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-06-19 11:06:44 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-06-19 11:06:45 INFO  Action:735 - 401359263: Message received acknowledgement for job id  '26ab4630-7fbe-4831-b339-0262f0079a34' 
+2020-06-19 11:06:45 INFO  Action:28 - 401359263: Illustrator activated to load file..
+2020-06-19 11:06:54 INFO  Action:34 - 401359263: AI file and other dependend file opening..
+2020-06-19 11:07:04 INFO  Action:66 - 401359263: TyphoonShadow called
+2020-06-19 11:07:17 INFO  Action:426 - 401359263: Pdf and xml generated..
+2020-06-19 11:07:25 INFO  Action:435 - 401359263: Completed process for job id  '26ab4630-7fbe-4831-b339-0262f0079a34' 
+2020-06-19 11:07:26 INFO  Action:783 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=26ab4630-7fbe-4831-b339-0262f0079a34
+2020-06-19 11:07:26 INFO  Action:785 - 401359263: response for url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=26ab4630-7fbe-4831-b339-0262f0079a34 - response 200
+2020-06-19 11:07:26 INFO  Action:787 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=26ab4630-7fbe-4831-b339-0262f0079a34
+2020-06-19 11:07:26 ERROR Action:975 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=26ab4630-7fbe-4831-b339-0262f0079a34 - response : 200
+2020-06-19 11:07:26 INFO  Action:439 - 401359263: Xml comparision completed..
+2020-06-19 11:07:26 INFO  Action:1262 - 401359263: Before calling update report post method - http://172.28.42.151:8082/tornado/rest/pub/aaw/finalreport 26ab4630-7fbe-4831-b339-0262f0079a34
+2020-06-19 11:07:27 INFO  Action:1266 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 26ab4630-7fbe-4831-b339-0262f0079a34 - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-06-19 11:07:27 INFO  Action:1274 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 26ab4630-7fbe-4831-b339-0262f0079a34 - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-06-19 11:07:27 INFO  Action:1282 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 26ab4630-7fbe-4831-b339-0262f0079a34 - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-06-19 11:09:47 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-06-19 11:09:47 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-06-19 11:09:59 INFO  MessageQueue:86 - Message received: 19-06-2020 11:09:59 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"ee3daff1-1867-4cba-ab33-4b1a20fc0941","region":[{"jpg":"true","printXML":"false","txt":"false","pdf":"true","bmp":"false","ProjectName":"TEST_TUCXML_v001","barCodeVisible":"false","legendVisible":"false","env":"development","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-06-19 11:10:00 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-06-19 11:10:00 INFO  Action:736 - 401359263: Message received acknowledgement for job id  'ee3daff1-1867-4cba-ab33-4b1a20fc0941' 
+2020-06-19 11:10:01 INFO  Action:28 - 401359263: Illustrator activated to load file..
+2020-06-19 11:10:10 INFO  Action:34 - 401359263: AI file and other dependend file opening..
+2020-06-19 11:10:50 INFO  Action:66 - 401359263: TyphoonShadow called
+2020-06-19 11:11:07 INFO  Action:427 - 401359263: Pdf and xml generated..
+2020-06-19 11:11:16 INFO  Action:436 - 401359263: Completed process for job id  'ee3daff1-1867-4cba-ab33-4b1a20fc0941' 
+2020-06-19 11:11:17 INFO  Action:784 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=ee3daff1-1867-4cba-ab33-4b1a20fc0941
+2020-06-19 11:11:17 INFO  Action:786 - 401359263: response for url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=ee3daff1-1867-4cba-ab33-4b1a20fc0941 - response 200
+2020-06-19 11:11:17 INFO  Action:788 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=ee3daff1-1867-4cba-ab33-4b1a20fc0941
+2020-06-19 11:11:17 ERROR Action:976 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=ee3daff1-1867-4cba-ab33-4b1a20fc0941 - response : 200
+2020-06-19 11:11:17 INFO  Action:440 - 401359263: Xml comparision completed..
+2020-06-19 11:11:17 INFO  Action:1263 - 401359263: Before calling update report post method - http://172.28.42.151:8082/tornado/rest/pub/aaw/finalreport ee3daff1-1867-4cba-ab33-4b1a20fc0941
+2020-06-19 11:11:18 INFO  Action:1267 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - ee3daff1-1867-4cba-ab33-4b1a20fc0941 - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-06-19 11:11:18 INFO  Action:1275 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - ee3daff1-1867-4cba-ab33-4b1a20fc0941 - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-06-19 11:11:18 INFO  Action:1283 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - ee3daff1-1867-4cba-ab33-4b1a20fc0941 - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-06-19 11:16:10 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-06-19 11:16:10 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-06-19 11:16:27 INFO  MessageQueue:86 - Message received: 19-06-2020 11:16:27 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"1982c674-9cf1-4906-ba13-61370e9cd4e0","region":[{"jpg":"true","printXML":"false","txt":"false","pdf":"true","bmp":"false","ProjectName":"TEST_TUCXML_v001","barCodeVisible":"false","legendVisible":"false","env":"development","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-06-19 11:16:28 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-06-19 11:16:29 INFO  Action:736 - 401359263: Message received acknowledgement for job id  '1982c674-9cf1-4906-ba13-61370e9cd4e0' 
+2020-06-19 11:16:30 INFO  Action:28 - 401359263: Illustrator activated to load file..
+2020-06-19 11:16:38 INFO  Action:34 - 401359263: AI file and other dependend file opening..
+2020-06-19 11:16:48 INFO  Action:66 - 401359263: TyphoonShadow called
+2020-06-19 11:18:54 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-06-19 11:18:54 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-06-19 11:19:03 INFO  MessageQueue:86 - Message received: 19-06-2020 11:19:03 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"1840dc1d-4178-45fb-b721-640c94aa4856","region":[{"jpg":"true","printXML":"false","txt":"false","pdf":"true","bmp":"false","ProjectName":"TEST_TUCXML_v001","barCodeVisible":"false","legendVisible":"false","env":"development","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-06-19 11:19:04 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-06-19 11:19:05 INFO  Action:736 - 401359263: Message received acknowledgement for job id  '1840dc1d-4178-45fb-b721-640c94aa4856' 
+2020-06-19 11:19:05 INFO  Action:28 - 401359263: Illustrator activated to load file..
+2020-06-19 11:19:18 INFO  Action:34 - 401359263: AI file and other dependend file opening..
+2020-06-19 11:20:02 INFO  Action:66 - 401359263: TyphoonShadow called
+2020-06-19 11:20:15 INFO  Action:427 - 401359263: Pdf and xml generated..
+2020-06-19 11:20:24 INFO  Action:436 - 401359263: Completed process for job id  '1840dc1d-4178-45fb-b721-640c94aa4856' 
+2020-06-19 11:20:25 INFO  Action:784 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=1840dc1d-4178-45fb-b721-640c94aa4856
+2020-06-19 11:20:25 INFO  Action:786 - 401359263: response for url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=1840dc1d-4178-45fb-b721-640c94aa4856 - response 200
+2020-06-19 11:20:25 INFO  Action:788 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=1840dc1d-4178-45fb-b721-640c94aa4856
+2020-06-19 11:20:25 ERROR Action:976 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=1840dc1d-4178-45fb-b721-640c94aa4856 - response : 200
+2020-06-19 11:20:25 INFO  Action:440 - 401359263: Xml comparision completed..
+2020-06-19 11:20:25 INFO  Action:1263 - 401359263: Before calling update report post method - http://172.28.42.151:8082/tornado/rest/pub/aaw/finalreport 1840dc1d-4178-45fb-b721-640c94aa4856
+2020-06-19 11:20:26 INFO  Action:1267 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 1840dc1d-4178-45fb-b721-640c94aa4856 - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-06-19 11:20:26 INFO  Action:1275 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 1840dc1d-4178-45fb-b721-640c94aa4856 - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-06-19 11:20:26 INFO  Action:1283 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 1840dc1d-4178-45fb-b721-640c94aa4856 - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-06-20 22:40:36 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-06-20 22:40:36 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-06-20 22:45:41 INFO  MessageQueue:86 - Message received: 20-06-2020 22:45:41 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"6433f00a-e271-49fe-baf6-f8ab2043c989","region":[{"jpg":"true","printXML":"false","txt":"false","pdf":"true","bmp":"false","ProjectName":"TEST_TUCXML_v001","barCodeVisible":"false","legendVisible":"false","env":"development","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-06-20 22:45:42 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-06-20 22:45:43 INFO  Action:745 - 401359263: Message received acknowledgement for job id  '6433f00a-e271-49fe-baf6-f8ab2043c989' 
+2020-06-20 22:45:44 INFO  Action:28 - 401359263: Illustrator activated to load file..
+2020-06-20 22:45:53 INFO  Action:34 - 401359263: AI file and other dependend file opening..
+2020-06-20 22:46:04 INFO  Action:66 - 401359263: TyphoonShadow called
+2020-06-20 22:46:19 INFO  Action:436 - 401359263: Pdf and xml generated..
+2020-06-20 22:46:27 INFO  Action:445 - 401359263: Completed process for job id  '6433f00a-e271-49fe-baf6-f8ab2043c989' 
+2020-06-20 22:46:28 INFO  Action:793 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=6433f00a-e271-49fe-baf6-f8ab2043c989
+2020-06-20 22:47:44 ERROR Action:1166 - 401359263: Http IO exception: Operation timed out (Connection timed out)
+2020-06-20 22:47:44 INFO  Action:449 - 401359263: Xml comparision completed..
+2020-06-20 22:47:44 INFO  Action:1272 - 401359263: Before calling update report post method - http://172.28.42.151:8082/tornado/rest/pub/aaw/finalreport 6433f00a-e271-49fe-baf6-f8ab2043c989
+2020-06-20 22:49:00 INFO  Action:1276 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 6433f00a-e271-49fe-baf6-f8ab2043c989 - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-20 22:50:15 INFO  Action:1284 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 6433f00a-e271-49fe-baf6-f8ab2043c989 - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-20 22:51:30 INFO  Action:1292 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 6433f00a-e271-49fe-baf6-f8ab2043c989 - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-20 22:54:24 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-06-20 22:54:24 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-06-20 23:25:06 INFO  MessageQueue:86 - Message received: 20-06-2020 23:25:06 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"67c4d140-435c-4bd1-b38a-b68dcfa58da1","region":[{"jpg":"true","printXML":"false","txt":"false","pdf":"true","bmp":"false","ProjectName":"TEST_TUCXML_v001","barCodeVisible":"false","legendVisible":"false","env":"development","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-06-20 23:25:07 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-06-20 23:25:07 INFO  Action:745 - 401359263: Message received acknowledgement for job id  '67c4d140-435c-4bd1-b38a-b68dcfa58da1' 
+2020-06-20 23:25:08 INFO  Action:28 - 401359263: Illustrator activated to load file..
+2020-06-20 23:25:17 INFO  Action:34 - 401359263: AI file and other dependend file opening..
+2020-06-20 23:25:27 INFO  Action:66 - 401359263: TyphoonShadow called
+2020-06-20 23:25:43 INFO  Action:436 - 401359263: Pdf and xml generated..
+2020-06-20 23:25:51 INFO  Action:445 - 401359263: Completed process for job id  '67c4d140-435c-4bd1-b38a-b68dcfa58da1' 
+2020-06-20 23:25:52 INFO  Action:793 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=67c4d140-435c-4bd1-b38a-b68dcfa58da1
+2020-06-20 23:27:07 ERROR Action:1166 - 401359263: Http IO exception: Operation timed out (Connection timed out)
+2020-06-20 23:27:07 INFO  Action:449 - 401359263: Xml comparision completed..
+2020-06-20 23:27:07 INFO  Action:1272 - 401359263: Before calling update report post method - http://172.28.42.151:8082/tornado/rest/pub/aaw/finalreport 67c4d140-435c-4bd1-b38a-b68dcfa58da1
+2020-06-20 23:28:23 INFO  Action:1276 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 67c4d140-435c-4bd1-b38a-b68dcfa58da1 - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-20 23:29:38 INFO  Action:1284 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 67c4d140-435c-4bd1-b38a-b68dcfa58da1 - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-20 23:30:54 INFO  Action:1292 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 67c4d140-435c-4bd1-b38a-b68dcfa58da1 - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-20 23:39:32 INFO  MessageQueue:86 - Message received: 20-06-2020 23:39:32 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"54fa54b0-4071-4c86-b079-1e3b6e3f3a3b","region":[{"jpg":"true","printXML":"false","txt":"false","pdf":"true","bmp":"false","ProjectName":"TEST_TUCXML_v001","barCodeVisible":"false","legendVisible":"false","env":"development","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-06-20 23:39:33 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-06-20 23:39:33 INFO  Action:745 - 401359263: Message received acknowledgement for job id  '54fa54b0-4071-4c86-b079-1e3b6e3f3a3b' 
+2020-06-20 23:39:33 INFO  Action:28 - 401359263: Illustrator activated to load file..
+2020-06-20 23:39:42 INFO  Action:34 - 401359263: AI file and other dependend file opening..
+2020-06-20 23:39:52 INFO  Action:66 - 401359263: TyphoonShadow called
+2020-06-20 23:40:06 INFO  Action:436 - 401359263: Pdf and xml generated..
+2020-06-20 23:40:14 INFO  Action:445 - 401359263: Completed process for job id  '54fa54b0-4071-4c86-b079-1e3b6e3f3a3b' 
+2020-06-20 23:40:15 INFO  Action:793 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=54fa54b0-4071-4c86-b079-1e3b6e3f3a3b
+2020-06-20 23:41:31 ERROR Action:1166 - 401359263: Http IO exception: Operation timed out (Connection timed out)
+2020-06-20 23:41:31 INFO  Action:449 - 401359263: Xml comparision completed..
+2020-06-20 23:41:31 INFO  Action:1272 - 401359263: Before calling update report post method - http://172.28.42.151:8082/tornado/rest/pub/aaw/finalreport 54fa54b0-4071-4c86-b079-1e3b6e3f3a3b
+2020-06-20 23:42:46 INFO  Action:1276 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 54fa54b0-4071-4c86-b079-1e3b6e3f3a3b - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-20 23:44:01 INFO  Action:1284 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 54fa54b0-4071-4c86-b079-1e3b6e3f3a3b - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-20 23:45:17 INFO  Action:1292 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 54fa54b0-4071-4c86-b079-1e3b6e3f3a3b - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-20 23:50:55 INFO  MessageQueue:86 - Message received: 20-06-2020 23:50:55 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"1b9ca28d-9c09-41a6-99a8-7af1a393e384","region":[{"jpg":"true","printXML":"false","txt":"false","pdf":"true","bmp":"false","ProjectName":"TEST_TUCXML_v001","barCodeVisible":"false","legendVisible":"false","env":"development","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-06-20 23:50:56 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-06-20 23:50:56 INFO  Action:745 - 401359263: Message received acknowledgement for job id  '1b9ca28d-9c09-41a6-99a8-7af1a393e384' 
+2020-06-20 23:50:56 INFO  Action:28 - 401359263: Illustrator activated to load file..
+2020-06-20 23:51:05 INFO  Action:34 - 401359263: AI file and other dependend file opening..
+2020-06-20 23:51:26 INFO  Action:66 - 401359263: TyphoonShadow called
+2020-06-20 23:52:17 INFO  Action:436 - 401359263: Pdf and xml generated..
+2020-06-20 23:52:25 INFO  Action:445 - 401359263: Completed process for job id  '1b9ca28d-9c09-41a6-99a8-7af1a393e384' 
+2020-06-20 23:52:26 INFO  Action:793 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=1b9ca28d-9c09-41a6-99a8-7af1a393e384
+2020-06-20 23:53:42 ERROR Action:1166 - 401359263: Http IO exception: Operation timed out (Connection timed out)
+2020-06-20 23:53:42 INFO  Action:449 - 401359263: Xml comparision completed..
+2020-06-20 23:53:42 INFO  Action:1272 - 401359263: Before calling update report post method - http://172.28.42.151:8082/tornado/rest/pub/aaw/finalreport 1b9ca28d-9c09-41a6-99a8-7af1a393e384
+2020-06-20 23:54:57 INFO  Action:1276 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 1b9ca28d-9c09-41a6-99a8-7af1a393e384 - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-20 23:56:12 INFO  Action:1284 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 1b9ca28d-9c09-41a6-99a8-7af1a393e384 - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-20 23:57:28 INFO  Action:1292 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 1b9ca28d-9c09-41a6-99a8-7af1a393e384 - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-21 00:12:56 INFO  MessageQueue:86 - Message received: 21-06-2020 00:12:56 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"d459d5f9-162a-4315-a267-e85216f5a68d","region":[{"jpg":"true","printXML":"false","txt":"false","pdf":"true","bmp":"false","ProjectName":"TEST_TUCXML_v001","barCodeVisible":"false","legendVisible":"false","env":"development","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-06-21 00:12:57 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-06-21 00:12:57 INFO  Action:745 - 401359263: Message received acknowledgement for job id  'd459d5f9-162a-4315-a267-e85216f5a68d' 
+2020-06-21 00:12:57 INFO  Action:28 - 401359263: Illustrator activated to load file..
+2020-06-21 00:13:06 INFO  Action:34 - 401359263: AI file and other dependend file opening..
+2020-06-21 00:13:39 INFO  Action:66 - 401359263: TyphoonShadow called
+2020-06-21 00:13:55 INFO  Action:436 - 401359263: Pdf and xml generated..
+2020-06-21 00:14:03 INFO  Action:445 - 401359263: Completed process for job id  'd459d5f9-162a-4315-a267-e85216f5a68d' 
+2020-06-21 00:14:04 INFO  Action:793 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=d459d5f9-162a-4315-a267-e85216f5a68d
+2020-06-21 00:15:19 ERROR Action:1166 - 401359263: Http IO exception: Operation timed out (Connection timed out)
+2020-06-21 00:15:19 INFO  Action:449 - 401359263: Xml comparision completed..
+2020-06-21 00:15:19 INFO  Action:1272 - 401359263: Before calling update report post method - http://172.28.42.151:8082/tornado/rest/pub/aaw/finalreport d459d5f9-162a-4315-a267-e85216f5a68d
+2020-06-21 00:16:35 INFO  Action:1276 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - d459d5f9-162a-4315-a267-e85216f5a68d - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-21 00:17:50 INFO  Action:1284 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - d459d5f9-162a-4315-a267-e85216f5a68d - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-21 00:19:05 INFO  Action:1292 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - d459d5f9-162a-4315-a267-e85216f5a68d - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-21 00:29:51 INFO  MessageQueue:86 - Message received: 21-06-2020 00:29:51 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"ab68012e-7d68-425f-8610-9a6a67fb377c","region":[{"jpg":"true","printXML":"false","txt":"false","pdf":"true","bmp":"false","ProjectName":"TEST_TUCXML_v001","barCodeVisible":"false","legendVisible":"false","env":"development","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-06-21 00:29:52 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-06-21 00:29:52 INFO  Action:745 - 401359263: Message received acknowledgement for job id  'ab68012e-7d68-425f-8610-9a6a67fb377c' 
+2020-06-21 00:29:52 INFO  Action:28 - 401359263: Illustrator activated to load file..
+2020-06-21 00:30:01 INFO  Action:34 - 401359263: AI file and other dependend file opening..
+2020-06-21 00:30:33 INFO  Action:66 - 401359263: TyphoonShadow called
+2020-06-21 00:31:40 INFO  Action:436 - 401359263: Pdf and xml generated..
+2020-06-21 00:31:48 INFO  Action:445 - 401359263: Completed process for job id  'ab68012e-7d68-425f-8610-9a6a67fb377c' 
+2020-06-21 00:31:49 INFO  Action:793 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=ab68012e-7d68-425f-8610-9a6a67fb377c
+2020-06-21 00:33:05 ERROR Action:1166 - 401359263: Http IO exception: Operation timed out (Connection timed out)
+2020-06-21 00:33:05 INFO  Action:449 - 401359263: Xml comparision completed..
+2020-06-21 00:33:05 INFO  Action:1272 - 401359263: Before calling update report post method - http://172.28.42.151:8082/tornado/rest/pub/aaw/finalreport ab68012e-7d68-425f-8610-9a6a67fb377c
+2020-06-21 00:34:20 INFO  Action:1276 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - ab68012e-7d68-425f-8610-9a6a67fb377c - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-21 00:35:35 INFO  Action:1284 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - ab68012e-7d68-425f-8610-9a6a67fb377c - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-21 00:36:51 INFO  Action:1292 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - ab68012e-7d68-425f-8610-9a6a67fb377c - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-21 00:44:42 INFO  MessageQueue:86 - Message received: 21-06-2020 00:44:42 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"b1e069eb-cebb-49f4-b64d-5a81c094e08a","region":[{"jpg":"true","printXML":"false","txt":"false","pdf":"true","bmp":"false","ProjectName":"TEST_TUCXML_v001","barCodeVisible":"false","legendVisible":"false","env":"development","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-06-21 00:44:43 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-06-21 00:44:43 INFO  Action:745 - 401359263: Message received acknowledgement for job id  'b1e069eb-cebb-49f4-b64d-5a81c094e08a' 
+2020-06-21 00:44:43 INFO  Action:28 - 401359263: Illustrator activated to load file..
+2020-06-21 00:44:52 INFO  Action:34 - 401359263: AI file and other dependend file opening..
+2020-06-21 00:45:11 INFO  Action:66 - 401359263: TyphoonShadow called
+2020-06-21 00:45:24 INFO  Action:436 - 401359263: Pdf and xml generated..
+2020-06-21 00:45:32 INFO  Action:445 - 401359263: Completed process for job id  'b1e069eb-cebb-49f4-b64d-5a81c094e08a' 
+2020-06-21 00:45:33 INFO  Action:793 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=b1e069eb-cebb-49f4-b64d-5a81c094e08a
+2020-06-21 00:46:48 ERROR Action:1166 - 401359263: Http IO exception: Operation timed out (Connection timed out)
+2020-06-21 00:46:48 INFO  Action:449 - 401359263: Xml comparision completed..
+2020-06-21 00:46:48 INFO  Action:1272 - 401359263: Before calling update report post method - http://172.28.42.151:8082/tornado/rest/pub/aaw/finalreport b1e069eb-cebb-49f4-b64d-5a81c094e08a
+2020-06-21 00:48:04 INFO  Action:1276 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - b1e069eb-cebb-49f4-b64d-5a81c094e08a - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-21 00:49:19 INFO  Action:1284 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - b1e069eb-cebb-49f4-b64d-5a81c094e08a - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-21 00:50:35 INFO  Action:1292 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - b1e069eb-cebb-49f4-b64d-5a81c094e08a - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-21 00:50:36 INFO  MessageQueue:86 - Message received: 21-06-2020 00:50:36 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"43e87580-d607-4192-8c33-5367476eb61b","region":[{"jpg":"true","printXML":"false","txt":"false","pdf":"true","bmp":"false","ProjectName":"TEST_TUCXML_v001","barCodeVisible":"false","legendVisible":"false","env":"development","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-06-21 00:50:37 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-06-21 00:50:37 INFO  Action:745 - 401359263: Message received acknowledgement for job id  '43e87580-d607-4192-8c33-5367476eb61b' 
+2020-06-21 00:50:37 INFO  Action:28 - 401359263: Illustrator activated to load file..
+2020-06-21 00:50:46 INFO  Action:34 - 401359263: AI file and other dependend file opening..
+2020-06-21 00:51:03 INFO  Action:66 - 401359263: TyphoonShadow called
+2020-06-21 00:51:19 INFO  Action:436 - 401359263: Pdf and xml generated..
+2020-06-21 00:51:27 INFO  Action:445 - 401359263: Completed process for job id  '43e87580-d607-4192-8c33-5367476eb61b' 
+2020-06-21 00:51:28 INFO  Action:793 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=43e87580-d607-4192-8c33-5367476eb61b
+2020-06-21 00:52:44 ERROR Action:1166 - 401359263: Http IO exception: Operation timed out (Connection timed out)
+2020-06-21 00:52:44 INFO  Action:449 - 401359263: Xml comparision completed..
+2020-06-21 00:52:44 INFO  Action:1272 - 401359263: Before calling update report post method - http://172.28.42.151:8082/tornado/rest/pub/aaw/finalreport 43e87580-d607-4192-8c33-5367476eb61b
+2020-06-21 00:53:59 INFO  Action:1276 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 43e87580-d607-4192-8c33-5367476eb61b - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-21 00:55:15 INFO  Action:1284 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 43e87580-d607-4192-8c33-5367476eb61b - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-21 00:56:30 INFO  Action:1292 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 43e87580-d607-4192-8c33-5367476eb61b - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-21 00:56:31 INFO  MessageQueue:86 - Message received: 21-06-2020 00:56:31 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"50c675ad-8c3e-40b1-a814-38c9709d7423","region":[{"jpg":"true","printXML":"false","txt":"false","pdf":"true","bmp":"false","ProjectName":"TEST_TUCXML_v001","barCodeVisible":"false","legendVisible":"false","env":"development","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-06-21 00:56:32 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-06-21 00:56:32 INFO  Action:745 - 401359263: Message received acknowledgement for job id  '50c675ad-8c3e-40b1-a814-38c9709d7423' 
+2020-06-21 00:56:32 INFO  Action:28 - 401359263: Illustrator activated to load file..
+2020-06-21 00:56:41 INFO  Action:34 - 401359263: AI file and other dependend file opening..
+2020-06-21 00:56:52 INFO  Action:66 - 401359263: TyphoonShadow called
+2020-06-21 00:57:06 INFO  Action:436 - 401359263: Pdf and xml generated..
+2020-06-21 00:57:15 INFO  Action:445 - 401359263: Completed process for job id  '50c675ad-8c3e-40b1-a814-38c9709d7423' 
+2020-06-21 00:57:16 INFO  Action:793 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=50c675ad-8c3e-40b1-a814-38c9709d7423
+2020-06-21 00:58:31 ERROR Action:1166 - 401359263: Http IO exception: Operation timed out (Connection timed out)
+2020-06-21 00:58:31 INFO  Action:449 - 401359263: Xml comparision completed..
+2020-06-21 00:58:31 INFO  Action:1272 - 401359263: Before calling update report post method - http://172.28.42.151:8082/tornado/rest/pub/aaw/finalreport 50c675ad-8c3e-40b1-a814-38c9709d7423
+2020-06-21 00:59:46 INFO  Action:1276 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 50c675ad-8c3e-40b1-a814-38c9709d7423 - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-21 01:01:02 INFO  Action:1284 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 50c675ad-8c3e-40b1-a814-38c9709d7423 - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-21 01:02:17 INFO  Action:1292 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 50c675ad-8c3e-40b1-a814-38c9709d7423 - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-21 01:02:46 ERROR HttpConnection:61 - Connection refused (Connection refused)
+2020-06-21 01:02:47 INFO  MessageQueue:86 - Message received: 21-06-2020 01:02:47 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"85ecdd49-d1ac-4997-8627-e833a514c89a","region":[{"jpg":"true","printXML":"false","txt":"false","pdf":"true","bmp":"false","ProjectName":"TEST_TUCXML_v001","barCodeVisible":"false","legendVisible":"false","env":"development","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-06-21 01:02:48 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-06-21 01:03:00 INFO  Action:745 - 401359263: Message received acknowledgement for job id  '85ecdd49-d1ac-4997-8627-e833a514c89a' 
+2020-06-21 01:03:00 INFO  Action:28 - 401359263: Illustrator activated to load file..
+2020-06-21 01:03:09 INFO  Action:34 - 401359263: AI file and other dependend file opening..
+2020-06-21 01:03:19 INFO  Action:66 - 401359263: TyphoonShadow called
+2020-06-21 01:03:34 INFO  Action:436 - 401359263: Pdf and xml generated..
+2020-06-21 01:03:42 INFO  Action:445 - 401359263: Completed process for job id  '85ecdd49-d1ac-4997-8627-e833a514c89a' 
+2020-06-21 01:03:44 INFO  Action:793 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=85ecdd49-d1ac-4997-8627-e833a514c89a
+2020-06-21 01:04:59 ERROR Action:1166 - 401359263: Http IO exception: Operation timed out (Connection timed out)
+2020-06-21 01:04:59 INFO  Action:449 - 401359263: Xml comparision completed..
+2020-06-21 01:04:59 INFO  Action:1272 - 401359263: Before calling update report post method - http://172.28.42.151:8082/tornado/rest/pub/aaw/finalreport 85ecdd49-d1ac-4997-8627-e833a514c89a
+2020-06-21 01:06:14 INFO  Action:1276 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 85ecdd49-d1ac-4997-8627-e833a514c89a - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-21 01:06:57 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-06-21 01:06:57 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-06-21 01:07:07 INFO  MessageQueue:86 - Message received: 21-06-2020 01:07:07 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"5f768e49-29e5-422b-8027-e83ff42e2e44","region":[{"jpg":"true","printXML":"false","txt":"false","pdf":"true","bmp":"false","ProjectName":"TEST_TUCXML_v001","barCodeVisible":"false","legendVisible":"false","env":"development","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-06-21 01:07:08 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-06-21 01:07:08 INFO  Action:745 - 401359263: Message received acknowledgement for job id  '5f768e49-29e5-422b-8027-e83ff42e2e44' 
+2020-06-21 01:07:09 INFO  Action:28 - 401359263: Illustrator activated to load file..
+2020-06-21 01:07:18 INFO  Action:34 - 401359263: AI file and other dependend file opening..
+2020-06-21 01:07:42 INFO  Action:66 - 401359263: TyphoonShadow called
+2020-06-21 01:08:12 INFO  Action:436 - 401359263: Pdf and xml generated..
+2020-06-21 01:08:20 INFO  Action:445 - 401359263: Completed process for job id  '5f768e49-29e5-422b-8027-e83ff42e2e44' 
+2020-06-21 01:08:21 INFO  Action:793 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=5f768e49-29e5-422b-8027-e83ff42e2e44
+2020-06-21 01:09:37 ERROR Action:1166 - 401359263: Http IO exception: Operation timed out (Connection timed out)
+2020-06-21 01:09:37 INFO  Action:449 - 401359263: Xml comparision completed..
+2020-06-21 01:09:37 INFO  Action:1272 - 401359263: Before calling update report post method - http://172.28.42.151:8082/tornado/rest/pub/aaw/finalreport 5f768e49-29e5-422b-8027-e83ff42e2e44
+2020-06-21 01:10:52 INFO  Action:1276 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 5f768e49-29e5-422b-8027-e83ff42e2e44 - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-21 01:12:08 INFO  Action:1284 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 5f768e49-29e5-422b-8027-e83ff42e2e44 - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-21 01:13:23 INFO  Action:1292 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 5f768e49-29e5-422b-8027-e83ff42e2e44 - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-21 01:13:25 INFO  MessageQueue:86 - Message received: 21-06-2020 01:13:25 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"c329af11-ee69-4779-9588-b4b38b9adca8","region":[{"jpg":"true","printXML":"false","txt":"false","pdf":"true","bmp":"false","ProjectName":"TEST_TUCXML_v001","barCodeVisible":"false","legendVisible":"false","env":"development","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-06-21 01:13:26 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-06-21 01:13:26 INFO  Action:745 - 401359263: Message received acknowledgement for job id  'c329af11-ee69-4779-9588-b4b38b9adca8' 
+2020-06-21 01:13:26 INFO  Action:28 - 401359263: Illustrator activated to load file..
+2020-06-21 01:13:34 INFO  Action:34 - 401359263: AI file and other dependend file opening..
+2020-06-21 01:13:58 INFO  Action:66 - 401359263: TyphoonShadow called
+2020-06-21 01:14:40 INFO  Action:436 - 401359263: Pdf and xml generated..
+2020-06-21 01:14:49 INFO  Action:445 - 401359263: Completed process for job id  'c329af11-ee69-4779-9588-b4b38b9adca8' 
+2020-06-21 01:14:50 INFO  Action:793 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=c329af11-ee69-4779-9588-b4b38b9adca8
+2020-06-21 01:16:05 ERROR Action:1166 - 401359263: Http IO exception: Operation timed out (Connection timed out)
+2020-06-21 01:16:05 INFO  Action:449 - 401359263: Xml comparision completed..
+2020-06-21 01:16:05 INFO  Action:1272 - 401359263: Before calling update report post method - http://172.28.42.151:8082/tornado/rest/pub/aaw/finalreport c329af11-ee69-4779-9588-b4b38b9adca8
+2020-06-21 01:17:21 INFO  Action:1276 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - c329af11-ee69-4779-9588-b4b38b9adca8 - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-21 01:18:36 INFO  Action:1284 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - c329af11-ee69-4779-9588-b4b38b9adca8 - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-21 01:19:51 INFO  Action:1292 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - c329af11-ee69-4779-9588-b4b38b9adca8 - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-21 01:31:35 INFO  MessageQueue:86 - Message received: 21-06-2020 01:31:35 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"04eea4fe-5774-487e-8026-4da93cce1ab0","region":[{"jpg":"true","printXML":"false","txt":"false","pdf":"true","bmp":"false","ProjectName":"TEST_TUCXML_v001","barCodeVisible":"false","legendVisible":"false","env":"development","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-06-21 01:31:36 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-06-21 01:31:36 INFO  Action:745 - 401359263: Message received acknowledgement for job id  '04eea4fe-5774-487e-8026-4da93cce1ab0' 
+2020-06-21 01:31:36 INFO  Action:28 - 401359263: Illustrator activated to load file..
+2020-06-21 01:31:52 INFO  Action:34 - 401359263: AI file and other dependend file opening..
+2020-06-21 01:32:02 INFO  Action:66 - 401359263: TyphoonShadow called
+2020-06-21 01:32:19 INFO  Action:436 - 401359263: Pdf and xml generated..
+2020-06-21 01:32:28 INFO  Action:445 - 401359263: Completed process for job id  '04eea4fe-5774-487e-8026-4da93cce1ab0' 
+2020-06-21 01:32:29 INFO  Action:793 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=04eea4fe-5774-487e-8026-4da93cce1ab0
+2020-06-21 01:33:44 ERROR Action:1166 - 401359263: Http IO exception: Operation timed out (Connection timed out)
+2020-06-21 01:33:44 INFO  Action:449 - 401359263: Xml comparision completed..
+2020-06-21 01:33:44 INFO  Action:1272 - 401359263: Before calling update report post method - http://172.28.42.151:8082/tornado/rest/pub/aaw/finalreport 04eea4fe-5774-487e-8026-4da93cce1ab0
+2020-06-21 01:35:00 INFO  Action:1276 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 04eea4fe-5774-487e-8026-4da93cce1ab0 - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-21 01:36:15 INFO  Action:1284 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 04eea4fe-5774-487e-8026-4da93cce1ab0 - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-21 01:37:31 INFO  Action:1292 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 04eea4fe-5774-487e-8026-4da93cce1ab0 - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-21 01:37:32 INFO  MessageQueue:86 - Message received: 21-06-2020 01:37:32 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"1bf2eb0e-f8e3-4497-990c-268e7932a6e3","region":[{"jpg":"true","printXML":"false","txt":"false","pdf":"true","bmp":"false","ProjectName":"TEST_TUCXML_v001","barCodeVisible":"false","legendVisible":"false","env":"development","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-06-21 01:37:33 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-06-21 01:37:33 INFO  Action:745 - 401359263: Message received acknowledgement for job id  '1bf2eb0e-f8e3-4497-990c-268e7932a6e3' 
+2020-06-21 01:37:35 INFO  Action:28 - 401359263: Illustrator activated to load file..
+2020-06-21 01:37:43 INFO  Action:34 - 401359263: AI file and other dependend file opening..
+2020-06-21 01:37:53 INFO  Action:66 - 401359263: TyphoonShadow called
+2020-06-21 01:38:04 INFO  Action:436 - 401359263: Pdf and xml generated..
+2020-06-21 01:38:12 INFO  Action:445 - 401359263: Completed process for job id  '1bf2eb0e-f8e3-4497-990c-268e7932a6e3' 
+2020-06-21 01:38:13 INFO  Action:793 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=1bf2eb0e-f8e3-4497-990c-268e7932a6e3
+2020-06-21 01:39:29 ERROR Action:1166 - 401359263: Http IO exception: Operation timed out (Connection timed out)
+2020-06-21 01:39:29 INFO  Action:449 - 401359263: Xml comparision completed..
+2020-06-21 01:39:29 INFO  Action:1272 - 401359263: Before calling update report post method - http://172.28.42.151:8082/tornado/rest/pub/aaw/finalreport 1bf2eb0e-f8e3-4497-990c-268e7932a6e3
+2020-06-21 01:40:44 INFO  Action:1276 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 1bf2eb0e-f8e3-4497-990c-268e7932a6e3 - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-21 01:42:00 INFO  Action:1284 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 1bf2eb0e-f8e3-4497-990c-268e7932a6e3 - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-21 01:43:15 INFO  Action:1292 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 1bf2eb0e-f8e3-4497-990c-268e7932a6e3 - 
+ response : ioException occured while sending http request : org.apache.http.conn.HttpHostConnectException: Connect to 172.28.42.151:8082 [/172.28.42.151] failed: Operation timed out (Connection timed out)
+2020-06-21 02:02:36 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-06-21 02:02:36 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-06-21 02:03:59 INFO  MessageQueue:86 - Message received: 21-06-2020 02:03:59 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"3ca60333-da83-4539-a707-06a5f461eac3","region":[{"jpg":"true","printXML":"false","txt":"false","pdf":"true","bmp":"false","ProjectName":"TEST_TUCXML_v001","barCodeVisible":"false","legendVisible":"false","env":"development","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-06-21 02:04:00 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-06-21 02:04:01 INFO  Action:745 - 401359263: Message received acknowledgement for job id  '3ca60333-da83-4539-a707-06a5f461eac3' 
+2020-06-21 02:04:02 INFO  Action:28 - 401359263: Illustrator activated to load file..
+2020-06-21 02:04:11 INFO  Action:34 - 401359263: AI file and other dependend file opening..
+2020-06-21 02:04:20 INFO  Action:66 - 401359263: TyphoonShadow called
+2020-06-21 02:04:33 INFO  Action:436 - 401359263: Pdf and xml generated..
+2020-06-21 02:04:41 INFO  Action:445 - 401359263: Completed process for job id  '3ca60333-da83-4539-a707-06a5f461eac3' 
+2020-06-21 02:04:42 INFO  Action:793 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=3ca60333-da83-4539-a707-06a5f461eac3
+2020-06-21 02:04:43 INFO  Action:795 - 401359263: response for url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=3ca60333-da83-4539-a707-06a5f461eac3 - response 200
+2020-06-21 02:04:43 INFO  Action:797 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=3ca60333-da83-4539-a707-06a5f461eac3
+2020-06-21 02:04:43 ERROR Action:985 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=3ca60333-da83-4539-a707-06a5f461eac3 - response : 200
+2020-06-21 02:04:43 INFO  Action:449 - 401359263: Xml comparision completed..
+2020-06-21 02:04:43 INFO  Action:1272 - 401359263: Before calling update report post method - http://172.28.42.151:8082/tornado/rest/pub/aaw/finalreport 3ca60333-da83-4539-a707-06a5f461eac3
+2020-06-21 02:04:43 INFO  Action:1276 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 3ca60333-da83-4539-a707-06a5f461eac3 - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-06-21 02:04:43 INFO  Action:1284 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 3ca60333-da83-4539-a707-06a5f461eac3 - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-06-21 02:04:44 INFO  Action:1292 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 3ca60333-da83-4539-a707-06a5f461eac3 - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-06-21 02:12:19 INFO  MessageQueue:86 - Message received: 21-06-2020 02:12:19 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"true","considerSemiboldAsBold":"true","considerObliqueAsItalic":"true","considerBlackAsBold":"true","replaceBrTagWithSpace":"true"}],"styleAttributes":[{"Italic":"true","Strikethrough":"true","Underline":"true","Bold":"true","Subscript":"true","Superscript":"true"}],"textformat":[{"addSpaceBetweenElements":"true","useTabasTabular":"true","useBrasLineBreak":"true","rulefortextframe":"false"}],"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/Chennai Print xml\/401359263\/","Master":"050_Production_Art\/Test.ai","Revision":"01","WO":"401359263","XMLFile":"100_XML\/A01\/GS1_40185810901_2.xml"}],"Id":"02470a45-1031-4d44-9933-3e4fc58d14f1","region":[{"jpg":"true","printXML":"false","txt":"false","pdf":"true","bmp":"false","ProjectName":"TEST_TUCXML_v001","barCodeVisible":"false","legendVisible":"false","env":"development","Location":"TestRR"}],"type":"none","version":"CC 2018"}'
+2020-06-21 02:12:20 ERROR JsonParser:172 - 401359263: Invalid Key value search 'aaw, MasterTemplate'  null
+2020-06-21 02:12:20 INFO  Action:745 - 401359263: Message received acknowledgement for job id  '02470a45-1031-4d44-9933-3e4fc58d14f1' 
+2020-06-21 02:12:21 INFO  Action:28 - 401359263: Illustrator activated to load file..
+2020-06-21 02:12:29 INFO  Action:34 - 401359263: AI file and other dependend file opening..
+2020-06-21 02:12:39 INFO  Action:66 - 401359263: TyphoonShadow called
+2020-06-21 02:12:51 INFO  Action:436 - 401359263: Pdf and xml generated..
+2020-06-21 02:13:00 INFO  Action:445 - 401359263: Completed process for job id  '02470a45-1031-4d44-9933-3e4fc58d14f1' 
+2020-06-21 02:13:01 INFO  Action:793 - 401359263: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=02470a45-1031-4d44-9933-3e4fc58d14f1
+2020-06-21 02:13:01 INFO  Action:795 - 401359263: response for url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=02470a45-1031-4d44-9933-3e4fc58d14f1 - response 200
+2020-06-21 02:13:01 INFO  Action:797 - 401359263: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=02470a45-1031-4d44-9933-3e4fc58d14f1
+2020-06-21 02:13:01 ERROR Action:985 - 401359263: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=02470a45-1031-4d44-9933-3e4fc58d14f1 - response : 200
+2020-06-21 02:13:01 INFO  Action:449 - 401359263: Xml comparision completed..
+2020-06-21 02:13:01 INFO  Action:1272 - 401359263: Before calling update report post method - http://172.28.42.151:8082/tornado/rest/pub/aaw/finalreport 02470a45-1031-4d44-9933-3e4fc58d14f1
+2020-06-21 02:13:01 INFO  Action:1276 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 02470a45-1031-4d44-9933-3e4fc58d14f1 - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-06-21 02:13:02 INFO  Action:1284 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 02470a45-1031-4d44-9933-3e4fc58d14f1 - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-06-21 02:13:02 INFO  Action:1292 - 401359263: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 02470a45-1031-4d44-9933-3e4fc58d14f1 - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}

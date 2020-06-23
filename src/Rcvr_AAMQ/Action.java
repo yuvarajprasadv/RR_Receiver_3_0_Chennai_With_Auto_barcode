@@ -24,21 +24,6 @@ public class Action {
 		FileSystem fls = new FileSystem();
 		Utils utils = new Utils();
 
-		//// TEMP
-		/*
-		 * if(!XmlUtiility.CheckGraphicsElementExist(jspr.geFilePathFromJson(jsonObj,
-		 * "XMLFile"))) { String barcodePath = jspr.geFilePathFromJson(jsonObj, "") +
-		 * "030_Barcodes/"; if(!utils.FileExists(barcodePath)) { barcodePath =
-		 * jspr.geFilePathFromJson(jsonObj, "") + "030 Barcodes/"; }
-		 * XmlUtiility.GS1XmlAppendGraphicsElement(jspr.geFilePathFromJson(jsonObj,
-		 * "XMLFile"), XmlUtiility.GetFileFromPathString(barcodePath).toString()); }
-		 * else { String barcodePath = jspr.geFilePathFromJson(jsonObj, "") +
-		 * "030_Barcodes/"; if(!utils.FileExists(barcodePath)) { barcodePath =
-		 * jspr.geFilePathFromJson(jsonObj, "") + "030 Barcodes/"; }
-		 * XmlUtiility.GS1XmlParseGraphicsElement(jspr.geFilePathFromJson(jsonObj,
-		 * "XMLFile"), XmlUtiility.GetFileFromPathString(barcodePath).toString()); }
-		 * /////TEMP
-		 */
 		SEng.CallAdobeIllustrator();
 		log.info(MessageQueue.WORK_ORDER + ": " + "Illustrator activated to load file..");
 
@@ -84,8 +69,376 @@ public class Action {
 		if (errorMsg.contains("\n") && errorMsg.length() != 1)
 			MessageQueue.STATUS = false;
 
-		// if(MessageQueue.STATUS)
+		if(MessageQueue.TORNADO_ENV.equalsIgnoreCase("development"))
 		{
+
+			INIReader ini = new INIReader();
+			ini.readIniForSingle();
+			
+//			String printXML = jspr.getJsonValueFromGroupKey(jsonObj, "region", "printXML");
+//			if (printXML == null)
+//				printXML = "false";
+//			if(printXML.equalsIgnoreCase("true"))
+//			{
+
+			String[] docPath = jspr.getPath(jsonObj);
+			String fileNameToSave = xmlUtil.getFileNameFromElement((docPath[0].split("~"))[0]);
+			String[] fileName = new String[4];
+			if (fileNameToSave != null) {
+				fileName[0] = "none"; // dummy
+				fileName[1] = GetLastIndex(docPath[2]) + "/" + fileNameToSave;
+				fileName[2] = GetLastIndex(docPath[2]) + "/" + fileNameToSave;
+				fileName[3] = GetLastIndex(docPath[1]) + "/" + fileNameToSave;
+			}
+			
+			if (MessageQueue.sPdfNormal) {
+				String barCodeVisible = jspr.getJsonValueFromGroupKey(jsonObj, "region", "barCodeVisible");
+				String legendVisible = jspr.getJsonValueFromGroupKey(jsonObj, "region", "legendVisible");
+				String pdfOnly = jspr.getJsonValueFromGroupKey(jsonObj, "region", "pdf");
+				String bmpformat = jspr.getJsonValueFromGroupKey(jsonObj, "region", "bmp");
+				String clipJPEG = jspr.getJsonValueFromGroupKey(jsonObj, "region", "jpg");
+				ImageConvertor imageConvertor = new ImageConvertor();
+				if (fileNameToSave != null) {
+				
+						SEng.SaveDocAs(fileName[3], "");
+						SEng.ExportAsNormalPDF(fileName[1], "");
+						
+						
+				
+//					if (printXML != null)
+//						if (printXML.equalsIgnoreCase("true")) {
+							//// Layer Visiblity off
+							Thread.sleep(5000);
+							if (barCodeVisible != null)
+							{
+								if (barCodeVisible.equalsIgnoreCase("false"))
+									SEng.SetLayerVisibleOff("false");
+								else
+									SEng.SetLayerVisibleOff("true");
+							}
+							else
+								SEng.SetLayerVisibleOff("true");
+							
+							String dataCollectionPath = jspr.getJsonValueFromGroupKey(jsonObj, "aaw", "Path") + "/090_Deliverables/Data_Collection/";
+							if(!utils.IsFolderExists(dataCollectionPath))
+							{
+								utils.CreateNewDirectory(dataCollectionPath, false);
+								fileName[2] = dataCollectionPath + fileNameToSave;
+								
+							}
+							else
+								fileName[2] = dataCollectionPath + fileNameToSave;
+
+							
+							if (clipJPEG != null)
+								if (clipJPEG.equalsIgnoreCase("true")) {
+								SEng.ExportAsClipJPEG(fileName[2], "");
+								}
+
+							if (bmpformat != null)
+							if (bmpformat.equalsIgnoreCase("true"))
+							{
+								if (clipJPEG != null)
+									if (clipJPEG.equalsIgnoreCase("false"))
+									{
+									SEng.ExportAsClipJPEG(fileName[2], "");
+									}
+								
+								String imageFormat = "bmp";
+								String inputImagePath = fileName[2] + ".jpg";
+								String outputImagePath = fileName[2] + "." + imageFormat;
+								Thread.sleep(1000);
+								
+								if(!utils.FileExists(inputImagePath))
+								{
+									SEng.ExportAsClipJPEG(fileName[2], "");
+								}
+									
+								imageConvertor.ConvertImageTo(inputImagePath, outputImagePath, imageFormat);
+								
+								if (clipJPEG != null)
+									if (clipJPEG.equalsIgnoreCase("false"))
+									{
+									File file = new File(fileName[2] + ".jpg");
+									file.delete();
+									}
+							}
+					//	}
+							
+							
+							if (pdfOnly != null)
+							if (pdfOnly.equalsIgnoreCase("true"))
+							{
+								SEng.OutlineText();
+
+								if (legendVisible != null)
+								if (legendVisible.equalsIgnoreCase("false"))
+								{
+									SEng.SetLegendVisibleOff();
+								}
+								String pdfOnlyPath = jspr.getJsonValueFromGroupKey(jsonObj, "aaw", "Path") + "/090_Deliverables/PDF_ONLY/";
+								if(!utils.IsFolderExists(pdfOnlyPath))
+								{
+									utils.CreateNewDirectory(pdfOnlyPath, false);
+									fileName[2] = pdfOnlyPath + fileNameToSave;
+								}
+								else
+									fileName[2] = pdfOnlyPath + fileNameToSave;
+								
+								SEng.ExportAsNormalPDF(fileName[2], "");
+							}
+				} 
+				else 
+				{
+					String[] pathArray = new String[4];
+					
+					pathArray[0] = "none"; // dummy
+					pathArray[1] = GetLastIndex(docPath[2]) + jspr.getJsonValueForKey(jsonObj, "WO");
+					pathArray[2] = GetLastIndex(docPath[2]);
+					pathArray[3] = GetLastIndex(docPath[1]);
+					
+					SEng.SaveDocAs(pathArray[3], "");
+					SEng.ExportAsNormalPDF(pathArray[1], "");
+					
+					
+					//SEng.PostDocumentProcess(pathArray);
+					
+//					if (printXML != null)
+//						if (printXML.equalsIgnoreCase("true")) {
+							//// Layer Visiblity off
+							Thread.sleep(5000);
+							if (barCodeVisible != null)
+							{
+								if (barCodeVisible.equalsIgnoreCase("false"))
+									SEng.SetLayerVisibleOff("false");
+								else
+									SEng.SetLayerVisibleOff("true");
+							}
+							else
+							{
+								SEng.SetLayerVisibleOff("true");
+							}
+							
+							
+							String dataCollectionPath = jspr.getJsonValueFromGroupKey(jsonObj, "aaw", "Path") + "/090_Deliverables/Data_Collection/";
+							if(!utils.IsFolderExists(dataCollectionPath))
+							{
+								utils.CreateNewDirectory(dataCollectionPath, false);
+								pathArray[2] = dataCollectionPath + "/" + jspr.getJsonValueForKey(jsonObj, "WO");
+							}
+							else
+								pathArray[2] = dataCollectionPath + "/" + jspr.getJsonValueForKey(jsonObj, "WO");
+							
+							
+							if (clipJPEG != null)
+								if (clipJPEG.equalsIgnoreCase("true")) 
+								{
+								SEng.ExportAsClipJPEG(pathArray[2], "");
+								}
+
+							
+							if (bmpformat != null)
+							if (bmpformat.equalsIgnoreCase("true"))
+							{
+								if (clipJPEG != null)
+									if (clipJPEG.equalsIgnoreCase("false"))
+									{
+									SEng.ExportAsClipJPEG(pathArray[2], "");
+									}
+								
+								String imageFormat = "bmp";
+								String inputImagePath = pathArray[2] + ".jpg";
+								String outputImagePath = pathArray[2] + "." + imageFormat;
+								Thread.sleep(1000);
+								imageConvertor.ConvertImageTo(inputImagePath, outputImagePath, imageFormat);
+								
+								if (clipJPEG != null)
+								if (clipJPEG.equalsIgnoreCase("false"))
+								{
+									File file = new File(pathArray[2] + ".jpg");
+									file.delete();
+								}
+							}
+							
+							if (pdfOnly != null)
+							if (pdfOnly.equalsIgnoreCase("true"))
+							{
+								SEng.OutlineText();
+
+								if (legendVisible != null)
+								if (legendVisible.equalsIgnoreCase("false"))
+								{
+									SEng.SetLegendVisibleOff();
+								}
+								String pdfOnlyPath = jspr.getJsonValueFromGroupKey(jsonObj, "aaw", "Path") + "/090_Deliverables/PDF_ONLY/";
+								if(!utils.IsFolderExists(pdfOnlyPath))
+								{
+									utils.CreateNewDirectory(pdfOnlyPath, false);
+									pathArray[2] = pdfOnlyPath +  "/" + jspr.getJsonValueForKey(jsonObj, "WO");
+								}
+								else
+									pathArray[2] = pdfOnlyPath +  "/" + jspr.getJsonValueForKey(jsonObj, "WO");
+								
+								SEng.ExportAsNormalPDF(pathArray[2], "");
+							}
+							
+
+						//}
+				}
+			} else if (MessageQueue.sPdfPreset) {
+
+				String pdfPreset[] = utils.getPresetFileFromDirectory(
+						utils.GetParentPath(jspr.geFilePathFromJson(jsonObj, "Master")), "joboptions");
+				String[] pdfPresetArr = new String[2];
+				if (pdfPreset.length != 0) {
+					pdfPresetArr[0] = utils.GetParentPath(jspr.geFilePathFromJson(jsonObj, "Master")) + "/"
+							+ pdfPreset[0];
+					pdfPresetArr[1] = pdfPreset[0].split("\\.")[0];
+					String resultPdfExport = "";
+					if (fileNameToSave != null)
+						resultPdfExport = SEng.PostDocMultiPDFPreset(fileName, pdfPresetArr);
+					else {
+						String[] dcPath = new String[4];
+						dcPath[0] = "";
+						dcPath[1] = "";
+						dcPath[2] = docPath[2];
+						dcPath[3] = docPath[1];
+						resultPdfExport = SEng.PostDocMultiPDFPreset(dcPath, pdfPresetArr);
+					}
+					if (!resultPdfExport.equalsIgnoreCase("null")) {
+						fls.AppendFileString("\n PDF with preset export failed: " + resultPdfExport + " \n");
+						MessageQueue.ERROR += resultPdfExport + "\n";
+					}
+				} else {
+					fls.AppendFileString(
+							"\n PDF with preset export failed, preset file not found in master ai file path \n");
+					MessageQueue.ERROR += "\n PDF with preset export failed, preset file not found in master ai file path \n";
+				}
+			} else if (MessageQueue.sPdfNormalised) {
+				if (PostMultipleJobPreProcess()) {
+					docPath[2] = docPath[2].split("\\.")[0];
+					String resultPdfExport = "";
+					if (fileNameToSave != null)
+						resultPdfExport = SEng.PostDocumentMultipleProcess(fileName);
+					else {
+						String[] dcPath = new String[4];
+						dcPath[0] = "";
+						dcPath[1] = "";
+						dcPath[2] = docPath[2];
+						dcPath[3] = docPath[1];
+						resultPdfExport = SEng.PostDocumentMultipleProcess(dcPath);
+					}
+					if (!resultPdfExport.equalsIgnoreCase("null")) {
+						fls.AppendFileString("\n Normalized PDF export failed: " + resultPdfExport + " \n");
+						MessageQueue.ERROR += resultPdfExport + "\n";
+					}
+				}
+			}
+		//	}
+		//	else if(printXML.equalsIgnoreCase("false"))
+//			{
+//				String[] docPath = jspr.getPath(jsonObj);
+//				String fileNameToSave = xmlUtil.getFileNameFromElement((docPath[0].split("~"))[0]);
+//				String[] fileName = new String[4];
+//				String[] pathArray = new String[4];
+//				if(fileNameToSave != null)
+//				{
+//					fileName[0] = "none"; //dummy
+//					fileName[1] = "none";
+//					fileName[2] = GetLastIndex(docPath[2]) + "/" + fileNameToSave;
+//					fileName[3] = GetLastIndex(docPath[1]) + "/" + fileNameToSave;
+//				}
+//				else
+//				{
+//					pathArray[0] = "none"; // dummy
+//					pathArray[1] = "none";
+//					pathArray[2] = GetLastIndex(docPath[2]) + jspr.getJsonValueForKey(jsonObj, "WO");
+//					pathArray[3] = GetLastIndex(docPath[1]);
+//				}
+//				
+//				if(MessageQueue.sPdfNormal)
+//				{
+//					if (fileNameToSave != null)
+//					{
+//					//	SEng.PostDocumentProcessForSingleJobFilename(fileName);
+//						System.out.println( SEng.SaveDocAs(fileName[3], ""));
+//						SEng.ExportAsNormalPDF(fileName[2], "");
+//						
+//					}
+//					else
+//					{
+//						//SEng.PostDocumentProcess(jspr.getPath(jsonObj));
+//						SEng.SaveDocAs(pathArray[3], "");
+//						SEng.ExportAsNormalPDF(pathArray[2], "");
+//					}
+//				}
+//				else if(MessageQueue.sPdfPreset)
+//				{
+//
+//					String pdfPreset[] = utils.getPresetFileFromDirectory(utils.GetParentPath(jspr.geFilePathFromJson(jsonObj, "Master")), "joboptions");
+//					String[] pdfPresetArr = new String[2];
+//					if(pdfPreset.length !=0 )
+//					{
+//						pdfPresetArr[0] = utils.GetParentPath(jspr.geFilePathFromJson(jsonObj, "Master")) +"/"+ pdfPreset[0];
+//						pdfPresetArr[1] = pdfPreset[0].split("\\.")[0];
+//						String resultPdfExport = "";
+//						if (fileNameToSave != null)
+//							resultPdfExport = SEng.PostDocMultiPDFPreset(fileName, pdfPresetArr);
+//						else
+//						{
+//							String[] dcPath = new String[4];
+//							dcPath[0] = "";
+//							dcPath[1] = "";
+//							dcPath[2] = docPath[2];
+//							dcPath[3] = docPath[1];
+//							resultPdfExport = SEng.PostDocMultiPDFPreset(dcPath, pdfPresetArr);
+//						}
+//				    		if(!resultPdfExport.equalsIgnoreCase("null"))
+//				    		{
+//				    			fls.AppendFileString("\n PDF with preset export failed: " + resultPdfExport + " \n");
+//				    			MessageQueue.ERROR += resultPdfExport + "\n";
+//				    		}
+//					}
+//					else
+//					{
+//						fls.AppendFileString("\n PDF with preset export failed, preset file not found in master ai file path \n");
+//		    				MessageQueue.ERROR += "\n PDF with preset export failed, preset file not found in master ai file path \n";
+//					}
+//				}
+//				else if(MessageQueue.sPdfNormalised)
+//				{
+//					if(PostMultipleJobPreProcess())
+//					{
+//						docPath[2] = docPath[2].split("\\.")[0];
+//						String resultPdfExport = "";
+//						if (fileNameToSave != null)
+//							resultPdfExport = SEng.PostDocumentMultipleProcess(fileName);
+//						else
+//						{
+//							String[] dcPath = new String[4];
+//							dcPath[0] = "";
+//							dcPath[1] = "";
+//							dcPath[2] = docPath[2];
+//							dcPath[3] = docPath[1];
+//							resultPdfExport = SEng.PostDocumentMultipleProcess(dcPath);
+//						}
+//				    		if(!resultPdfExport.equalsIgnoreCase("null"))
+//				    		{
+//				    			fls.AppendFileString("\n Normalized PDF export failed: " + resultPdfExport + " \n");
+//				    			MessageQueue.ERROR += resultPdfExport + "\n";
+//				    		}
+//					}
+//				}
+//				
+//			}
+	
+			
+				
+			log.info(MessageQueue.WORK_ORDER + ": " + "Pdf and xml generated..");
+
+		}else if(MessageQueue.TORNADO_ENV.equalsIgnoreCase("production"))
+		{
+
 
 			INIReader ini = new INIReader();
 			ini.readIniForSingle();

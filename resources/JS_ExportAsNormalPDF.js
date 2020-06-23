@@ -23,7 +23,10 @@ function SaveDocAsPDF (sourceDoc, pdfTargetPath, pdfProperties)
     if ( app.documents.length > 0 ) 
     {
         var pdfFileName = new File ( pdfTargetPath );
-        savePdfOpts = new PDFSaveOptions();
+        var savePdfOpts = new PDFSaveOptions();
+                
+        sourceDoc.saveAs(pdfFileName, savePdfOpts );
+        return 'Success Normal PDF';
         
         
         savePdfOpts.compatibility = PDFCompatibility.ACROBAT6;
@@ -39,7 +42,8 @@ function SaveDocAsPDF (sourceDoc, pdfTargetPath, pdfProperties)
         		savePdfOpts.optimization = true;
         	else if (pdfProperties[1].toString() === "false")
         		savePdfOpts.optimization = false;
-        
+        		
+       
         sourceDoc.saveAs(pdfFileName, savePdfOpts );
         return 'Success Normal PDF';
     }

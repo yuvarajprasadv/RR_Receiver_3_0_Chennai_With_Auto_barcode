@@ -319,6 +319,20 @@ public class SEng{
 		 
 	 	}
 	 
+	 public static String SetLegendVisibleOff() throws Exception  
+	 {
+		 String[] arryStr1 = new String[1];
+		 arryStr1[0] = "false";
+		 Utils utils = new Utils();
+		 String pathString = utils.GetPathFromResource("LegendVisibleOff.js");
+		 String scriptString = "tell application "+ '"' +"Applications:Adobe Illustrator "+ MessageQueue.VERSION +":Adobe Illustrator.app"+'"' +"\n with timeout of "+ timeOutSec +" seconds \n"
+			+ "do javascript (file "+'"'+pathString+'"'+")  with arguments {"+ '"'+arryStr1[0]+'"' +"} \n"
+			+ "end timeout \n"
+			+ "end tell";
+		 return ExecuteAppleScript(scriptString);
+	 }
+	 
+	 
 	 public static String SetLayerVisibleOff(String barCodeVisible) throws Exception  
 	 {
 		 String[] arryStr1 = new String[1];
@@ -486,6 +500,11 @@ public class SEng{
 	 	}
 	 
 	 
+	 public static String OutlineText() throws Exception
+	 {
+		 return ExecuteJS("OutlinePDF.js", "");
+	 }
+	 
 	 
 	 public static void main(String[] args) throws Exception
 	 {
@@ -494,9 +513,12 @@ public class SEng{
 //		 arryStr[1] = "Pantone 583 C";
 //		 MessageQueue.VERSION  = "CC 2017";
 //		 MergeSwatch(arryStr);
-		 
+		 Thread.sleep(5000);
 		 MessageQueue.VERSION  = "CC 2018";
-		 ForTest("/Users/yuvaraj/Desktop/");
+		// ForTest("/Users/yuvaraj/Desktop/");
+		 
+
+		System.out.println( ExportAsNormalPDF("/Users/yuvaraj/Desktop/", ""));
 		 
 		 
 	 }

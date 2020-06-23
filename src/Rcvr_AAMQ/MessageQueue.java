@@ -56,8 +56,8 @@ public class MessageQueue extends Action {
 
 //	 protected final static String HOST_IP = "10.112.128.54";			// local system
 //	 protected final static String HOST_IP = "192.168.43.31";			// local system
-//	 protected final static String HOST_IP = "172.28.42.158";			// LIVE
-	 protected final static String HOST_IP =  "S2PTTRNMSGQ01P.asia.schawk.com"; //LIVE Dns
+	 protected final static String HOST_IP = "172.28.42.158";			// LIVE
+//	 protected final static String HOST_IP =  "S2PTTRNMSGQ01P.asia.schawk.com"; //LIVE Dns
 	 
 	  static Logger log = LogMQ.monitor("Rcvr_AAMQ.MessageQueue");
 	  
