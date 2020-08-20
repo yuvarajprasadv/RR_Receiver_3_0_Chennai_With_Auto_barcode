@@ -18,13 +18,13 @@ function main(argv)
 
 function SaveDocAsPDF (sourceDoc, pdfTargetPath, pdfProperties)
 {
-	//String[] pdfProperties = {"acrobatLayers", "optimization"}; //for properties order reference; should match in code as well as in js
+	//String[] pdfProperties = {"acrobatLayers", "optimization", "trimMarks"}; //for properties order reference; should match in code as well as in js
 	
     if ( app.documents.length > 0 ) 
     {
         var pdfFileName = new File ( pdfTargetPath );
         var savePdfOpts = new PDFSaveOptions();
-                
+        
         savePdfOpts.compatibility = PDFCompatibility.ACROBAT6;
         
         if(pdfProperties[0].toString() === 'true')
@@ -38,6 +38,11 @@ function SaveDocAsPDF (sourceDoc, pdfTargetPath, pdfProperties)
         		savePdfOpts.optimization = true;
         	else if (pdfProperties[1].toString() === "false")
         		savePdfOpts.optimization = false;
+        		
+        	if(pdfProperties[2].toString() === "true")
+        		savePdfOpts.trimMarks = true;
+        	else if (pdfProperties[2].toString() === "false")
+        		savePdfOpts.trimMarks = false;
         		
        
         sourceDoc.saveAs(pdfFileName, savePdfOpts );

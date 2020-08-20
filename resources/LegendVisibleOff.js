@@ -6,17 +6,19 @@ main(arguments);
 function main(argv)
 { 
 
+var layerVisibleTrue = ["Dimensions", "Dimension", "Cutter", "Barcode", "Barcodes"];
+if(argv[0] == "true")
+{
+	layerVisibleTrue.push("Print Marks");
+}
 
-var layerListMakeVisible = ["Dimensions", "Dimension", "Cutter", "Print Marks", "Barcode", "Barcodes"];
-var layerList = ["Legend"];
 
-
-for(var i = 0; i < layerListMakeVisible.length; i++)
+for(var i = 0; i < layerVisibleTrue.length; i++)
 {
 	try
 	{
 
-		layerObj = app.activeDocument.layers.getByName(layerListMakeVisible[i]);
+		layerObj = app.activeDocument.layers.getByName(layerVisibleTrue[i]);
 		layerObj.visible = true;
 	
 
@@ -27,21 +29,6 @@ for(var i = 0; i < layerListMakeVisible.length; i++)
 	}
 }
 
-for(var i = 0; i < layerList.length; i++)
-{
-	try
-	{
-
-		layerObj = app.activeDocument.layers.getByName(layerList[i]);
-		layerObj.visible = false;
-	
-
-	}
-	catch(e)
-	{
-		errString = "Layer visiblity set false failed: " + e.description;
-	}
-}
 
 for(var j = 0; j < app.activeDocument.layers.length; j++)
 {

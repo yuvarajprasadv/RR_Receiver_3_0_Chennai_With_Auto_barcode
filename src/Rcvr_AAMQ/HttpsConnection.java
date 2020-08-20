@@ -32,9 +32,19 @@ import java.nio.charset.Charset;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.config.Registry;
+import org.apache.http.config.RegistryBuilder;
+import org.apache.http.conn.socket.ConnectionSocketFactory;
+import org.apache.http.conn.socket.PlainConnectionSocketFactory;
+import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
+import org.apache.http.ssl.SSLContextBuilder;
+import org.apache.http.ssl.TrustStrategy;
 
 public class HttpsConnection 
 {
@@ -182,6 +192,7 @@ public class HttpsConnection
 	   }
 	   catch (Exception ex)
 	   {
+		   log.error(MessageQueue.WORK_ORDER + ": " + "Exception on sendign report to tornado");
 		   return "exception on report sending to tornado\n";
 	   }
 	   String jsonData=user.toString();
@@ -208,7 +219,7 @@ public class HttpsConnection
 
 
 
- 
+ /*
 class HttpPostReq
 {
 
@@ -258,4 +269,109 @@ class HttpPostReq
         
         return result.toString();
     }
+}
+*/
+
+class HttpPostReq
+{
+
+	static Logger log = LogMQ.monitor("Rcvr_AAMQ.HttpPostReq");
+    HttpPost createConnectivity(String restUrl, String username, String password)
+    {
+        HttpPost post = new HttpPost(restUrl);
+        String auth=new StringBuffer(username).append(":").append(password).toString();
+        byte[] encodedAuth = Base64.encodeBase64(auth.getBytes(Charset.forName("US-ASCII")));
+        String authHeader = "Basic " + new String(encodedAuth);
+        post.setHeader("AUTHORIZATION", authHeader);
+        post.setHeader("Content-Type", "application/json");
+        post.setHeader("Accept", "application/json");
+        post.setHeader("X-Stream" , "true");
+        return post;
+    }
+     
+    String executeReq(String jsonData, HttpPost httpPost)
+    {
+        try{
+            return executeHttpRequest(jsonData, httpPost);
+        }
+        catch (UnsupportedEncodingException e)
+        {
+        	log.error(MessageQueue.WORK_ORDER + ": " + "Error encoding api url: " + e.getMessage());
+        	return ("error while encoding api url : " + e.getMessage());
+        }
+        catch (IOException e){
+        	log.error(MessageQueue.WORK_ORDER + ": " + "IO exception while sending http request: " + e.getMessage());
+        	return ("ioException occured while sending http request : " + e.getMessage());
+        }
+        catch(Exception e){
+        	log.error(MessageQueue.WORK_ORDER + ": " + "Exception while sending http request: " + e.getMessage());
+        	return ("exception occured while sending http request : " + e.getMessage());
+        }
+        finally{
+            httpPost.releaseConnection();
+        }
+    }
+     
+    @SuppressWarnings("deprecation")
+	String executeHttpRequest(String jsonData,  HttpPost httpPost)  throws UnsupportedEncodingException, IOException, Exception
+    {
+    	
+
+        HttpResponse response=null;
+        String line = "";
+        StringBuffer result = new StringBuffer();
+        httpPost.setEntity(new StringEntity(jsonData));
+        
+        int timeout = 30; //(240 * 1000  = 4min)
+        RequestConfig config = RequestConfig.custom()
+          .setConnectTimeout(timeout * 1000)
+          .setConnectionRequestTimeout(timeout * 1000)
+          .setSocketTimeout(timeout * 1000).build();
+
+        
+//        CloseableHttpClient client = 
+//          HttpClientBuilder.create().setDefaultRequestConfig(config).build();
+//        
+        
+        HttpClientBuilder b = HttpClientBuilder.create();
+
+        // setup a Trust Strategy that allows all certificates.
+        //
+        SSLContext sslContext = new SSLContextBuilder().loadTrustMaterial(null, new TrustStrategy()
+           {
+              public boolean isTrusted(X509Certificate[] arg0, String arg1) throws CertificateException
+              {
+                 return true;
+              }
+           }).build();
+        b.setSslcontext(sslContext);
+
+        // don't check Hostnames, either.
+        //      -- use SSLConnectionSocketFactory.getDefaultHostnameVerifier(), if you don't want to weaken
+        HostnameVerifier hostnameVerifier = SSLConnectionSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER;
+
+        // here's the special part:
+        //      -- need to create an SSL Socket Factory, to use our weakened "trust strategy";
+        //      -- and create a Registry, to register it.
+        //
+        SSLConnectionSocketFactory sslSocketFactory = new SSLConnectionSocketFactory(sslContext, hostnameVerifier);
+        Registry<ConnectionSocketFactory> socketFactoryRegistry = RegistryBuilder.<ConnectionSocketFactory> create().register("http", PlainConnectionSocketFactory.getSocketFactory()).register("https", sslSocketFactory).build();
+
+        // now, we create connection-manager using our Registry.
+        //      -- allows multi-threaded use
+        PoolingHttpClientConnectionManager connMgr = new PoolingHttpClientConnectionManager(socketFactoryRegistry);
+        b.setConnectionManager(connMgr);
+
+        // finally, build the HttpClient;
+        //      -- done!
+       
+        CloseableHttpClient client =  b.setDefaultRequestConfig(config).build();
+        response = client.execute(httpPost);
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+        while ((line = reader.readLine()) != null){ result.append(line); }
+        
+        return result.toString();
+    }
+
 }

@@ -30,6 +30,7 @@ public class Action {
 		String[] appFonts = SEng.GetApplicationFonts().split(",");
 		Thread.sleep(2000);
 
+		System.out.println(jspr.geFilePathFromJson(jsonObj, "Master"));
 		SEng.OpenDocument(jspr.geFilePathFromJson(jsonObj, "Master"));
 		log.info(MessageQueue.WORK_ORDER + ": " + "AI file and other dependend file opening..");
 
@@ -69,8 +70,8 @@ public class Action {
 		if (errorMsg.contains("\n") && errorMsg.length() != 1)
 			MessageQueue.STATUS = false;
 
-		if(MessageQueue.TORNADO_ENV.equalsIgnoreCase("development"))
-		{
+//		if(MessageQueue.TORNADO_ENV.equalsIgnoreCase("development") || MessageQueue.TORNADO_ENV.equalsIgnoreCase("qa"))
+//		{
 
 			INIReader ini = new INIReader();
 			ini.readIniForSingle();
@@ -90,6 +91,14 @@ public class Action {
 				fileName[2] = GetLastIndex(docPath[2]) + "/" + fileNameToSave;
 				fileName[3] = GetLastIndex(docPath[1]) + "/" + fileNameToSave;
 			}
+			else
+			{
+				fileNameToSave = jspr.getJsonValueForKey(jsonObj, "WO");
+				fileName[0] = "none"; // dummy
+				fileName[1] = GetLastIndex(docPath[2]) + "/" + fileNameToSave;
+				fileName[2] = GetLastIndex(docPath[2]) + "/" + fileNameToSave;
+				fileName[3] = GetLastIndex(docPath[1]) + "/" + fileNameToSave;
+			}
 			
 			if (MessageQueue.sPdfNormal) {
 				String barCodeVisible = jspr.getJsonValueFromGroupKey(jsonObj, "region", "barCodeVisible");
@@ -103,10 +112,7 @@ public class Action {
 						SEng.SaveDocAs(fileName[3], "");
 						SEng.ExportAsNormalPDF(fileName[1], "");
 						
-						
-				
-//					if (printXML != null)
-//						if (printXML.equalsIgnoreCase("true")) {
+
 							//// Layer Visiblity off
 							Thread.sleep(5000);
 							if (barCodeVisible != null)
@@ -163,18 +169,23 @@ public class Action {
 									file.delete();
 									}
 							}
-					//	}
-							
+	
 							
 							if (pdfOnly != null)
 							if (pdfOnly.equalsIgnoreCase("true"))
 							{
+								try
+								{
 								SEng.OutlineText();
 
 								if (legendVisible != null)
-								if (legendVisible.equalsIgnoreCase("false"))
+								if (legendVisible.equalsIgnoreCase("true"))
 								{
-									SEng.SetLegendVisibleOff();
+									SEng.SetLegendVisibleOff("true");
+								}
+								else
+								{
+									SEng.SetLegendVisibleOff("false");
 								}
 								String pdfOnlyPath = jspr.getJsonValueFromGroupKey(jsonObj, "aaw", "Path") + "/090_Deliverables/PDF_ONLY/";
 								if(!utils.IsFolderExists(pdfOnlyPath))
@@ -186,6 +197,12 @@ public class Action {
 									fileName[2] = pdfOnlyPath + fileNameToSave;
 								
 								SEng.ExportAsNormalPDF(fileName[2], "");
+								}
+								catch(Exception ex)
+								{
+									System.out.println(ex.getMessage());
+								}
+
 							}
 				} 
 				else 
@@ -201,10 +218,7 @@ public class Action {
 					SEng.ExportAsNormalPDF(pathArray[1], "");
 					
 					
-					//SEng.PostDocumentProcess(pathArray);
-					
-//					if (printXML != null)
-//						if (printXML.equalsIgnoreCase("true")) {
+
 							//// Layer Visiblity off
 							Thread.sleep(5000);
 							if (barCodeVisible != null)
@@ -263,27 +277,37 @@ public class Action {
 							if (pdfOnly != null)
 							if (pdfOnly.equalsIgnoreCase("true"))
 							{
+								try
+								{
 								SEng.OutlineText();
 
 								if (legendVisible != null)
-								if (legendVisible.equalsIgnoreCase("false"))
+								if (legendVisible.equalsIgnoreCase("true"))
 								{
-									SEng.SetLegendVisibleOff();
+									SEng.SetLegendVisibleOff("true");
+								}
+								else
+								{
+									SEng.SetLegendVisibleOff("false");
 								}
 								String pdfOnlyPath = jspr.getJsonValueFromGroupKey(jsonObj, "aaw", "Path") + "/090_Deliverables/PDF_ONLY/";
-								if(!utils.IsFolderExists(pdfOnlyPath))
+								if(!Utils.IsFolderExists(pdfOnlyPath))
 								{
 									utils.CreateNewDirectory(pdfOnlyPath, false);
 									pathArray[2] = pdfOnlyPath +  "/" + jspr.getJsonValueForKey(jsonObj, "WO");
 								}
 								else
 									pathArray[2] = pdfOnlyPath +  "/" + jspr.getJsonValueForKey(jsonObj, "WO");
-								
 								SEng.ExportAsNormalPDF(pathArray[2], "");
+								}
+								catch(Exception ex)
+								{
+									System.out.println(ex.getMessage());
+								}
+								
+
 							}
 							
-
-						//}
 				}
 			} else if (MessageQueue.sPdfPreset) {
 
@@ -333,110 +357,11 @@ public class Action {
 						MessageQueue.ERROR += resultPdfExport + "\n";
 					}
 				}
-			}
-		//	}
-		//	else if(printXML.equalsIgnoreCase("false"))
-//			{
-//				String[] docPath = jspr.getPath(jsonObj);
-//				String fileNameToSave = xmlUtil.getFileNameFromElement((docPath[0].split("~"))[0]);
-//				String[] fileName = new String[4];
-//				String[] pathArray = new String[4];
-//				if(fileNameToSave != null)
-//				{
-//					fileName[0] = "none"; //dummy
-//					fileName[1] = "none";
-//					fileName[2] = GetLastIndex(docPath[2]) + "/" + fileNameToSave;
-//					fileName[3] = GetLastIndex(docPath[1]) + "/" + fileNameToSave;
-//				}
-//				else
-//				{
-//					pathArray[0] = "none"; // dummy
-//					pathArray[1] = "none";
-//					pathArray[2] = GetLastIndex(docPath[2]) + jspr.getJsonValueForKey(jsonObj, "WO");
-//					pathArray[3] = GetLastIndex(docPath[1]);
-//				}
-//				
-//				if(MessageQueue.sPdfNormal)
-//				{
-//					if (fileNameToSave != null)
-//					{
-//					//	SEng.PostDocumentProcessForSingleJobFilename(fileName);
-//						System.out.println( SEng.SaveDocAs(fileName[3], ""));
-//						SEng.ExportAsNormalPDF(fileName[2], "");
-//						
-//					}
-//					else
-//					{
-//						//SEng.PostDocumentProcess(jspr.getPath(jsonObj));
-//						SEng.SaveDocAs(pathArray[3], "");
-//						SEng.ExportAsNormalPDF(pathArray[2], "");
-//					}
-//				}
-//				else if(MessageQueue.sPdfPreset)
-//				{
-//
-//					String pdfPreset[] = utils.getPresetFileFromDirectory(utils.GetParentPath(jspr.geFilePathFromJson(jsonObj, "Master")), "joboptions");
-//					String[] pdfPresetArr = new String[2];
-//					if(pdfPreset.length !=0 )
-//					{
-//						pdfPresetArr[0] = utils.GetParentPath(jspr.geFilePathFromJson(jsonObj, "Master")) +"/"+ pdfPreset[0];
-//						pdfPresetArr[1] = pdfPreset[0].split("\\.")[0];
-//						String resultPdfExport = "";
-//						if (fileNameToSave != null)
-//							resultPdfExport = SEng.PostDocMultiPDFPreset(fileName, pdfPresetArr);
-//						else
-//						{
-//							String[] dcPath = new String[4];
-//							dcPath[0] = "";
-//							dcPath[1] = "";
-//							dcPath[2] = docPath[2];
-//							dcPath[3] = docPath[1];
-//							resultPdfExport = SEng.PostDocMultiPDFPreset(dcPath, pdfPresetArr);
-//						}
-//				    		if(!resultPdfExport.equalsIgnoreCase("null"))
-//				    		{
-//				    			fls.AppendFileString("\n PDF with preset export failed: " + resultPdfExport + " \n");
-//				    			MessageQueue.ERROR += resultPdfExport + "\n";
-//				    		}
-//					}
-//					else
-//					{
-//						fls.AppendFileString("\n PDF with preset export failed, preset file not found in master ai file path \n");
-//		    				MessageQueue.ERROR += "\n PDF with preset export failed, preset file not found in master ai file path \n";
-//					}
-//				}
-//				else if(MessageQueue.sPdfNormalised)
-//				{
-//					if(PostMultipleJobPreProcess())
-//					{
-//						docPath[2] = docPath[2].split("\\.")[0];
-//						String resultPdfExport = "";
-//						if (fileNameToSave != null)
-//							resultPdfExport = SEng.PostDocumentMultipleProcess(fileName);
-//						else
-//						{
-//							String[] dcPath = new String[4];
-//							dcPath[0] = "";
-//							dcPath[1] = "";
-//							dcPath[2] = docPath[2];
-//							dcPath[3] = docPath[1];
-//							resultPdfExport = SEng.PostDocumentMultipleProcess(dcPath);
-//						}
-//				    		if(!resultPdfExport.equalsIgnoreCase("null"))
-//				    		{
-//				    			fls.AppendFileString("\n Normalized PDF export failed: " + resultPdfExport + " \n");
-//				    			MessageQueue.ERROR += resultPdfExport + "\n";
-//				    		}
-//					}
-//				}
-//				
-//			}
-	
-			
-				
+			}				
 			log.info(MessageQueue.WORK_ORDER + ": " + "Pdf and xml generated..");
 
-		}else if(MessageQueue.TORNADO_ENV.equalsIgnoreCase("production"))
+	//	}
+		/*else if(MessageQueue.TORNADO_ENV.equalsIgnoreCase("production"))
 		{
 
 
@@ -669,6 +594,7 @@ public class Action {
 				}
 			}
 			}
+			
 			else if(printXML.equalsIgnoreCase("false"))
 			{
 				String[] docPath = jspr.getPath(jsonObj);
@@ -768,7 +694,7 @@ public class Action {
 
 			log.info(MessageQueue.WORK_ORDER + ": " + "Pdf and xml generated..");
 
-		}
+		} */
 
 		Thread.sleep(8000);
 

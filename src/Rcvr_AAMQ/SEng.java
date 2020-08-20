@@ -99,16 +99,16 @@ public class SEng{
 		 return ExecuteAppleScript(scriptString);
 	 }
 	 	 
-	 public static void OpenDocument(String arryStr) throws Exception
+	 public static String OpenDocument(String aiFilePath) throws Exception
 	 {
 
 		 Utils utils = new Utils();
 		 String pathString = utils.GetPathFromResource("PreDocument.js");
 		 String scriptString = "tell application "+ '"' +"Applications:Adobe Illustrator "+ MessageQueue.VERSION +":Adobe Illustrator.app"+'"' +"\n with timeout of "+ timeOutSec +" seconds \n"
-			+ "do javascript (file "+'"'+pathString+'"'+")  with arguments {"+ '"'+arryStr+'"' +"} \n"
+			+ "do javascript (file "+'"'+pathString+'"'+")  with arguments {"+ '"'+aiFilePath+'"' +"} \n"
 			+ "end timeout \n"
 			+ "end tell";
-		 ExecuteAppleScript(scriptString);
+	 	return ExecuteAppleScript(scriptString);
 	 }
 	 
 	 
@@ -145,7 +145,7 @@ public class SEng{
 		 String fontMissing = ExecuteAppleScript(scriptString);
 		 if (fontMissing != "")
 		 {
-			 System.out.println(fontMissing);
+		//	 System.out.println(fontMissing);
 			 log.error(MessageQueue.WORK_ORDER + ": " + "Font Missing :" + fontMissing);
 			 ThrowException.CatchException(new Exception("Font Missing"));
 		 }
@@ -200,11 +200,11 @@ public class SEng{
 
 		   String arrCopyElements = "";
 		   arrCopyElements = ExecuteAppleScript(scriptStrings);
-		   System.out.println("COPY EL  : "+ arrCopyElements + "\n");
+		//   System.out.println("COPY EL  : "+ arrCopyElements + "\n");
 		   for(String eachElement:(arrCopyElements.split(",")))
 		   {  
 			   String copyElement = eachElement.toString();
-			   System.out.println("COPY EL  : "+ copyElement + "    "+arg[0]+  "\n");
+		//	   System.out.println("COPY EL  : "+ copyElement + "    "+arg[0]+  "\n");
 			   String[] elements = copyElement.split("~");
 			    for(String linkID:elements)
 			    {
@@ -212,7 +212,7 @@ public class SEng{
 				    	{
 				    		String stn = "";
 				    		stn = xmlUtls.GS1XmlParseElement(arg[0], linkID.toString());
-				    		System.out.println(linkID +"::"+stn);
+			//	    		System.out.println(linkID +"::"+stn);
 				    		if (stn != null)
 				    		{
 				    			String pathString = utils.GetPathFromResource("ApplyStyle.js");
@@ -220,7 +220,7 @@ public class SEng{
 					   			+ "do javascript (file "+'"'+pathString+'"'+")  with arguments {"+"1"+", "+ '"'+linkID+'"' +", "+ '"'+stn+'"' +", "+  '"'+copyElement+'"' +"} \n"
 					   			+ "end timeout \n"
 					   			+"end tell";
-					   		 	System.out.println(ExecuteAppleScript(scriptString));
+					 //  		 	System.out.println(ExecuteAppleScript(scriptString));
 				    		}
 				   		
 				    	}
@@ -319,10 +319,10 @@ public class SEng{
 		 
 	 	}
 	 
-	 public static String SetLegendVisibleOff() throws Exception  
+	 public static String SetLegendVisibleOff(String legendVisible) throws Exception  
 	 {
 		 String[] arryStr1 = new String[1];
-		 arryStr1[0] = "false";
+		 arryStr1[0] = legendVisible;
 		 Utils utils = new Utils();
 		 String pathString = utils.GetPathFromResource("LegendVisibleOff.js");
 		 String scriptString = "tell application "+ '"' +"Applications:Adobe Illustrator "+ MessageQueue.VERSION +":Adobe Illustrator.app"+'"' +"\n with timeout of "+ timeOutSec +" seconds \n"
@@ -482,12 +482,12 @@ public class SEng{
 	 	}
 	 
 	 
-	 public static String ExportAsNormalisedPDF(String pdfSavePath, String jsonString) throws Exception  {
+	 public static String ExportAsTrimPDF(String pdfSavePath, String jsonString) throws Exception  {
 		 JSUtils jsUtils = new JSUtils();
-		 String[] jpegProperties = {"antiAliasing", "qualitySetting", "artBoardClipping", "horizontalScale", "verticalScale"};
-		 jsonString = "{ \"antiAliasing\":\"true\", \"qualitySetting\":70, \"artBoardClipping\":true,\"horizontalScale\":100, \"verticalScale\":100}";
+		 String[] pdfProperties = {"acrobatLayers", "optimization", "trimMarks"};
+		 jsonString = "{ \"acrobatLayers\":\"true\", \"optimization\":\"true\", \"trimMarks\":\"true\"}";
 		 
-		 return ExecuteJS("JS_ExportAsClipJPEG.js", pdfSavePath, jsUtils.ExtractJsonToStringArray(jpegProperties, jsonString), MessageQueue.VERSION );
+		 return ExecuteJS("JS_ExportAsNormalPDF.js", pdfSavePath, jsUtils.ExtractJsonToStringArray(pdfProperties, jsonString), MessageQueue.VERSION );
 
 	 	}
 	 
@@ -517,8 +517,9 @@ public class SEng{
 		 MessageQueue.VERSION  = "CC 2018";
 		// ForTest("/Users/yuvaraj/Desktop/");
 		 
+		 SEng.OpenDocument("/Users/yuvaraj/Desktop/ISSUE-TEST-Folder/TUC Chennai/Chennai Print xml/401359263/050_Production_Art/DEO_95X80_WEUK1_v2.ai");
 
-		System.out.println( ExportAsNormalPDF("/Users/yuvaraj/Desktop/", ""));
+		//System.out.println( ExportAsNormalPDF("/Users/yuvaraj/Desktop/", ""));
 		 
 		 
 	 }

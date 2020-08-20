@@ -501,7 +501,7 @@ public class Utils {
 	    		String SourceFile = fromSourceFile +"/"+ fileName;
 	    		if(!utls.FileExists(SourceFile))
 			{
-
+	    				System.out.println("File path doesn't exists: " + SourceFile);
 					log.error(MessageQueue.WORK_ORDER + ": " + "File path doesn't exists: " + SourceFile);
 					ThrowException.CustomExit(new Exception("File Path or File does not exists "), "File path or File not exist: " + SourceFile);
 	

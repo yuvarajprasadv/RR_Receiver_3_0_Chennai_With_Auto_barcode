@@ -19,9 +19,6 @@ public class MessageQueue extends Action {
 	  protected static String TORNADO_HOST = "";
 	  protected static String TORNADO_ENV = "";
 	  
-//	  protected final static String TORNADO_HOST_LIVE_1 = "http://172.28.42.157:8080/tornado";
-//	  protected final static String TORNADO_HOST_LIVE_2 = "http://172.26.42.39:8080/tornado";	//LIVE alternative    //for Http 8080
-//	  protected final static String TORNADO_HOST_LIVE_3 = "http://tornado.schawk.com/tornado";  //LIVE alternative // for https 8443
 	  
 	  protected final static String TORNADO_HOST_LIVE_1 = "https://tornado.schawk.com/tornado";	//LIVE new linux server dns
 	  protected final static String TORNADO_HOST_LIVE_2 = "http://172.28.42.147:8080/tornado"; //LIVE new linux server ip
@@ -29,12 +26,7 @@ public class MessageQueue extends Action {
 	  
 	  protected final static String TORNADO_HOST_DEV = "http://172.28.42.151:8082/tornado"; // JAVA DEV
 	  protected final static String TORNADO_HOST_QA = "http://172.28.42.168:8080/tornado"; // JAVA QA
-	  /*
-//	  protected final static String TORNADO_HOST = "http://172.28.42.157:8080/tornado"; // JAVA LIVE IP
-//	  protected final static String TORNADO_HOST = "https://172.28.42.157:8443/tornado"; // JAVA LIVE IP WITH SECURE
-//	  protected final static String TORNADO_HOST = "https://devtornado.schawk.com";	//Dev tornado
-//	  protected final static String TORNADO_HOST = "http://172.28.42.151:8082/tornado"; //JAVA DEV Tornado 
-	  */
+
 	  public static boolean GATE = true;
 	  public static String MSGID = "";
 	  public static boolean STATUS = true;
@@ -54,8 +46,7 @@ public class MessageQueue extends Action {
 	  public static boolean mPdfNormalised = false;
 	  
 
-//	 protected final static String HOST_IP = "10.112.128.54";			// local system
-//	 protected final static String HOST_IP = "192.168.43.31";			// local system
+//	 protected final static String HOST_IP = "192.168.43.10";			// local system
 	 protected final static String HOST_IP = "172.28.42.158";			// LIVE
 //	 protected final static String HOST_IP =  "S2PTTRNMSGQ01P.asia.schawk.com"; //LIVE Dns
 	 
