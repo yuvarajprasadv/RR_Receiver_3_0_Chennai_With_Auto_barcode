@@ -11,6 +11,13 @@ if(argv[0] == "true")
 {
 	layerVisibleTrue.push("Print Marks");
 }
+else if(argv[0] == "false")
+{
+	var layerLegendObj = app.activeDocument.layers.getByName("Print Marks");
+    layerLegendObj.visible = true;
+    layerLegendObj.locked = false;
+    layerLegendObj.remove();
+}
 
 
 for(var i = 0; i < layerVisibleTrue.length; i++)
