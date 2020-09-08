@@ -505,6 +505,10 @@ public class SEng{
 		 return ExecuteJS("OutlinePDF.js", "");
 	 }
 	 
+	 public static String EmbedPlacedItems() throws Exception
+	 {
+		 return ExecuteJS("JS_EmbedPlacedItems.js", "");
+	 }
 	 
 	 public static void main(String[] args) throws Exception
 	 {

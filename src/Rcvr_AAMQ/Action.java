@@ -195,7 +195,7 @@ public class Action {
 								}
 								else
 									fileName[2] = pdfOnlyPath + fileNameToSave;
-								
+								SEng.EmbedPlacedItems();
 								SEng.ExportAsNormalPDF(fileName[2], "");
 								}
 								catch(Exception ex)
