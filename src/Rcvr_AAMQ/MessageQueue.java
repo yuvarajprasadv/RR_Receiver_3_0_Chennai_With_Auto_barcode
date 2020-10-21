@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.log4j.Logger;
+import org.json.simple.JSONObject;
 
 import com.rabbitmq.client.*;
 
@@ -26,6 +27,9 @@ public class MessageQueue extends Action {
 	  
 	  protected final static String TORNADO_HOST_DEV = "http://172.28.42.151:8082/tornado"; // JAVA DEV
 	  protected final static String TORNADO_HOST_QA = "http://172.28.42.168:8080/tornado"; // JAVA QA
+	  
+	  protected static String SCHAWK_EMAIL_HOST = "smtp.schawk.com";
+	  protected static String SCHAWK_EMAIL_PORT = "25";
 
 	  public static boolean GATE = true;
 	  public static String MSGID = "";
@@ -34,6 +38,9 @@ public class MessageQueue extends Action {
 	  public static String VERSION = "";
 	  public static String MESSAGE = "";
 	  public static String WORK_ORDER = "";
+	  public static String LOCATION = "";
+
+	  public static String PDF_PROPERTIES = "";
 	  
 	  //PDF-Config-Single
 	  public static boolean sPdfNormal = false;
@@ -45,6 +52,11 @@ public class MessageQueue extends Action {
 	  public static boolean mPdfPreset = false;
 	  public static boolean mPdfNormalised = false;
 	  
+	  //RR HUBX CTY INI
+	  public static String category = "Road Runner";
+	  
+	  //RR TYPE
+	  public static String RR_SOURCE="TORNADO_RR";
 
 //	 protected final static String HOST_IP = "192.168.43.10";			// local system
 	 protected final static String HOST_IP = "172.28.42.158";			// LIVE
@@ -76,8 +88,14 @@ public class MessageQueue extends Action {
 		          System.out.println("Received: "+formatter.format(date)+" '" + envelope.getRoutingKey() + "':'" + message + "'");
 		          log.info("Message received: "+formatter.format(date)+" '" + envelope.getRoutingKey() + "':'" + message + "'");
 		          try {
-					  MESSAGE = message;
-					Action.acknowledge(message);
+		        	  	MESSAGE = message;
+					  JSONObject jsonObj = JsonParser.ParseJson(MESSAGE);
+					  JsonParser jsonPars = new JsonParser();
+					  TORNADO_ENV = (String) jsonPars.getJsonValueFromGroupKey(jsonObj, "region", "env");
+					  if(TORNADO_ENV.equalsIgnoreCase("production"))
+						  Action.acknowledge(message);
+					  else if(TORNADO_ENV.equalsIgnoreCase("development") || TORNADO_ENV.equalsIgnoreCase("qa"))
+						  DAction.acknowledge(message);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -17,6 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.XML;
@@ -35,10 +37,13 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class Utils {
+import Rcvr_AAMQ.DFileSystem;
+
+public class DUtils {
 	
-	static Logger log = LogMQ.monitor("Rcvr_AAMQ.Utils");
+	static Logger log = DLogMQ.monitor("Rcvr_AAMQ.DUtils");
 	private String[] fileLists;
+	
 	public static String jsonParser(String jsonString) {
 
 		try {
@@ -48,6 +53,7 @@ public class Utils {
 			} 
 		catch (ParseException e)
 			{
+			
 				log.error(e.getMessage());
 				return null;
 			}
@@ -124,16 +130,19 @@ public class Utils {
 	}
 	
 	
-	public boolean FileExists(String pathString)
+	public boolean FileExists(String pathString) throws IOException
 	{
+		DFileSystem fls = new DFileSystem();
 		try
 		{
-			File file = new File(pathString);
+			File file = new File(pathString.trim());
 			return file.exists();
 		}
 		catch (Exception Ex)
 		{
 			System.out.println(Ex.getMessage());
+			fls.AppendFileString("\nFile path doesn't exists: " + pathString+ " \n");
+			DAction.UpdateErrorStatusWithRemark("23", "File path doesn't exists: " + pathString);
 			return false;
 		}
 	}
@@ -165,7 +174,7 @@ public class Utils {
 	    String line;
 		try
 		{
-	        InputStream stream = XmlUtiility.class.getResourceAsStream(fileName);
+	        InputStream stream = DXmlUtiility.class.getResourceAsStream(fileName);
 	       
 	        BufferedReader br = new BufferedReader(new InputStreamReader(stream));
 	        while ((line = br.readLine()) != null) 
@@ -198,7 +207,7 @@ public class Utils {
 	
 	public String GetPathFromClassPath(String fileName)
 	{
-        URL url = Utils.class.getResource(fileName);
+        URL url = DUtils.class.getResource(fileName);
         return (url.getPath());
 	}  
 	
@@ -208,7 +217,6 @@ public class Utils {
 		String absolutePath = file.getAbsolutePath();
 		return absolutePath;
 	}
-	
 	public String GetPathFromEnvResource(String fileName)
 	{
 		File file;
@@ -306,7 +314,7 @@ public class Utils {
 	    {
 	        boolean search = true;
 	        try {
-	        	Utils utls = new Utils();
+	        	DUtils utls = new DUtils();
 	        	Workbook wrBook =  Workbook.getWorkbook(new File(utls.GetPathFromResource(excelFile)));
 	            Sheet sheet = wrBook.getSheet(0);	            
 	            ArrayList<String> arrStr = new ArrayList<String>();
@@ -365,7 +373,8 @@ public class Utils {
 			   if(folder.isDirectory() && !folder.exists())
 			   {
 				   log.error(MessageQueue.WORK_ORDER + ": " + "Folder path doesn't exists: " + directoryPath);
-				   ThrowException.CustomExit(new Exception("Folder path does not exists"), "Folder path does not exists");
+				//   ThrowException.CustomExit(new Exception("Folder path does not exists"), "Folder path does not exists : " + directoryPath);
+				   DThrowException.CustomExitWithErrorMsgID(new Exception("Folder path does not exists "), directoryPath, "23");
 			   }
 			   File[] listOfFiles = folder.listFiles();
 			   ArrayList<String> fileLists = new ArrayList<String>();
@@ -383,7 +392,8 @@ public class Utils {
 		       if(fileLists.size() == 0)
 		       {
 		    	   		log.error(MessageQueue.WORK_ORDER + ": " + "Xml file doesn't exists in following path: " + directoryPath);
-		    	   		ThrowException.CustomExit(new Exception("Xml file doesn't exists "), "Xml file doesn't exists in following path : " + directoryPath);
+		    	   	//	ThrowException.CustomExit(new Exception("Xml file doesn't exists "), "Xml file doesn't exists in following path : " + directoryPath);
+		    	   		DThrowException.CustomExitWithErrorMsgID(new Exception("Xml file doesn't exists "), directoryPath, "23");
 		       }
 		       String[] arrFiles = new String[fileLists.size()];
 		       arrFiles = fileLists.toArray(arrFiles);
@@ -406,7 +416,8 @@ public class Utils {
 			   if(folder.isDirectory() && !folder.exists())
 			   {
 				   log.error(MessageQueue.WORK_ORDER + ": " + "Folder path doesn't exists: " + directoryPath);
-				   ThrowException.CustomExit(new Exception("Folder path does not exists"), "Folder path does not exists");
+				//   ThrowException.CustomExit(new Exception("Folder path does not exists"), "Folder path does not exists: "+directoryPath);
+	    	   		   DThrowException.CustomExitWithErrorMsgID(new Exception("Folder path does not exists "), directoryPath, "23");
 			   }
 			   File[] listOfFiles = folder.listFiles();
 			   ArrayList<String> fileLists = new ArrayList<String>();
@@ -443,11 +454,14 @@ public class Utils {
 	   
 	   public boolean CreateNewDirectory(String newFolderPath, boolean deleteExistDirectory) throws IOException
 	   {
-		   boolean success;
+		   boolean success = false;
 		   File dirPath = new File(newFolderPath);
 		   if(dirPath.exists() && deleteExistDirectory)
 			   DeleteDirectory(newFolderPath);
-		   success = (new File(newFolderPath)).mkdirs();
+		   else if(!dirPath.exists())
+			   success = (new File(newFolderPath)).mkdirs();
+		   else 
+			   return true;
 		   return success;
 	   }
 	   
@@ -464,7 +478,7 @@ public class Utils {
 	   
 	    public static void XmlMultiFileExists(String xmlPathArray) throws Exception
 		{
-	    		Utils utls = new Utils();
+	    		DUtils utls = new DUtils();
 	    		String xmlPath = "";
 
 				String[] xmlFilesPath = xmlPathArray.split(",");
@@ -474,7 +488,7 @@ public class Utils {
 					if(!utls.FileExists(xmlPath))
 					{
 						log.error(MessageQueue.WORK_ORDER + ": " + "File path doesn't exists: " + xmlPath);
-						ThrowException.CustomExit(new Exception("File Path or File does not exists "), "File path or File not exist: " + xmlPath);
+						DThrowException.CustomExitWithErrorMsgID(new Exception("File Path or File does not exists "), xmlPath, "23");
 					}
 				}
 		}
@@ -506,21 +520,59 @@ public class Utils {
 		    	}
 
 	    }
-	    
+	   
+	    public String CopyFileFromSourceToDestination(String fromSourceFile) throws Exception
+	    {
+	    		DUtils utls = new DUtils();
+	    		int index = fromSourceFile.lastIndexOf("/");
+	    		String fileName = fromSourceFile.substring(index, fromSourceFile.length());
+	    		index = fromSourceFile.lastIndexOf("050_Production_Art");
+	    		String SourceFile = fromSourceFile.substring(0, index) + "050_Production_Art/052_PA_Working_Files/Master Templates" + fileName;
+	    		if(!utls.FileExists(SourceFile))
+				{
+					log.error(MessageQueue.WORK_ORDER + ": " + "File path doesn't exists: " + SourceFile);
+					DThrowException.CustomExitWithErrorMsgID(new Exception("File Path or File does not exists "), SourceFile, "23");
+					
+				}
+		    	try
+		    	{
+	    	        Path source = Paths.get(SourceFile);
+	    	        Path destination = Paths.get(fromSourceFile);
+	    	        Path retString = Files.copy(source, destination);
+	    	        return retString.toString();
+		    	}
+		    	catch (java.nio.file.FileAlreadyExistsException fileAlreadyExists)
+		    	{
+		    		boolean fileRenamed = RenameFileIfExists(fileAlreadyExists.getMessage().toString());
+		    		if(fileRenamed)
+		    			CopyFileFromSourceToDestination(fromSourceFile);
+		    		return "exists";
+		    	}
+
+	    }
 	    public String CopyFileFromSourceToDestination(String fromSourceFile, String ToDestinationFolder) throws Exception
 	    {
-	    		Utils utls = new Utils();
+	    		DUtils utls = new DUtils();
 	    		int index = ToDestinationFolder.lastIndexOf("/");
 	    		String fileName = ToDestinationFolder.substring(index, ToDestinationFolder.length());
-	    		String destinationFolderpath = ToDestinationFolder.substring(0, index) + fileName;
+	   		String destinationFolderpath = ToDestinationFolder.substring(0, index) + fileName;
+	   		String destinationFolder = ToDestinationFolder.substring(0, index);
 	    		String SourceFile = fromSourceFile +"/"+ fileName;
 	    		if(!utls.FileExists(SourceFile))
 			{
-	    				System.out.println("File path doesn't exists: " + SourceFile);
+	    				//RR file not exists
+		    			DAction.UpdateErrorStatusWithRemark("23", "File Path or File does not exists : " + SourceFile); //file not exists
 					log.error(MessageQueue.WORK_ORDER + ": " + "File path doesn't exists: " + SourceFile);
-					ThrowException.CustomExit(new Exception("File Path or File does not exists "), "File path or File not exist: " + SourceFile);
-	
+					DThrowException.CustomExitWithErrorMsgID(new Exception("File Path or File does not exists "), SourceFile, "23");
+					
 			}
+	    		else if(!DUtils.IsFolderExists(destinationFolder))
+	    		{
+	    			//RR file not exists
+	    			DAction.UpdateErrorStatusWithRemark("23", "Folder not exists : " + destinationFolder); //file not exists
+				log.error(MessageQueue.WORK_ORDER + ": " + "Folder not exists : " + destinationFolder);
+				DThrowException.CustomExitWithErrorMsgID(new Exception("Folder not exists "), destinationFolder, "23");
+	    		}
 	    		
 		    	try
 		    	{
@@ -538,19 +590,198 @@ public class Utils {
 		    	}
 		    	catch(java.nio.file.AccessDeniedException fileAccessDenied)
 		    	{
-		    		ThrowException.CustomExit(new Exception("File or Folder access denied:  "), "File or Folder access denied: " + SourceFile);
+		    		//RR file access permission denied status
+		    		//Action.UpdateErrorStatusWithRemark("21", "File or Folder access denied: " +  ToDestinationFolder);
+		    		DThrowException.CustomExitWithErrorMsgID(new Exception("File access denied : "), ToDestinationFolder, "21");
 		    		return "access denied";
 		    	}
 		    	catch(java.nio.file.NoSuchFileException noSuchFile)
 		    	{
-		    		ThrowException.CustomExit(new Exception("File or Folder not found:  "), "File or Folder not found: " + fromSourceFile);
+		    		//RR no such file exception
+		    		//Action.UpdateErrorStatusWithRemark("23", "File or Folder not found: " +  fromSourceFile);
+		    		DThrowException.CustomExitWithErrorMsgID(new Exception("File Path or File does not exists "), fromSourceFile, "23");
+		    		return "no such file";
+		    	}
+		    	catch(Exception ex)
+		    	{
+		    		System.out.println("Not able to copy file from Copy Master");
+		    		//Action.UpdateErrorStatusWithRemark("14", "File Copy Error: " +  fromSourceFile);
+		    		DThrowException.CustomExitWithErrorMsgID(new Exception("File Copy Error: "), fromSourceFile, "14");
+		    		return "File copy error";
+		    	}
+
+	    }
+	    
+	    
+	    public String CopyFileFromSourceToDestRaw(String fromSourceFile, String ToDestinationFolder) throws Exception
+	    {
+	  
+	    		DUtils utls = new DUtils();
+	    		int index = fromSourceFile.lastIndexOf("/");
+	    		String fileName = fromSourceFile.substring(index, fromSourceFile.length());
+	    		String destinationFolderpath = ToDestinationFolder + fileName;
+	    		if(!utls.FileExists(fromSourceFile))
+			{
+	    				//RR file not exists
+		    			DAction.UpdateErrorStatusWithRemark("23", "File path doesn't exists: " + fromSourceFile);
+					log.error(MessageQueue.WORK_ORDER + ": " + "File path doesn't exists: " + fromSourceFile);
+				//	ThrowException.CustomExit(new Exception("File Path or File does not exists "), "File path or File not exist: " + fromSourceFile);
+					DThrowException.CustomExitWithErrorMsgID(new Exception("File Path or File does not exists "), fromSourceFile, "23");
+					
+			}
+	    		
+		    	try
+		    	{
+	    	        Path source = Paths.get(fromSourceFile);
+	    	        Path destination = Paths.get(destinationFolderpath);
+	    	        Path retString = Files.copy(source, destination);
+	    	        return retString.toString();
+		    	}
+		    	catch (java.nio.file.FileAlreadyExistsException fileAlreadyExists)
+		    	{
+		    		Path deletExistFile = Paths.get(destinationFolderpath);
+		    		Files.deleteIfExists(deletExistFile);
+		    		CopyFileFromSourceToDestRaw(fromSourceFile, ToDestinationFolder);
+		    		return "exists";
+		    	}
+		    	catch(java.nio.file.AccessDeniedException fileAccessDenied)
+		    	{
+		    		//RR file access permission denied status
+		    		DAction.UpdateErrorStatusWithRemark("21", "File or Folder access denied: " +  ToDestinationFolder);
+		    		return "access denied";
+		    	}
+		    	catch(java.nio.file.NoSuchFileException noSuchFile)
+		    	{
+		    		//RR no such file exception
+		    		DAction.UpdateErrorStatusWithRemark("23", "File or Folder not found: " +  fromSourceFile);
 		    		return "no such file";
 		    	}
 
 	    }
+	    
+	    public String MoveFileFromSourceToDestination(String fromSourceFile, String ToDestinationFolder) throws Exception
+	    {
+	    		DUtils utls = new DUtils();
+	    		int index = fromSourceFile.lastIndexOf("/");
+	    		String fileName = fromSourceFile.substring(index, fromSourceFile.length());
+	    		String destinationFolderpath = ToDestinationFolder + fileName;
+
+	    		if(!utls.FileExists(fromSourceFile))
+			{
+					log.error(MessageQueue.WORK_ORDER + ": " + "File path doesn't exists: " + fromSourceFile);
+				//	ThrowException.CustomExit(new Exception("File Path or File does not exists "), "File path or File not exist: " + fromSourceFile);
+					DThrowException.CustomExitWithErrorMsgID(new Exception("File Path or File does not exists "), fromSourceFile, "23");
+					
+			}
+	    		
+		    	try
+		    	{
+	    	        Path source = Paths.get(fromSourceFile);
+	    	        Path destination = Paths.get(destinationFolderpath);
+	    	        Path retString = Files.move(source, destination);
+	    	        return retString.toString();
+		    	}
+		    	catch (java.nio.file.FileAlreadyExistsException fileAlreadyExists)
+		    	{
+		    		Path deletExistFile = Paths.get(destinationFolderpath);
+		    		Files.deleteIfExists(deletExistFile);
+		    		MoveFileFromSourceToDestination(fromSourceFile, ToDestinationFolder);
+		    		return "exists";
+		    	}
+
+	    }
+	    
+	    public boolean RenameFile(String filePathString, String fileRenameString) throws Exception
+	    {
+		    	try
+		    	{
+			    	while(FileExists(filePathString)) 
+			    	{
+			    		File file = new File(filePathString);
+			    		String newFileNamePath = file.getParent() + "/" + fileRenameString;
+			    		File newName = new File(newFileNamePath);
+			    		if(FileExists(newName.getAbsolutePath()))
+			    		{
+			    			continue;
+			    		}
+			    		else
+			    		{
+			    			file.renameTo(newName);
+			    			return true;
+			    		}
+			    	}
+		    	}
+		    	catch(Exception ex)
+		    	{
+		    		log.error(MessageQueue.WORK_ORDER + ": " + "Issue with file renaming: " + filePathString);
+			//	ThrowException.CustomExit(new Exception("Not able to rename file 'File may be accessed by others' "), "File not accessable : " + filePathString);
+				DThrowException.CustomExitWithErrorMsgID(new Exception("File access permission denied "), filePathString, "21");
+		    	}
+			return false;
+	    }
+	   
+	    public boolean RenameFileIfExists(String filePathString) throws Exception
+	    {
+		    	try
+		    	{
+			    	int num = 1;
+			    	while(FileExists(filePathString)) 
+			    	{
+			    		File file = new File(filePathString);
+			    		String newFileNamePath = file.getParent() + "/" + FilenameUtils.removeExtension(file.getName()) + "_" + (num++) + ".ai";
+			    		File newName = new File(newFileNamePath);
+			    		if(FileExists(newName.getAbsolutePath()))
+			    		{
+			    			continue;
+			    		}
+			    		else
+			    		{
+			    			file.renameTo(newName);
+			    			return true;
+			    		}
+			    	}
+		    	}
+		    	catch(Exception ex)
+		    	{
+		    		log.error(MessageQueue.WORK_ORDER + ": " + "Issue with file renaming: " + filePathString);
+		    		DThrowException.CustomExitWithErrorMsgID(new Exception("File access permission denied "), filePathString, "21");
+		    	}
+				return false;
+	    }
+	    
+	    public String GetNewNameIfFileExists(String filePathString) throws Exception
+	    {
+		    	try
+		    	{
+			    	int num = 1;
+			    	while(FileExists(filePathString)) 
+			    	{
+			    		File file = new File(filePathString);
+			    		String newFileNamePath = file.getParent() + "/" + FilenameUtils.removeExtension(file.getName()) + "_" + (num++) + ".ai";
+			    		File newName = new File(newFileNamePath);
+			    		if(FileExists(newName.getAbsolutePath()))
+			    		{
+			    			continue;
+			    		}
+			    		else
+			    		{
+			    			return newName.toString();
+			    		}
+			    	}
+		    	}
+		    	catch(Exception ex)
+		    	{
+		    		log.error(MessageQueue.WORK_ORDER + ": " + "Issue with file renaming: " + filePathString);
+		    		DThrowException.CustomExitWithErrorMsgID(new Exception("File access permission denied "), filePathString, "21");
+		    	}
+				return "";
+	    }
+	    
+	    
+	    
 	    public boolean CheckSGKConfigExists(String pathString) throws IOException
 		{
-	    	 	FileSystem fls = new FileSystem();
+	    	 	DFileSystem fls = new DFileSystem();
 			try
 			{
 				File file = new File(pathString);
@@ -560,7 +791,7 @@ public class Utils {
 			{
 				System.out.println("RR not exist or corrupted for version:" + MessageQueue.VERSION + ": " + Ex.getMessage());
 				fls.AppendFileString("\n RR not exist or corrupted for that version: " + pathString + " \n");
-				//Action.UpdateErrorStatusWithRemark("14", "RR plugin error: check illustrator version used or RR plugin doesn't exist for that version: " + "/Applications/Adobe Illustrator "+ MessageQueue.VERSION);
+				DAction.UpdateErrorStatusWithRemark("14", "RR plugin error: check illustrator version used or RR plugin doesn't exist for that version: " + "/Applications/Adobe Illustrator "+ MessageQueue.VERSION);
 				return false;
 			}
 		}
@@ -590,13 +821,19 @@ public class Utils {
 	    		
 	    }
 	    
+	    public void DeleteFile(String filePath) throws IOException 
+		   {
+			   File file = new File(filePath);
+			   if(file.exists())
+				   Files.deleteIfExists(file.toPath());
+		   }
 	    
   
 	   public static void main(String args[]) throws Exception
 	   {
-		   Utils tl = new Utils();
-		   System.out.println( tl.IsFolderExists("/Volumes/TORNADO/TORNADO_TESTING/505000G/100 XML/A01/"));
-
+		   DUtils utls = new DUtils();
+		   
+		   System.out.println(utls.MoveFileFromSourceToDestination("//Users//yuvaraj//Downloads//PnG//102196907//401400544//050_Production_Art//91377726_002_Master-A.ai", "//Users//yuvaraj//Downloads//PnG//102196907//401400544//050_Production_Art//051_PA_Previous//"));
 	   }
 	 
 }
