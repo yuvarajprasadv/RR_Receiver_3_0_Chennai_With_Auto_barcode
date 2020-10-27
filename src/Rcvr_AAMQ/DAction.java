@@ -81,14 +81,7 @@ public class DAction {
 			repeat = false;
 		}
 		
-//		Path file = Paths.get(utils.ConvertToAbsolutePath("/Applications/Adobe Illustrator "+ MessageQueue.VERSION +"/Plug-ins.localized/Sgk/Configuration/StatusJson.json"));
-//		JSONObject StatusJsonObj = null;
-//		StatusJsonObj = jspr.ParseJsonFile(file.toString());
-//		StatusJsonObj.put("MasterXML", "");
-//		StatusJsonObj.put("ExportXML", "");
-		
-		
-		
+
 		
 		Thread.sleep(1000);
 		DAction.UpdateErrorStatusWithRemark("39", "In progress RoadRunner (Running now)");
@@ -102,6 +95,25 @@ public class DAction {
 		log.info(MessageQueue.WORK_ORDER + ": " + "RoadRunner plugin called");
 		DSEng.CallTyphoonShadow(arrString);
 
+		Path file = Paths.get(utils.ConvertToAbsolutePath("/Applications/Adobe Illustrator "+ MessageQueue.VERSION +"/Plug-ins.localized/Sgk/Configuration/StatusJson.json"));
+		JSONObject StatusJsonObj = null;
+		StatusJsonObj = jspr.ParseJsonFile(file.toString());
+		String masterXMLCheck = (String) StatusJsonObj.get("MasterXML");
+		String masterXMLErorr = (String) StatusJsonObj.get("MasterXMLError");
+		String ExportXMLCheck = (String) StatusJsonObj.get("ExportXML");
+		String ExportXMLError = (String) StatusJsonObj.get("ExportXMLError");
+		
+		if(masterXMLCheck.equalsIgnoreCase("false"))
+		{
+			log.error(MessageQueue.WORK_ORDER + ": " + "Master xml not exits " +  masterXMLErorr);
+			DAction.UpdateReport(fls.ReadFileReport("Report.txt"));
+			DAction.sendStatusMsg((String) MessageQueue.ERROR);
+			DSEng.PostDocumentClose();
+			DThrowException.CustomExitWithErrorMsgID(new Exception("Master XML not exits "), "Master XML not exits - " + masterXMLErorr, "23");
+		}
+		
+		
+		
 		Thread.sleep(2000);
 	
 		DDataOutput DO = new DDataOutput();
@@ -109,9 +121,10 @@ public class DAction {
 	
 		
 
-		if(DDataOutput.SWATCH_ENABLE) {
-			SwatchMergeFromXML(DDataOutput.XML_PATH, DDataOutput.SWATCH_NAME, DDataOutput.SWATCH_ELEMENT);  // for PENANG alone
-		}
+		//if(DDataOutput.SWATCH_ENABLE) {
+	//	SwatchMergeFromXML(DDataOutput.XML_PATH, DDataOutput.SWATCH_NAME, DDataOutput.SWATCH_ELEMENT);  // for PENANG alone
+		SwatchMergeFromXML(DDataOutput.XML_PATH, "Color Merge", "SL_ColorName");
+		//}
 		
 		DO.ExportData(DDataOutput.FILE_NAME_TO_SAVE);
 		DO.ExportCustomizedData(jsonObj, DDataOutput.FILE_NAME_TO_SAVE, false);
@@ -177,16 +190,23 @@ public class DAction {
 		sendRespStatusMsg("delivered");
 		log.info(MessageQueue.WORK_ORDER + ": " + "Completed process for job id  '" + MessageQueue.MSGID + "' ");
 		Thread.sleep(1000);
-
-		if(utils.FileExists(exportXmlFilePath))
+		
+		if(utils.FileExists(exportXmlFilePath) && !ExportXMLCheck.equalsIgnoreCase("false"))
 		{
 			DAction.UpdateToServer("xmlcompare", false);
 			log.info(MessageQueue.WORK_ORDER + ": " + "Xml comparison completed..");
 		}
 		else
 		{
-			DAction.UpdateToServer("xmlcompare", false);
-			log.info(MessageQueue.WORK_ORDER + ": " + "Xml comparison completed..");
+			if(!ExportXMLCheck.equalsIgnoreCase("false"))
+			{
+				DAction.UpdateToServer("xmlcompare", false);
+				log.info(MessageQueue.WORK_ORDER + ": " + "Xml comparison completed..");
+			}
+			else
+			{
+				log.error(MessageQueue.WORK_ORDER + ": " + "Export xml not exits on the path " +  ExportXMLError);
+			}
 			String exportXmlReport = fls.ReadFileReport("Export.txt");
 			if(exportXmlReport.length() > 5 )
 			{
@@ -194,6 +214,23 @@ public class DAction {
 			DAction.UpdateErrorStatusWithRemark("14", "Export XML not generated " + exportXmlFilePath  + "Error : " + exportXmlReport.toString());
 			}
 		}
+
+//		if(utils.FileExists(exportXmlFilePath))
+//		{
+//			DAction.UpdateToServer("xmlcompare", false);
+//			log.info(MessageQueue.WORK_ORDER + ": " + "Xml comparison completed..");
+//		}
+//		else
+//		{
+//			DAction.UpdateToServer("xmlcompare", false);
+//			log.info(MessageQueue.WORK_ORDER + ": " + "Xml comparison completed..");
+//			String exportXmlReport = fls.ReadFileReport("Export.txt");
+//			if(exportXmlReport.length() > 5 )
+//			{
+//			log.error(MessageQueue.WORK_ORDER + ": " + "Export xml not exits on the path " +  exportXmlFilePath);
+//			DAction.UpdateErrorStatusWithRemark("14", "Export XML not generated " + exportXmlFilePath  + "Error : " + exportXmlReport.toString());
+//			}
+//		}
 
 		DAction.UpdateReport(fls.ReadFileReport("Report.txt"));
 		
@@ -287,7 +324,9 @@ public class DAction {
 
 			// PNG set swatch White color to White 2
 		//	SEng.SetSwathColorFromTo("White 2", "White"); //// only for NCL P - N - G
-			DSEng.SetSwathColorFromTo(DDataOutput.SWATCH_FROM, DDataOutput.SWATCH_TO); //// only for NCL P - N - G
+		//	DSEng.SetSwathColorFromTo(DDataOutput.SWATCH_FROM, DDataOutput.SWATCH_TO); //// only for NCL P - N - G
+			SwatchMergeFromXML(DDataOutput.XML_PATH, "Color Merge", "SL_ColorName");
+			DSEng.SetSwathColorFromTo("White 2", "White");
 			DSEng.SetLayerVisibleOff(); //// only for NCL P - N - G
 
 			Thread.sleep(1000);

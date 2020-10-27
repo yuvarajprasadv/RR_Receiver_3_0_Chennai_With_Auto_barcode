@@ -37,12 +37,12 @@ public class DDataOutput
 	public static String OUTPUT_FLASH = "";
 	public static String OUTPUT_NORMALISED_PDF = "";
 	
-	public static boolean SWATCH_ENABLE = false;
-	public static String SWATCH_NAME = "";
-	public static String SWATCH_ELEMENT = "";
-	public static boolean SWATCH_FT_ENABLE = false;
-	public static String SWATCH_FROM = "";
-	public static String SWATCH_TO = "";
+//	public static boolean SWATCH_ENABLE = false;
+//	public static String SWATCH_NAME = "";
+//	public static String SWATCH_ELEMENT = "";
+//	public static boolean SWATCH_FT_ENABLE = false;
+//	public static String SWATCH_FROM = "";
+//	public static String SWATCH_TO = "";
 	
 	public static boolean SOURCE_FILE_MOVE_ENABLE = false;
 	public static String SOURCE_FILE_DESTINATION_MOVE_PATH = "";
@@ -291,22 +291,22 @@ public class DDataOutput
 		
 		
 		
-		JSONObject jsonSwatchObj = (JSONObject)jsonOutputObj.get("Swatch");
+//		JSONObject jsonSwatchObj = (JSONObject)jsonOutputObj.get("Swatch");
 		
-		SWATCH_ENABLE = (boolean)(jsonSwatchObj.get("enable"));
-		if(SWATCH_ENABLE == true)
-		{
-			SWATCH_NAME = (String)(jsonSwatchObj.get("swatchName"));
-			SWATCH_ELEMENT = (String)(jsonSwatchObj.get("swatchElement"));
-		}
-		
-		JSONObject jsonSwatchFromToObj = (JSONObject)jsonOutputObj.get("SwatchFromTo");
-		SWATCH_FT_ENABLE = (boolean)(jsonSwatchFromToObj.get("enable"));
-		if(SWATCH_FT_ENABLE == true)
-		{
-			SWATCH_FROM = (String)(jsonSwatchFromToObj.get("swatchFrom"));
-			SWATCH_TO = (String)(jsonSwatchFromToObj.get("swatchTo"));
-		}
+//		SWATCH_ENABLE = (boolean)(jsonSwatchObj.get("enable"));
+//		if(SWATCH_ENABLE == true)
+//		{
+//			SWATCH_NAME = (String)(jsonSwatchObj.get("swatchName"));
+//			SWATCH_ELEMENT = (String)(jsonSwatchObj.get("swatchElement"));
+//		}
+//		
+//		JSONObject jsonSwatchFromToObj = (JSONObject)jsonOutputObj.get("SwatchFromTo");
+//		SWATCH_FT_ENABLE = (boolean)(jsonSwatchFromToObj.get("enable"));
+//		if(SWATCH_FT_ENABLE == true)
+//		{
+//			SWATCH_FROM = (String)(jsonSwatchFromToObj.get("swatchFrom"));
+//			SWATCH_TO = (String)(jsonSwatchFromToObj.get("swatchTo"));
+//		}
 		
 		JSONObject jsonSourceFileMoveObj = (JSONObject)jsonOutputObj.get("MoveSourceFile");
 		SOURCE_FILE_MOVE_ENABLE = (boolean)(jsonSourceFileMoveObj.get("enable"));
@@ -597,19 +597,19 @@ public class DDataOutput
 				
 			}
 			
-			SWATCH_ENABLE = (boolean)((JSONObject)jsonOutputObj.get("Swatch")).get("enable");
-			if(SWATCH_ENABLE == true)
-			{
-				SWATCH_NAME = (String)((JSONObject)jsonOutputObj.get("Swatch")).get("swatchName");
-				SWATCH_ELEMENT = (String)((JSONObject)jsonOutputObj.get("Swatch")).get("swatchElement");
-			}
-			
-			SWATCH_FT_ENABLE = (boolean)((JSONObject)jsonOutputObj.get("SwatchFromTo")).get("enable");
-			if(SWATCH_FT_ENABLE == true)
-			{
-				SWATCH_FROM = (String)((JSONObject)jsonOutputObj.get("SwatchFromTo")).get("swatchFrom");
-				SWATCH_TO = (String)((JSONObject)jsonOutputObj.get("SwatchFromTo")).get("swatchTo");
-			}
+//			SWATCH_ENABLE = (boolean)((JSONObject)jsonOutputObj.get("Swatch")).get("enable");
+//			if(SWATCH_ENABLE == true)
+//			{
+//				SWATCH_NAME = (String)((JSONObject)jsonOutputObj.get("Swatch")).get("swatchName");
+//				SWATCH_ELEMENT = (String)((JSONObject)jsonOutputObj.get("Swatch")).get("swatchElement");
+//			}
+//			
+//			SWATCH_FT_ENABLE = (boolean)((JSONObject)jsonOutputObj.get("SwatchFromTo")).get("enable");
+//			if(SWATCH_FT_ENABLE == true)
+//			{
+//				SWATCH_FROM = (String)((JSONObject)jsonOutputObj.get("SwatchFromTo")).get("swatchFrom");
+//				SWATCH_TO = (String)((JSONObject)jsonOutputObj.get("SwatchFromTo")).get("swatchTo");
+//			}
 			
 		
 		}
@@ -820,20 +820,20 @@ public class DDataOutput
 				}
 				
 			}
-			
-			SWATCH_ENABLE = (boolean)((JSONObject)jsonOutputObj.get("Swatch")).get("enable");
-			if(SWATCH_ENABLE == true)
-			{
-				SWATCH_NAME = (String)((JSONObject)jsonOutputObj.get("Swatch")).get("swatchName");
-				SWATCH_ELEMENT = (String)((JSONObject)jsonOutputObj.get("Swatch")).get("swatchElement");
-			}
-			
-			SWATCH_FT_ENABLE = (boolean)((JSONObject)jsonOutputObj.get("SwatchFromTo")).get("enable");
-			if(SWATCH_FT_ENABLE == true)
-			{
-				SWATCH_FROM = (String)((JSONObject)jsonOutputObj.get("SwatchFromTo")).get("swatchFrom");
-				SWATCH_TO = (String)((JSONObject)jsonOutputObj.get("SwatchFromTo")).get("swatchTo");
-			}
+//			
+//			SWATCH_ENABLE = (boolean)((JSONObject)jsonOutputObj.get("Swatch")).get("enable");
+//			if(SWATCH_ENABLE == true)
+//			{
+//				SWATCH_NAME = (String)((JSONObject)jsonOutputObj.get("Swatch")).get("swatchName");
+//				SWATCH_ELEMENT = (String)((JSONObject)jsonOutputObj.get("Swatch")).get("swatchElement");
+//			}
+//			
+//			SWATCH_FT_ENABLE = (boolean)((JSONObject)jsonOutputObj.get("SwatchFromTo")).get("enable");
+//			if(SWATCH_FT_ENABLE == true)
+//			{
+//				SWATCH_FROM = (String)((JSONObject)jsonOutputObj.get("SwatchFromTo")).get("swatchFrom");
+//				SWATCH_TO = (String)((JSONObject)jsonOutputObj.get("SwatchFromTo")).get("swatchTo");
+//			}
 			
 		}
 		else if(is3DXML)
