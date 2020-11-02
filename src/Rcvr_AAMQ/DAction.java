@@ -191,7 +191,7 @@ public class DAction {
 		log.info(MessageQueue.WORK_ORDER + ": " + "Completed process for job id  '" + MessageQueue.MSGID + "' ");
 		Thread.sleep(1000);
 		
-		if(utils.FileExists(exportXmlFilePath) && !ExportXMLCheck.equalsIgnoreCase("false"))
+		if(utils.FileExists(exportXmlFilePath) && !masterXMLCheck.equalsIgnoreCase("false") && !ExportXMLCheck.equalsIgnoreCase("false"))
 		{
 			DAction.UpdateToServer("xmlcompare", false);
 			log.info(MessageQueue.WORK_ORDER + ": " + "Xml comparison completed..");
@@ -214,6 +214,7 @@ public class DAction {
 			DAction.UpdateErrorStatusWithRemark("14", "Export XML not generated " + exportXmlFilePath  + "Error : " + exportXmlReport.toString());
 			}
 		}
+		
 
 //		if(utils.FileExists(exportXmlFilePath))
 //		{
@@ -376,7 +377,7 @@ public class DAction {
 
 		utils.CreateNewDirectory(DDataOutput.XML_PATH + "DummyFolder", true);
 
-		String xmlFiles[] = utils.getFileFromDirectory(DDataOutput.XML_PATH, "xml");
+		String xmlFiles[] = utils.getFileFromDirectory(DDataOutput.MAIN_PATH + DDataOutput.XML_PATH, "xml");
 		ArrayList arrErrReport = new ArrayList();
 		ArrayList arrDetailedReport = new ArrayList();
 		ArrayList arrConsolidateErrorReport = new ArrayList();
@@ -386,7 +387,7 @@ public class DAction {
 		log.info(MessageQueue.WORK_ORDER + ": " + "Illustrator activated to load file..");
 
 		String[] appFonts = DSEng.GetApplicationFonts().split(",");
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		DSEng.OpenDocument(DDataOutput.MASTER_ART_PATH);
 		
@@ -403,18 +404,24 @@ public class DAction {
 			DAction.FindMissingFiles(docFiles);
 		}
 
-		utils.DeleteDirectory(DDataOutput.XML_PATH + "DummyFolder");
+		utils.DeleteDirectory(DDataOutput.MAIN_PATH + DDataOutput.XML_PATH + "DummyFolder");
 		Thread.sleep(1000);
+		String masterXMLCheck = "";
+		String masterXMLErorr = "";
+		String ExportXMLCheck = "";
+		String ExportXMLError = "";
+		
 
 		for (int eachXmlCount = 0; eachXmlCount < xmlFiles.length; eachXmlCount++) {
 			MessageQueue.MESSAGE = jspr.updateJsonForMultipleJob(jsonObj, DDataOutput.XML_PATH, xmlFiles[eachXmlCount]);
-			String[] docPath = jspr.getMultiPath(jsonObj, xmlFiles[eachXmlCount]);
-			if (!DXmlUtiility.multipleJobIsValidXml(docPath[0])) {
+		//	System.out.println(MessageQueue.MESSAGE);
+			jspr.getMultiPath(jsonObj, xmlFiles[eachXmlCount]);
+			if (!DXmlUtiility.multipleJobIsValidXml(DDataOutput.MAIN_PATH + DDataOutput.XML_PATH + xmlFiles[eachXmlCount])) {
 				ConsolidateErrorReport(fls, arrErrReport, arrConsolidateErrorReport, arrDetailedReport,
 						arrConsolidateDetailedReport, xmlFiles[eachXmlCount]);
 				continue;
 			}
-			String fileNameToSave = xmlUtil.getFileNameFromElement(docPath[0]);
+			String fileNameToSave = xmlUtil.getFileNameFromElement(DDataOutput.MAIN_PATH + DDataOutput.XML_PATH + xmlFiles[eachXmlCount]);
 			
 			// docPath[0] += "~0"; //commented 
 
@@ -427,28 +434,70 @@ public class DAction {
 
 			log.info(MessageQueue.WORK_ORDER + ": " + "RoadRunner plugin called");
 			
-			File file = new File(DDataOutput.MAIN_PATH + DDataOutput.RENDER_SAVE_PATH);
-			file.mkdirs();
+//			File file = new File(DDataOutput.MAIN_PATH + DDataOutput.RENDER_SAVE_PATH);
+//			file.mkdirs();
 
 			if(fileNameToSave == null)
 			{
 				fileNameToSave =  MessageQueue.WORK_ORDER + "_" +  xmlFiles[eachXmlCount];
 			}
-			DO.ExportData(fileNameToSave);
-
+			
+			Path statusFilePath = Paths.get(utils.ConvertToAbsolutePath("/Applications/Adobe Illustrator "+ MessageQueue.VERSION +"/Plug-ins.localized/Sgk/Configuration/StatusJson.json"));
+			JSONObject StatusJsonObj = null;
+			StatusJsonObj = jspr.ParseJsonFile(statusFilePath.toString());
+			masterXMLCheck = (String) StatusJsonObj.get("MasterXML");
+			masterXMLErorr = (String) StatusJsonObj.get("MasterXMLError");
+			ExportXMLCheck = (String) StatusJsonObj.get("ExportXML");
+			ExportXMLError = (String) StatusJsonObj.get("ExportXMLError");
+			
+			if(masterXMLCheck.equalsIgnoreCase("false"))
+			{
+				log.error(MessageQueue.WORK_ORDER + ": " + "Master xml not exits " +  masterXMLErorr);
+				DAction.UpdateReport(fls.ReadFileReport("Report.txt"));
+				DAction.sendStatusMsg((String) MessageQueue.ERROR);
+				DSEng.PostDocumentClose();
+				DThrowException.CustomExitWithErrorMsgID(new Exception("Master XML not exits "), "Master XML not exits - " + masterXMLErorr, "23");
+				break;
+			}
+			
+			
+			DDataOutput.FILE_NAME_TO_SAVE = fileNameToSave;
+			SwatchMergeFromXML(DDataOutput.MAIN_PATH + DDataOutput.XML_PATH + xmlFiles[eachXmlCount], "Color Merge", "SL_ColorName");
+			DO.ExportData(DDataOutput.FILE_NAME_TO_SAVE);
+			DO.ExportCustomizedData(jsonObj, DDataOutput.FILE_NAME_TO_SAVE, false);
 			Thread.sleep(2000);
 			log.info(MessageQueue.WORK_ORDER + ": " + "Pdf and xml generated..");
 			ConsolidateErrorReport(fls, arrErrReport, arrConsolidateErrorReport, arrDetailedReport,
 					arrConsolidateDetailedReport, xmlFiles[eachXmlCount]);
 		}
 
-		Thread.sleep(7000);
+		Thread.sleep(5000);
 		DSEng.PostDocumentClose();
 		sendRespStatusMsg("delivered");
 		log.info(MessageQueue.WORK_ORDER + ": " + "Completed process for job id  '" + MessageQueue.MSGID + "' ");
 
-		DAction.UpdateToServer("xmlcompare", false);
-		log.info(MessageQueue.WORK_ORDER + ": " + "Xml comparision completed..");
+//		DAction.UpdateToServer("xmlcompare", false);
+//		log.info(MessageQueue.WORK_ORDER + ": " + "Xml comparision completed..");
+		
+		if(!masterXMLCheck.equalsIgnoreCase("false"))
+		{
+			DAction.UpdateToServer("xmlcompare", false);
+			log.info(MessageQueue.WORK_ORDER + ": " + "Xml comparison completed..");
+		}
+		else
+		{
+			if(!ExportXMLCheck.equalsIgnoreCase("false"))
+			{
+				DAction.UpdateToServer("xmlcompare", false);
+				log.info(MessageQueue.WORK_ORDER + ": " + "Xml comparison completed..");
+			}
+			else
+			{
+				log.error(MessageQueue.WORK_ORDER + ": " + "Export xml not exits on the path " +  ExportXMLError);
+			}
+
+		}
+		
 
 		DAction.sendStatusMsg(arrConsolidateErrorReport.toString());
 		log.info(MessageQueue.WORK_ORDER + ": " + "Completed sending error report..");

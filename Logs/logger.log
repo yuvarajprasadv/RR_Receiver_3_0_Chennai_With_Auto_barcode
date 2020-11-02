@@ -2997,3 +2997,42 @@
  response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
 2020-10-21 11:50:36 INFO  DAction:797 - 401892793: Before calling send status message post method
 2020-10-21 11:50:37 INFO  DAction:801 - 401892793: Status of sending error msg response 
+2020-10-31 09:37:44 INFO  MQRcv:78 - TestRR:TestRRDivision
+2020-10-31 09:37:44 INFO  MQRcv:83 -  [*] Waiting for messages. To exit press CTRL+C
+2020-10-31 09:37:52 INFO  MessageQueue:89 - Message received: 31-10-2020 09:37:52 'TestRR':'{"settings":[{"useBlackIfAlreadyBold":"false","considerSemiboldAsBold":"false","considerObliqueAsItalic":"false","considerBlackAsBold":"false","replaceBrTagWithSpace":"false"}],"styleAttributes":[{"Italic":"false","Strikethrough":"false","Underline":"false","Bold":"false","Subscript":"false","Superscript":"false"}],"textformat":[{"addSpaceBetweenElements":"false","rulesForNonOverflow":"false","useTabasTabular":"false","useBrasLineBreak":"false","rulefortextframe":"false"}],"rrProjId":0,"isApplyRule":false,"aaw":[{"Path":"\/Users\/yuvaraj\/Desktop\/TEST\/401893123-PNGNCL\/","Master":"050_Production_Art\/Always_Ultra_LATIN1.ai","Revision":"01","WO":"402014096","typeRender":"false","XMLFile":"100_XML\/A02\/"}],"source":"TORNADO_RR","Id":"17e25947-00ee-43f0-97d0-0fecaee5ba37","region":[{"jpg":"false","printXML":"false","txt":"false","pdf":"false","bmp":"false","ProjectName":"PG_EMEA EPI AUTOMATION_V1","barCodeVisible":"false","legendVisible":"false","env":"development","Location":"TestRR"}],"type":"multi","version":"CC 2018","customizedOutput":[{"PSD":{"antiAliasing":true,"3D":false,"path":"095_Renders","editableText":true,"enable":true,"resolution":300.0,"3DPath":""},"TIFF":{"antiAliasing":true,"3D":false,"IZWCompression":false,"path":"","enable":false,"resolution":150.0,"3DPath":""},"PDF":{"3D":false,"path":"080_QC","optimization":false,"enable":true,"acrobatLayers":false,"preserveEditability":false,"3DPath":""},"Normalized PDF Export":{"addPreview":false,"fitMediaBoxToArtwork":false,"includeNotes":true,"blendResolution":600.0,"includeHiddenObjectsAndLayers":true,"embedImages":false,"copyImagesNotOnServers":false,"expandPatterns":false,"copyImages":false,"borderMode":"kBordersModeTrimBox","3D":false,"path":"","contourizeBitmaps":false,"enable":false,"outlineText":false,"3DPath":""},"BMP":{"antiAliasing":true,"3D":false,"path":"","verticalScale":100.0,"optimization":true,"enable":false,"horizontalScale":100.0,"qualitySetting":35.0,"3DPath":"","artBoardClipping":true},"JPEG Export":{"antiAliasing":true,"3D":false,"path":"095_Renders","verticalScale":100.0,"optimization":true,"enable":true,"horizontalScale":100.0,"qualitySetting":100.0,"3DPath":"","artBoardClipping":true},"GIF":{"antiAliasing":true,"3D":false,"path":"","verticalScale":100.0,"enable":false,"horizontalScale":100.0,"transparency":false,"saveAsHTML":false,"3DPath":"","artBoardClipping":true},"PNG":{"antiAliasing":true,"3D":false,"path":"095_Renders","verticalScale":100.0,"enable":true,"horizontalScale":100.0,"transparency":false,"saveAsHTML":false,"type":"png24","3DPath":"","artBoardClipping":true},"FLASH":{"3D":false,"path":"","enable":false,"convertTextToOutlines":false,"resolution":72.0,"3DPath":""}}]}'
+2020-10-31 09:37:53 ERROR DJsonParser:236 - 402014096: Invalid Key value search 'RR3DXML'  null
+2020-10-31 09:37:53 ERROR DJsonParser:236 - 402014096: Invalid Key value search 'ReRun3DXML'  null
+2020-10-31 09:37:54 INFO  DAction:873 - 402014096: Before calling send report status message post method
+2020-10-31 09:37:55 INFO  DAction:876 - 402014096: Status of sending report status msg response Success
+2020-10-31 09:37:55 INFO  DAction:849 - 402014096: Message received acknowledgement for job id  '17e25947-00ee-43f0-97d0-0fecaee5ba37'  WO: 402014096
+2020-10-31 09:37:55 ERROR DJsonParser:236 - 402014096: Invalid Key value search 'RR3DXML'  null
+2020-10-31 09:37:56 INFO  DAction:387 - 402014096: Illustrator activated to load file..
+2020-10-31 09:38:06 INFO  DAction:394 - 402014096: AI file and other dependent file opening..
+2020-10-31 09:38:10 INFO  DAction:435 - 402014096: RoadRunner plugin called
+2020-10-31 09:38:17 INFO  DAction:469 - 402014096: Pdf and xml generated..
+2020-10-31 09:38:20 INFO  DAction:435 - 402014096: RoadRunner plugin called
+2020-10-31 09:38:26 INFO  DAction:469 - 402014096: Pdf and xml generated..
+2020-10-31 09:38:30 INFO  DAction:435 - 402014096: RoadRunner plugin called
+2020-10-31 09:38:36 INFO  DAction:469 - 402014096: Pdf and xml generated..
+2020-10-31 09:38:39 INFO  DAction:435 - 402014096: RoadRunner plugin called
+2020-10-31 09:38:46 INFO  DAction:469 - 402014096: Pdf and xml generated..
+2020-10-31 09:38:51 INFO  DAction:873 - 402014096: Before calling send report status message post method
+2020-10-31 09:38:52 INFO  DAction:876 - 402014096: Status of sending report status msg response Success
+2020-10-31 09:38:52 INFO  DAction:477 - 402014096: Completed process for job id  '17e25947-00ee-43f0-97d0-0fecaee5ba37' 
+2020-10-31 09:38:52 INFO  DAction:905 - 402014096: Before calling url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=17e25947-00ee-43f0-97d0-0fecaee5ba37
+2020-10-31 09:38:55 INFO  DAction:907 - 402014096: received response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=17e25947-00ee-43f0-97d0-0fecaee5ba37 - response 200
+2020-10-31 09:38:55 INFO  DAction:909 - 402014096: Waiting for response of url: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=17e25947-00ee-43f0-97d0-0fecaee5ba37
+2020-10-31 09:38:55 ERROR DAction:1124 - 402014096: XML compare API: http://172.28.42.151:8082/tornado/rest/pub/aaw/xmlcompare?mqid=17e25947-00ee-43f0-97d0-0fecaee5ba37 - response : 200
+2020-10-31 09:38:55 INFO  DAction:485 - 402014096: Xml comparison completed..
+2020-10-31 09:38:55 INFO  DAction:885 - 402014096: Before calling send status message post method
+2020-10-31 09:38:55 INFO  DAction:889 - 402014096: Status of sending error msg response 
+2020-10-31 09:38:55 INFO  DAction:503 - 402014096: Completed sending error report..
+2020-10-31 09:38:55 INFO  DAction:1354 - 402014096: Before calling update report post method - http://172.28.42.151:8082/tornado/rest/pub/aaw/finalreport 17e25947-00ee-43f0-97d0-0fecaee5ba37
+2020-10-31 09:38:56 INFO  DAction:1358 - 402014096: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 17e25947-00ee-43f0-97d0-0fecaee5ba37 - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-10-31 09:38:56 INFO  DAction:1366 - 402014096: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 17e25947-00ee-43f0-97d0-0fecaee5ba37 - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-10-31 09:38:56 INFO  DAction:1374 - 402014096: Error report status sent : http://172.28.42.151:8082/tornado/rest/pub/rr/updatestatus - 17e25947-00ee-43f0-97d0-0fecaee5ba37 - 
+ response : {"status":"error","code":"1","detailsObj":{"aawpusher":"id.not.found"}}
+2020-10-31 09:38:56 INFO  DAction:505 - 402014096: Completed sending of detailed report..
+2020-10-31 09:38:57 INFO  DAction:510 - 402014096: Completed job..

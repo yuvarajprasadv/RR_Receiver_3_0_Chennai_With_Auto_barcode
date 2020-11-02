@@ -65,13 +65,19 @@ public class DDataOutput
 	  	if(jsonRegionArr.get("MasterTemplate") != null)
 	  		MASTER_TEMPLATE_PATH = utils.RemoveForwardSlash((String) jsonRegionArr.get("MasterTemplate"));
 	  	MASTER_ART_PATH = mainPath + utils.RemoveForwardSlash((String) jsonRegionArr.get("Master"));
-	  	XML_PATH = mainPath + utils.RemoveForwardSlash((String) jsonRegionArr.get("XMLFile"));
+	  	if(!((String) jsonObj.get("type")).equals("multi"))
+	  		XML_PATH = mainPath + utils.RemoveForwardSlash((String) jsonRegionArr.get("XMLFile"));
+	  	else
+	  		XML_PATH = utils.RemoveForwardSlash((String) jsonRegionArr.get("XMLFile"));
 	  	QC_PATH = mainPath + "080_QC/";
 	  	QC_EXPORT_XML_PATH = (XML_PATH.replace("100_XML", "080_QC")).replace(".xml", "_export.xml");
 	  	
 	  	IS_RR3DXML = jsonPars.getJsonBooleanValueForKey(jsonObj, "region", "RR3DXML");
 	  	
-	  	GetFileNameToSave(jsonObj);
+	  	if (!((String) jsonObj.get("type")).equals("multi"))
+	  	{
+	  		GetFileNameToSave(jsonObj);
+	  	}
 	
 	}
 	
