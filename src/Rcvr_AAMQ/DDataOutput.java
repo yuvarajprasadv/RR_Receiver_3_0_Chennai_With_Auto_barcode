@@ -78,7 +78,33 @@ public class DDataOutput
 	  	{
 	  		GetFileNameToSave(jsonObj);
 	  	}
+	}
 	
+	public boolean IsCustomizedDataExist(JSONObject jsonObj)
+	{
+		DUtils utils = new DUtils();
+		DJsonParser jsonPars = new DJsonParser();
+		
+		JSONArray jsonOutputArray = (JSONArray)jsonObj.get("customizedOutput");
+		
+		if(jsonOutputArray != null)
+		{
+			try
+			{
+			JSONObject jsonOutputObj = (JSONObject)jsonOutputArray.get(0);
+			if(jsonOutputObj != null)
+				return true;
+			}
+			catch(IndexOutOfBoundsException IOBEx)
+			{
+				return false;
+			}
+			catch(Exception ex)
+			{
+				return false;
+			}
+		}
+		return false;
 	}
 	
 	public void GetCustomizedOutput(JSONObject jsonObj)

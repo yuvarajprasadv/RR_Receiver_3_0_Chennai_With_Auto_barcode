@@ -87,13 +87,40 @@ public class MessageQueue extends Action {
 		          SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 		          System.out.println("Received: "+formatter.format(date)+" '" + envelope.getRoutingKey() + "':'" + message + "'");
 		          log.info("Message received: "+formatter.format(date)+" '" + envelope.getRoutingKey() + "':'" + message + "'");
+		          
 		          try {
 		        	  	MESSAGE = message;
 					  JSONObject jsonObj = JsonParser.ParseJson(MESSAGE);
 					  JsonParser jsonPars = new JsonParser();
 					  TORNADO_ENV = (String) jsonPars.getJsonValueFromGroupKey(jsonObj, "region", "env");
-					  if(TORNADO_ENV.equalsIgnoreCase("production"))
+					  
+					  DDataOutput DO = new DDataOutput();
+			          boolean isCustomisedOutput = DO.IsCustomizedDataExist(jsonObj);
+			          
+//			          if(!isCustomisedOutput)
+//			          {
+//				          if(TORNADO_ENV.equalsIgnoreCase("production"))
+//						  {
+//							  Action.acknowledge(message);
+//						  }
+//						  else if(TORNADO_ENV.equalsIgnoreCase("development") || TORNADO_ENV.equalsIgnoreCase("qa"))
+//							  Action.acknowledge(message);
+//			          }
+//			          else if(isCustomisedOutput)
+//			          {
+//						  if(TORNADO_ENV.equalsIgnoreCase("production"))
+//						  {
+//							//  Action.acknowledge(message);
+//							  DAction.acknowledge(message);
+//						  }
+//						  else if(TORNADO_ENV.equalsIgnoreCase("development") || TORNADO_ENV.equalsIgnoreCase("qa"))
+//							  DAction.acknowledge(message);
+//			          }
+			          
+			          if(TORNADO_ENV.equalsIgnoreCase("production"))
+					  {
 						  Action.acknowledge(message);
+					  }
 					  else if(TORNADO_ENV.equalsIgnoreCase("development") || TORNADO_ENV.equalsIgnoreCase("qa"))
 						  DAction.acknowledge(message);
 				} catch (Exception e) {
@@ -104,8 +131,6 @@ public class MessageQueue extends Action {
 		        }
 		      };
 		      channel.basicConsume(queueName, true, consumer);
-		      
-		      
 		 	}
 		  }
 	  

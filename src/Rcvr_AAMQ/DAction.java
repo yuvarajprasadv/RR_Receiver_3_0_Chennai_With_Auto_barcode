@@ -118,14 +118,9 @@ public class DAction {
 	
 		DDataOutput DO = new DDataOutput();
 		DO.GetAllPath(jsonObj);
-	
-		
 
-		//if(DDataOutput.SWATCH_ENABLE) {
-	//	SwatchMergeFromXML(DDataOutput.XML_PATH, DDataOutput.SWATCH_NAME, DDataOutput.SWATCH_ELEMENT);  // for PENANG alone
 		SwatchMergeFromXML(DDataOutput.XML_PATH, "Color Merge", "SL_ColorName");
-		//}
-		
+
 		DO.ExportData(DDataOutput.FILE_NAME_TO_SAVE);
 		DO.ExportCustomizedData(jsonObj, DDataOutput.FILE_NAME_TO_SAVE, false);
 		
@@ -136,9 +131,6 @@ public class DAction {
 		{
 			log.info(MessageQueue.WORK_ORDER + ": " + "Pdf and xml generated..");
 
-			//// ----PNG---// Only 3D xml
-		//	JsonParser jsonPars = new JsonParser();
-			
 			if (DDataOutput.IS_RR3DXML && ( MessageQueue.TORNADO_ENV.equals("development") || MessageQueue.TORNADO_ENV.equals("qa") || MessageQueue.TORNADO_ENV.equals("production"))) {
 				
 				DUtils utls = new DUtils();
@@ -324,27 +316,14 @@ public class DAction {
 			Thread.sleep(1000);
 
 			// PNG set swatch White color to White 2
-		//	SEng.SetSwathColorFromTo("White 2", "White"); //// only for NCL P - N - G
-		//	DSEng.SetSwathColorFromTo(DDataOutput.SWATCH_FROM, DDataOutput.SWATCH_TO); //// only for NCL P - N - G
-			SwatchMergeFromXML(DDataOutput.XML_PATH, "Color Merge", "SL_ColorName");
 			DSEng.SetSwathColorFromTo("White 2", "White");
+			SwatchMergeFromXML(DDataOutput.XML_PATH, "Color Merge", "SL_ColorName");
+			
 			DSEng.SetLayerVisibleOff(); //// only for NCL P - N - G
 
 			Thread.sleep(1000);
 			String fileRenameString = jspr.getJsonValueForKey(jsonObj, "WO") + "_3dxml";
-/*
-			String road_runnerDirPath = utils.RemoveForwardSlash(DataOutput.MAIN_PATH + DataOutput.RR3DXML_SAVE_PATH);
-			if (!Utils.IsFolderExists(road_runnerDirPath)) {
-				utils.CreateNewDirectory(road_runnerDirPath, false);
-			}
 
-			fileName[0] = utils.RemoveForwardSlash(DataOutput.MAIN_PATH + DataOutput.RR3DXML_SAVE_PATH);
-
-			fileName[1] = road_runnerDirPath + "/" + fileRenameString;
-			fileName[2] = fileName[0] + fileRenameString;
-			fileName[3] = fileName[0] + fileRenameString;
-			SEng.PostDocumentProcessFor3DXML(fileName); */
-			
 			DDataOutput DO = new DDataOutput();
 			DO.GetAllPath(jsonObj);
 			DO.ExportCustomizedData(jsonObj, fileRenameString,  true);
@@ -362,7 +341,6 @@ public class DAction {
 			MessageQueue.GATE = true;
 		}
 
-	
 	}
 	
 
@@ -475,9 +453,6 @@ public class DAction {
 		DSEng.PostDocumentClose();
 		sendRespStatusMsg("delivered");
 		log.info(MessageQueue.WORK_ORDER + ": " + "Completed process for job id  '" + MessageQueue.MSGID + "' ");
-
-//		DAction.UpdateToServer("xmlcompare", false);
-//		log.info(MessageQueue.WORK_ORDER + ": " + "Xml comparision completed..");
 		
 		if(!masterXMLCheck.equalsIgnoreCase("false"))
 		{
@@ -1119,8 +1094,7 @@ public class DAction {
 
 			} else {
 				System.out.println("XML compare: " + connection.getResponseCode());
-				// log.error(MessageQueue.WORK_ORDER + ": " + "XML compare API response : " +
-				// connection.getResponseCode());
+
 				log.error(MessageQueue.WORK_ORDER + ": " + "XML compare API: " + MessageQueue.TORNADO_HOST
 						+ "/rest/pub/aaw/" + actionStr + "?mqid=" +  MessageQueue.MSGID + " - response : "
 						+ connection.getResponseCode());
@@ -1519,7 +1493,6 @@ public class DAction {
 		String[] arg = null;
 		DUtils utl = new DUtils();
 		arg = utl.ReadFromExcel("SMB.xls", true, 0, false, 0, false);
-		// int noOfShareFolder = arg.length - 3;
 		int noOfShareFolder = arg.length - 1;
 		for (int inc = 0; inc < noOfShareFolder; inc++) {
 			// SEng.MountVolume(arg[0], arg[1], arg[2], arg[arg.length - inc - 1]);
@@ -1530,46 +1503,6 @@ public class DAction {
 
 	public static void main(String args[]) throws Exception {
 		MessageQueue.VERSION = "CC 2018";
-		
-		List<String> fromList = new ArrayList();
-		
-		fromList.add("Color Merge 6");
-		fromList.add("Color Merge 7");
-
-		
-		
-		//SwatchMergeFromXML("/Users/yuvaraj/Desktop/TEST/PENANG ! PNG/Color Merge/GS1_40188848201_3.xml", "SL_ColorName","Color Merge 6", "PANTONE 152 C");
-		//SwatchMergeFromXML("/Users/yuvaraj/Desktop/TEST/PENANG ! PNG/Color Merge/GS1_40188848201_3.xml", "SL_ColorName", fromList, "PANTONE");
-		
-		
-		
-		//UpdateClientMachineRunningStatus("10.129.128.35","PNGNCL","Wave Road Runner");
-		
-
-	//	SEng.SetLayerVisibleOff(); //// only for NCL P - N - G
-	//	SwatchMergeFromXML("/Users/yuvaraj/Desktop/TEST/PENANG ! PNG/Color Merge/GS1_40188848201_3.xml", "SL_ColorName");
-		String brackGroundReferenceURI = "";
-		String logoReferenceURI = "";
-		DUtils utils = new DUtils();
-		DFileSystem fls = new DFileSystem();
-		DJsonParser jspr = new DJsonParser();
-		
-		String rr3DJson = fls.ReadFile("/Users/yuvaraj/Desktop/TEST/401893123-PNGNCL/050_Production_Art/052_PA_Working_Files/01_Roadrunner/RRremap.txt");
-		System.out.println(rr3DJson);
-		try
-		{
-		JSONObject rr3DJsonObj = jspr.ParseJson(rr3DJson.toString());
-		
-
-		brackGroundReferenceURI = (String) rr3DJsonObj.get("ESG-backgroundfilename-NA-0001");
-		logoReferenceURI = (String) rr3DJsonObj.get("ESG-logos-LO-0001");
-		
-		System.out.println(brackGroundReferenceURI +" \n "+ logoReferenceURI);
-		}
-		catch(Exception ex)
-		{
-			System.out.println(ex.getMessage());
-		}
 		
 	}
 
