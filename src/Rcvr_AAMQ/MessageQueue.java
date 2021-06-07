@@ -25,7 +25,8 @@ public class MessageQueue extends Action {
 	  protected final static String TORNADO_HOST_LIVE_2 = "http://172.28.42.147:8080/tornado"; //LIVE new linux server ip
 	  protected final static String TORNADO_HOST_LIVE_3 = "http://172.26.40.58:8080/tornado";	//LIVE linux alternative 
 	  
-	  protected final static String TORNADO_HOST_DEV = "http://172.28.42.151:8082/tornado"; // JAVA DEV
+//	  protected final static String TORNADO_HOST_DEV = "http://172.28.42.151:8082/tornado"; // JAVA DEV
+	  protected final static String TORNADO_HOST_DEV = "http://172.28.42.150:8080/tornado"; // Changes from 151 to 150 as per karthick information 151 is not using no more
 	  protected final static String TORNADO_HOST_QA = "http://172.28.42.168:8080/tornado"; // JAVA QA
 	  
 	  protected static String SCHAWK_EMAIL_HOST = "smtp.schawk.com";
@@ -97,32 +98,32 @@ public class MessageQueue extends Action {
 					  DDataOutput DO = new DDataOutput();
 			          boolean isCustomisedOutput = DO.IsCustomizedDataExist(jsonObj);
 			          
-//			          if(!isCustomisedOutput)
-//			          {
-//				          if(TORNADO_ENV.equalsIgnoreCase("production"))
-//						  {
-//							  Action.acknowledge(message);
-//						  }
-//						  else if(TORNADO_ENV.equalsIgnoreCase("development") || TORNADO_ENV.equalsIgnoreCase("qa"))
-//							  Action.acknowledge(message);
-//			          }
-//			          else if(isCustomisedOutput)
-//			          {
-//						  if(TORNADO_ENV.equalsIgnoreCase("production"))
-//						  {
-//							//  Action.acknowledge(message);
-//							  DAction.acknowledge(message);
-//						  }
-//						  else if(TORNADO_ENV.equalsIgnoreCase("development") || TORNADO_ENV.equalsIgnoreCase("qa"))
-//							  DAction.acknowledge(message);
-//			          }
+			          if(!isCustomisedOutput)
+			          {
+				          if(TORNADO_ENV.equalsIgnoreCase("production"))
+						  {
+							  Action.acknowledge(message);
+						  }
+						  else if(TORNADO_ENV.equalsIgnoreCase("development") || TORNADO_ENV.equalsIgnoreCase("qa"))
+							  Action.acknowledge(message);
+			          }
+			          else if(isCustomisedOutput)
+			          {
+						  if(TORNADO_ENV.equalsIgnoreCase("production"))
+						  {
+							//  Action.acknowledge(message);
+							  DAction.acknowledge(message);
+						  }
+						  else if(TORNADO_ENV.equalsIgnoreCase("development") || TORNADO_ENV.equalsIgnoreCase("qa"))
+							  DAction.acknowledge(message);
+			          }
 			          
-			          if(TORNADO_ENV.equalsIgnoreCase("production"))
-					  {
-						  Action.acknowledge(message);
-					  }
-					  else if(TORNADO_ENV.equalsIgnoreCase("development") || TORNADO_ENV.equalsIgnoreCase("qa"))
-						  DAction.acknowledge(message);
+//			          if(TORNADO_ENV.equalsIgnoreCase("production"))
+//					  {
+//						  Action.acknowledge(message);
+//					  }
+//					  else if(TORNADO_ENV.equalsIgnoreCase("development") || TORNADO_ENV.equalsIgnoreCase("qa"))
+//						  DAction.acknowledge(message);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

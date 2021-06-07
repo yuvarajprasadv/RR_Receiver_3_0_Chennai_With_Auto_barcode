@@ -93,7 +93,32 @@ public class DDataOutput
 			{
 			JSONObject jsonOutputObj = (JSONObject)jsonOutputArray.get(0);
 			if(jsonOutputObj != null)
-				return true;
+				if(((JSONObject)jsonOutputObj.get("PNG")).get("3D") != null)
+				{
+					if( (boolean)((JSONObject)jsonOutputObj.get("PNG")).get("enable") == false && 
+							(boolean)((JSONObject)jsonOutputObj.get("PSD")).get("enable") == false &&
+							(boolean)((JSONObject)jsonOutputObj.get("JPEG Export")).get("enable") == false &&
+							(boolean)((JSONObject)jsonOutputObj.get("BMP")).get("enable") == false &&
+							(boolean)((JSONObject)jsonOutputObj.get("GIF")).get("enable") == false &&
+							(boolean)((JSONObject)jsonOutputObj.get("TIFF")).get("enable") == false &&
+							(boolean)((JSONObject)jsonOutputObj.get("FLASH")).get("enable") == false &&
+							(boolean)((JSONObject)jsonOutputObj.get("PDF")).get("enable") == false &&
+							(boolean)((JSONObject)jsonOutputObj.get("Normalized PDF Export")).get("enable") == false &&
+							(boolean)((JSONObject)jsonOutputObj.get("PNG")).get("3D") == false &&
+							(boolean)((JSONObject)jsonOutputObj.get("PSD")).get("3D") == false &&
+							(boolean)((JSONObject)jsonOutputObj.get("JPEG Export")).get("3D") == false &&
+							(boolean)((JSONObject)jsonOutputObj.get("BMP")).get("3D") == false &&
+							(boolean)((JSONObject)jsonOutputObj.get("GIF")).get("3D") == false &&
+							(boolean)((JSONObject)jsonOutputObj.get("TIFF")).get("3D") == false &&
+							(boolean)((JSONObject)jsonOutputObj.get("FLASH")).get("3D") == false &&
+							(boolean)((JSONObject)jsonOutputObj.get("PDF")).get("3D") == false &&
+							(boolean)((JSONObject)jsonOutputObj.get("Normalized PDF Export")).get("3D") == false )
+					{
+						return false;
+					}
+					else
+						return true;
+				}
 			}
 			catch(IndexOutOfBoundsException IOBEx)
 			{

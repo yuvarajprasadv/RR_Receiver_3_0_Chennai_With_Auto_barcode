@@ -214,7 +214,7 @@ public class Utils {
 		File file;
 		if(MessageQueue.TORNADO_ENV.equals("development") || MessageQueue.TORNADO_ENV.equals("qa"))
 		{
-			file = new File("DevResources/"+fileName);
+			file = new File("LiveResources/"+fileName);
 		}
 		else
 		{

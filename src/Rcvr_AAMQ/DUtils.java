@@ -226,7 +226,7 @@ public class DUtils {
 		}
 		else
 		{
-			file = new File("LiveResources/"+fileName);
+			file = new File("DevResources/"+fileName);
 		}
 		String absolutePath = file.getAbsolutePath();
 		return absolutePath;
