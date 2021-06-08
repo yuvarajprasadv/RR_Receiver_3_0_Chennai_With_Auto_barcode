@@ -397,6 +397,18 @@ public class DSEng{
 		 
 	 	}
 	 
+	 public static String SwatchRename(String swatchName) throws Exception  {
+
+		 DUtils utils = new DUtils();
+		 String pathString = utils.GetPathFromEnvResource("SwatchRename.js");
+		 String scriptString = "tell application "+ '"' +"Applications:Adobe Illustrator "+ MessageQueue.VERSION +":Adobe Illustrator.app"+'"' +"\n with timeout of "+ timeOutSec +" seconds \n"
+			+ "do javascript (file "+'"'+pathString+'"'+")  with arguments {"+ '"'+swatchName+'"' +"} \n"
+			+ "end timeout \n"
+			+ "end tell";
+		 return ExecuteAppleScript(scriptString);
+		 
+	 	}
+	 
 	 public static String ExecuteIllustratorActions(String arryStr[]) throws Exception  {
 
 		 String scriptString = "tell application "+ '"' +"Applications:Adobe Illustrator "+ MessageQueue.VERSION +":Adobe Illustrator.app"+'"' +"\n with timeout of "+ timeOutSec +" seconds \n"

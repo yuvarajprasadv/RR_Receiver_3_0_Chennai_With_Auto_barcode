@@ -27,7 +27,8 @@ public class MessageQueue extends Action {
 	  
 //	  protected final static String TORNADO_HOST_DEV = "http://172.28.42.151:8082/tornado"; // JAVA DEV
 	  protected final static String TORNADO_HOST_DEV = "http://172.28.42.150:8080/tornado"; // Changes from 151 to 150 as per karthick information 151 is not using no more
-	  protected final static String TORNADO_HOST_QA = "http://172.28.42.168:8080/tornado"; // JAVA QA
+//	  protected final static String TORNADO_HOST_QA = "http://172.28.42.168:8080/tornado"; // JAVA QA
+	  protected final static String TORNADO_HOST_QA = "https://hk2-qa-tndapi02.asia.schawk.com/tornado";
 	  
 	  protected static String SCHAWK_EMAIL_HOST = "smtp.schawk.com";
 	  protected static String SCHAWK_EMAIL_PORT = "25";

@@ -118,9 +118,10 @@ public class DAction {
 	
 		DDataOutput DO = new DDataOutput();
 		DO.GetAllPath(jsonObj);
-
+		
 		SwatchMergeFromXML(DDataOutput.XML_PATH, "Color Merge", "SL_ColorName");
-
+		RenameSwatch(jsonObj);
+		
 		DO.ExportData(DDataOutput.FILE_NAME_TO_SAVE);
 		DO.ExportCustomizedData(jsonObj, DDataOutput.FILE_NAME_TO_SAVE, false);
 		
@@ -441,6 +442,8 @@ public class DAction {
 			
 			DDataOutput.FILE_NAME_TO_SAVE = fileNameToSave;
 			SwatchMergeFromXML(DDataOutput.MAIN_PATH + DDataOutput.XML_PATH + xmlFiles[eachXmlCount], "Color Merge", "SL_ColorName");
+			RenameSwatch(jsonObj);
+			
 			DO.ExportData(DDataOutput.FILE_NAME_TO_SAVE);
 			DO.ExportCustomizedData(jsonObj, DDataOutput.FILE_NAME_TO_SAVE, false);
 			Thread.sleep(2000);
@@ -484,6 +487,32 @@ public class DAction {
 		MessageQueue.GATE = true;
 		log.info(MessageQueue.WORK_ORDER + ": " + "Completed job..");
 	}
+	
+	public static void RenameSwatch(JSONObject jsonObj)
+	{
+		DFileSystem fls = new DFileSystem();
+		if(jsonObj.containsKey("swatchColor"))
+		{
+			String result, swatchName;
+			swatchName = jsonObj.get("swatchColor").toString();
+			try 
+			{
+				result = DSEng.SwatchRename(swatchName);
+				if(result.contains("No such element"))
+					return;
+				if(!result.contains("null") || !result.contains("No such element"))
+				{
+					log.error(MessageQueue.WORK_ORDER + ": " + "Error on swatch color rename");
+					fls.AppendFileString("Issue on Swatch rename from 'Rename' to '" +swatchName +"'\n");
+				}
+			} catch (Exception e) 
+			{
+				log.error(MessageQueue.WORK_ORDER + ": " + "Error on swatch color rename");
+				fls.AppendFileString("Issue on Swatch rename from 'Rename' to '" +swatchName +"'\n");
+			}
+		}
+	}
+	
 	
 	public static void SwatchMergeFromXML(String xmlPathString, String swatchName, String privateElmtTypeCode)
 			throws Exception {

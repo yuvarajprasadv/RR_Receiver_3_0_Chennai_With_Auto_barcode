@@ -7,6 +7,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -63,8 +64,10 @@ public class Action {
 		// System.out.println(arrString[0] );
 
 		SEng.CallTyphoonShadow(arrString);
-
+	
 		log.info(MessageQueue.WORK_ORDER + ": " + "TyphoonShadow called");
+		
+		RenameSwatch(jsonObj);
 
 		String errorMsg = fls.ReadFileReport("error.txt");
 		if (errorMsg.contains("\n") && errorMsg.length() != 1)
@@ -457,6 +460,8 @@ public class Action {
 
 			// SEng.CallTyphoonShadow(docPath);
 			log.info(MessageQueue.WORK_ORDER + ": " + "TyphoonShadow called");
+			
+			RenameSwatch(jsonObj);
 
 			String[] fileName = new String[4];
 			if (fileNameToSave != null) {
@@ -790,6 +795,83 @@ public class Action {
 		log.info(MessageQueue.WORK_ORDER + ": " + "Completed job..");
 	}
 
+	
+	public static void RenameSwatch(JSONObject jsonObj)
+	{
+		DFileSystem fls = new DFileSystem();
+		if(jsonObj.containsKey("swatchColor"))
+		{
+			String result, swatchName;
+			swatchName = jsonObj.get("swatchColor").toString();
+			try 
+			{
+				result = DSEng.SwatchRename(swatchName);
+				if(result.contains("No such element"))
+					return;
+				if(!result.contains("null") || !result.contains("No such element"))
+				{
+					log.error(MessageQueue.WORK_ORDER + ": " + "Error on swatch color rename");
+					fls.AppendFileString("Issue on Swatch rename from 'Rename' to '" +swatchName +"'\n");
+				}
+			} catch (Exception e) 
+			{
+				log.error(MessageQueue.WORK_ORDER + ": " + "Error on swatch color rename");
+				fls.AppendFileString("Issue on Swatch rename from 'Rename' to '" +swatchName +"'\n");
+			}
+		}
+	}
+	
+	
+	public static void SwatchMergeFromXML(String xmlPathString, String swatchName, String privateElmtTypeCode)
+			throws Exception {
+		DFileSystem fls = new DFileSystem();
+		try {
+			List<String> SwatchListFromXML = new ArrayList<String>();
+			DXmlUtiility xmlUtils = new DXmlUtiility();
+			
+			String swatchString = DSEng.SwatchTest();
+			String[] arrSwatch = swatchString.split("~");
+			List<String> swatchList = Arrays.asList(arrSwatch);
+			List<String> filterSwatchList = new ArrayList<String>();
+			for(int j = 0; j < swatchList.size(); j++ )
+			{
+				if(swatchList.get(j).contains(swatchName))
+				{
+					filterSwatchList.add(swatchList.get(j));
+				}
+			}
+			
+			
+			HashMap<String, String> kMap = new HashMap<String, String>();
+			   
+			kMap = xmlUtils.ParsePrivateElementSwatchColor(xmlPathString, privateElmtTypeCode);
+
+			
+			String[] swatchColorArray = new String[2];
+			int checkCount = 0;
+			 
+			for(int k=0; k<filterSwatchList.size();k++)
+			{
+				swatchColorArray[0] = filterSwatchList.get(k);
+				swatchColorArray[1] = kMap.get(filterSwatchList.get(k));
+				String result =  DSEng.ExecuteIllustratorActions(swatchColorArray);
+				
+				if(result != null)
+				{
+					log.error(MessageQueue.WORK_ORDER + ": " + "Error on swatch color merge");
+					fls.AppendFileString("Issue on Swatch Merge from '" +swatchColorArray[0] +"' to '" +swatchColorArray[1] +"'\n");
+				}
+				else
+					checkCount += 1;
+				
+			}
+
+		} catch (Exception ex) {
+			log.error(MessageQueue.WORK_ORDER + ": " + "Error on swatch color merge " + ex.toString() );
+			fls.AppendFileString("Error on swatch color merge \n");
+		}
+	}
+	
 	public static String GetLastIndex(String filePath) {
 		int index = filePath.lastIndexOf("/");
 		return filePath.substring(0, index);
